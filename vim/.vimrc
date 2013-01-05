@@ -16,7 +16,7 @@ let maplocalleader = ' '
 se nocompatible
 "se shellslash
 filetype off "VUNDLE NEEDS THIS HERE
-se rtp+=~/.vim/bundle/vundle/
+se rtp+=~/.dotfiles/vim/.vim/bundle/vundle/
 call vundle#rc()
 filetype plugin indent on "back to normal 
 Bundle 'gmarik/vundle'
