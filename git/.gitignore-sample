@@ -1,0 +1,20 @@
+# 
+# THIS IS A SAMPLE '.GITIGNORE'
+#
+# if you want to ignore an already versioned file, untrack it:
+# 'git rm --cached <filename>'
+#
+# github gitignore guide rocks...!
+#
+######################################
+
+
+# either ignore single files
+# just put filename into here
+this-file-will-be-ignored.txt
+
+# wildcards work, too
+*~
+*.swp
+
+

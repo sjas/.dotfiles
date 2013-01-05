@@ -1,0 +1,25 @@
+*.rb	  text
+*.bat     text
+*.erb     text
+*.sh      text
+*.ru      text
+*.md      text
+*.js      text
+*.css     text
+*.coffee  text
+*.scss    text
+*.html    text
+*.html    text
+*.txt     text
+*.yml     text
+*.log     text
+
+# Images should be treated as binary
+# (binary is a macro for -text -diff)
+*.png     binary
+*.jepg    binary
+*.jpg     binary
+*.ico     binary
+*.gif     binary
+
+*         text=auto
