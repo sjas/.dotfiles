@@ -1,0 +1,168 @@
+[user]
+	name = sjas
+	email = sjas@spark
+[color]
+	branch = on
+	diff = on
+	interactive = on
+	status = on
+[alias]
+  #  'git h' for help, 'git la' to list aliases	=====	
+	h 	= help #(...)
+	ha 	= !git help -a | less
+	hi 	= help -i #... yet to find out how to use 'info' program
+	la 	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' | sed -e 's/#.*/[0;32m&[0m/g' | less -R"
+  #  i.e. use 'git s' or 'git c "<text here>"'	=====	
+  #  with '#...' afterwards parameters needed are indicated	=====
+
+      #  it has to start somwhere	=====
+	clone 	= clone -v --progress
+
+      #  daily bread	=====
+	#  choose	=====
+	a	= add #...
+	aa	= add .
+	ai	= add -i
+	#  unchoose	=====
+	rm	= rm -r #... unversion and delete
+	rmc	= rm -r --cached #... unversion, but leave in working copy
+	#  do	=====
+	c	= commit -m #...
+	fc	= commit -am fastcommit
+	ca	= commit -am #...
+	mc	= commit # think 'message-commit
+	mca	= commit -a
+	cam	= commit --amend -C HEAD # update last commit
+	#  undo	=====
+	r	= reset --hard HEAD
+
+      #  name stuff properly	=====
+	#  tag	=====
+	t	= tag #(...) arguments: none/-f/-m
+	tl	= tag -n # show existing tags with messages
+	td	= tag -d #...
+	#  notes	=====
+	n	= !git notes list | sed -e 's/\\([a-z0-9]\\{4\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
+	nv	= !git notes list | sed -e 's/\\([a-z0-9]\\{7\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
+	na	= notes add
+	nap	= notes append
+	ne	= notes edit
+	nr	= notes remove
+	#  show everything related to a SHA1	=====
+	sh	= show
+
+      #  check current changes you have made	=====
+	d	= diff HEAD # diff staged + unstaged against HEAD
+	ds	= diff --staged # diff staged against HEAD
+	du	= diff # diff unstaged against HEAD
+      
+      #  check current state locally	=====
+	#  index status	=====
+	s	= status
+	ss	= status -uno # don't show untracked stuff
+	#  currently versioned files at HEAD	=====
+	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less
+	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less
+	ls	= ls-tree -r --name-only #... SHA1
+	lsd	= ls-tree -r -t -d --name-only #... SHA1
+	lsfa	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less
+	lsfad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4 | less
+	lsfav	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=7 | less
+	lsfadv	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=7 | less
+
+      #  tempsave stuff without branching or committing	=====
+      	st	= stash
+	stl	= stash list
+	stp	= stash pop
+	sta	= stash apply
+
+      #  check what is going on everywhere	=====
+	sb	= show-branch -a --list # just list with current commit
+	sba	= show-branch --color=always -a --more=10 --no-name # all
+	sbaf	= show-branch --color=always -a --more=10 # all full
+	sbl	= show-branch --color=always --reflog=10 --no-name # local
+	sblf	= show-branch --color=always --reflog=10 # local full
+	sl	= shortlog -nse
+
+      #  branch your way to victory, add <branch name>	=====
+	b	= branch #(...), without argument show existing ones
+	co	= checkout #...
+	bc	= checkout -b #... create + checkout branch
+	bd	= branch -d #...
+	fb	= !git st && git b
+
+      #  merge your way back into madness
+	m	= merge --no-ff #...
+	rb	= rebase #...
+	rbi	= rebase -i
+	rbc	= rebase --continue
+	rbs	= rebase --skip
+	rba	= rebase --abort
+
+      #  interact with the rest of the world	=====
+	pp	= pull
+	p	= push
+	rmrb	= push --delete origin #... remote branch to be deleted
+	fp	= !git mca && git p # fast push script, be wary!	
+	f	= fetch
+	rem	= remote -v # show remotes
+  # log settings ahead:
+  # l+ and l+o are the same basically.
+  # l+o's just exist if you need a longer revision identificator.
+
+
+      #  dig in history what went wrong	=====
+  	rl	= reflog
+	l	= log --graph --oneline --decorate=short
+	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
+	lll	= log --graph --abbrev-commit --decorate=short # --pretty=medium
+	lo	= log --graph --oneline --decorate=short --abbrev=7
+	llo	= log --graph --abbrev=7 --decorate=short --pretty=short
+	lllo	= log --graph --abbrev=7 --decorate=short #--pretty=medium
+[core]
+	abbrev = 4
+	
+	# best is to use autoclrf 'false'. others have a slight chance of corrupting binary data files mistaken as text... bah WTF, live hard!
+	autoclrf = input # on mac and linux, on win it's 'true'... i hope so!
+
+	# ===============
+	# AUTOCLRF HOWTO:
+	# ===============
+	# 1. new project from scratch, let git handle things: <minimal risk>
+	# ------------------------------------------------------------------
+	# As long as there are no created files yet, before starting to
+	# develop developers set things OS dependent:
+	#
+	# 	-- on Mac: 
+	# 		autoclrf = input
+	# 	-- on Linux:
+	# 		autoclrf = input
+	# 	-- on Windows:
+	# 		autoclrf = true
+	#
+	# That way git handles line endings automatically. This works almost
+	# always, except when git accidentally treats binary files as text
+	# files and converts them, too. Then it might bite your ass. Of
+	# course this can only happen if you have binary files present in 
+	# your repository. ;)
+	# ==================================================================
+	# 2. new project from scratch, handle things yourself: <no risk>
+	# ------------------------------------------------------------------
+	# If every developer handles the line ending stuff herself/himself,
+	# use this:
+	#
+	# 	-- on every type of OS:
+	# 		autoclrf = false
+	#
+	# All developers must set their development environments to create
+	# files in the same line endings  all others use, and not safe files
+	# differently after editing. (I.e. all use 'unix' line endings.
+	# Only LF endings, not CR, not CRLF.) Of course, all need to use
+	# the same encoding, too. :)
+	# With things set this way git won't interfere at all, and 
+	# responsibility is with the devs themselves.
+	# ==================================================================
+	# 3. existing project: <risk depends on given surroundings>
+	# ------------------------------------------------------------------
+	# 
+	# in a mixed environment, rethink if you use 'input' ... helps.

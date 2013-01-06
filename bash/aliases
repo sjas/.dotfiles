@@ -5,114 +5,122 @@
 #
 #######################################################
 
-#ls
-	# os check for getting right settings chosen
-	#on linux:
-	if [[ "$MYOS" == 'linux' ]]; then
-		export LS_OPTIONS="--human --color=always"
-	#on mac:
-	elif [[ "$MYOS" == 'mac' ]]; then
-		export LS_OPTIONS="-hGF"
-	fi
 
-	alias ls='ls $LS_OPTIONS -x'
-	alias la='ls $LS_OPTIONS -Ax' # also lists hidden files
-	alias l='ls $LS_OPTIONS -l' # list of files
-	alias ll='ls $LS_OPTIONS -Al' # like before, but lists hidden files, too
-	alias vls='ls $LS_OPTIONS -x | grep ".*" | less -R'
-	alias vla='ls $LS_OPTIONS -Ax | grep ".*" | less -R' # also lists hidden files
-	alias vl='ls $LS_OPTIONS -l | grep ".*" | less -R' # list of files
-	alias vll='ls $LS_OPTIONS -Al | grep ".*" | less -R' # like before, but lists hidden files, too
+
+#ls
+        #get os type first
+        if [[ `uname` == Darwin* ]];
+            then export MYOS="mac";
+        else 
+            export MYOS="linux";
+        fi
+        # # # # # # # # # # # # # # # # # # # # #
+        # os check for getting right settings chosen
+        #on linux:
+        if [[ "$MYOS" == 'linux' ]]; then
+                LS_OPTIONS="--human --color=always -F"
+        #on mac:
+        elif [[ "$MYOS" == 'mac' ]]; then
+                export LS_OPTIONS="-hGF"
+        fi
+
+        alias ls='ls $LS_OPTIONS -xB'
+        alias la='ls $LS_OPTIONS -Ax' # also lists hidden files
+        alias l='ls $LS_OPTIONS -lB' # list of files
+        alias ll='ls $LS_OPTIONS -Al' # like before, but lists hidden files, too
+        alias vls='ls $LS_OPTIONS -xB | grep ".*" | less -R'
+        alias vla='ls $LS_OPTIONS -Ax | grep ".*" | less -R' # also lists hidden files
+        alias vl='ls $LS_OPTIONS -lB | grep ".*" | less -R' # list of files
+        alias vll='ls $LS_OPTIONS -Al | grep ".*" | less -R' # like before, but lists hidden files, too
 # # # # # # # # # # # # # # # # # # # # #
 
-
-#tar
-	alias ut="tar xf"
+        alias ut="tar xf"
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #grep
-	# always use ignore case
-	alias grep='grep --color=always -i'
+        # always use ignore case
+        alias grep='grep --color=always -i'
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #vi
-	alias v='vim'
-	alias vm='~/.bash/vman.sh'
+        alias v='vim'
+        # use vim as pager
+        #alias vm='~/.bash/vman.sh'
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #tail
-	alias tail='tail -n200'
+        alias tail='tail -n200'
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #cd
-	alias cd..="cd .."
-	alias ..="cd .."
-	alias ...="cd ../.."
-	alias ....="cd ../../.."
-	alias .....="cd ../../../.."
-	alias ......="cd ../../../../.."
+        alias cd..="cd .."
+        alias ..="cd .."
+        alias ...="cd ../.."
+        alias ....="cd ../../.."
+        alias .....="cd ../../../.."
+        alias ......="cd ../../../../.."
 #cdnd - 'cd new dir'
-	mkdircd(){
-		mkdir "$1"
-		cd "$1"
-	}
-	alias cdnd=mkdircd
+        mkdircd(){
+                mkdir "$1"
+                cd "$1"
+        }
+        alias cdnd=mkdircd
 # pushd, popd, dirs
-	alias d='dirs'
-	alias o='popd'
-	alias p='pushd'
+        alias d='dirs'
+        alias o='popd'
+        alias p='pushd'
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #rm
-	alias rmf="rm -rf"
-	alias rmfa="rm -rf *"
+        alias rmf="rm -rf"
+        alias rmfa="rm -rf *"
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #history
-	alias h="history"
+        alias h="history"
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #pwd
-	alias .="pwd"
+        alias .="pwd"
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #info
-	alias info='info --vi-keys'
+        alias info='info --vi-keys'
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #ips
-	function ips {
-		'ifconfig | grep 'inet' | awk '{print $2}''
-	}
+        function ips {
+                'ifconfig | grep 'inet' | awk '{print $2}''
+        }
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #links
-	#function cl() {
-	#	pushd ~
-	#	echo "$*" | cat >> links
-	#	echo '[1;33mLink gespeichert.[0m'
-	#	popd
-	#}
+        #function cl() {
+        #       pushd ~
+        #       echo "$*" | cat >> links
+        #       echo '[1;33mLink gespeichert.[0m'
+        #       popd
+        #}
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #it's magic
-	#any '!x' combination will be expanded through space (!*,!^,...)
-	bind Space:magic-space
+        #any '!x' combination will be expanded through space (!*,!^,...)
+        bind Space:magic-space
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #update locate database
 # T H I S   C A N   T A K E   Q U I T E   S O M E   T I M E . . . !
-	alias updatelocate="/usr/libexec/locate.updatedb"
+        alias updatelocate="/usr/libexec/locate.updatedb"
 # # # # # # # # # # # # # # # # # # # # #
