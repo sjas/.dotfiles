@@ -115,12 +115,14 @@
 
 
 #it's magic
+# somehow this is now borked
         #any '!x' combination will be expanded through space (!*,!^,...)
-        bind Space:magic-space
+        #bind Space:magic-space
 # # # # # # # # # # # # # # # # # # # # #
 
 
 #update locate database
 # T H I S   C A N   T A K E   Q U I T E   S O M E   T I M E . . . !
-        alias updatelocate="/usr/libexec/locate.updatedb"
+        # todo this does not work
+        #alias updatelocate="/usr/libexec/locate.updatedb"
 # # # # # # # # # # # # # # # # # # # # #

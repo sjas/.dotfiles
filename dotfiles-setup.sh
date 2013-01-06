@@ -10,9 +10,10 @@ cp ~/.dotfiles/bash/.bash_profile   ~
 cp ~/.dotfiles/git/.gitconfig       ~
 cp ~/.dotfiles/git/.gitk            ~
 #keyboard ~
-cp ~/.dotfiles/keyboard/.Xkbmap     ~
-cp ~/.dotfiles/keyboard/.xmodmaprc  ~
 cp ~/.dotfiles/keyboard/.inputrc    ~
+cp ~/.dotfiles/keyboard/.xinitrc    ~
+cp ~/.dotfiles/keyboard/.xmodmaprc  ~
+cp ~/.dotfiles/keyboard/.Xkbmap     ~
 #vim
 cp ~/.dotfiles/vim/.vimrc           ~
 

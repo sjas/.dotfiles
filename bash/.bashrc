@@ -12,8 +12,8 @@
 # # # # # # # # # # # # # # # # # # # # #
 # emacs like editing at bash promt
 # <C-x><C-e> opens command in vim
-        set -o emacs
-        set -o emacs
+        #set -o emacs
+        set -o vi
 
 # prompt
         # base layout:
@@ -37,6 +37,10 @@
         export PS1="$PS1"
 # # # # # # # # # # # # # # # # # # #
 
+#some helpful env vars
+        export PAGER='less'
+        export EDITOR=vim
+        export VISUAL=vim
 
 # less
         # ignorecase in search, status, no bell
