@@ -18,7 +18,7 @@
         # os check for getting right settings chosen
         #on linux:
         if [[ "$MYOS" == 'linux' ]]; then
-                LS_OPTIONS="--human --color=always -F"
+                export LS_OPTIONS="-hF --color=always"
         #on mac:
         elif [[ "$MYOS" == 'mac' ]]; then
                 export LS_OPTIONS="-hGF"
