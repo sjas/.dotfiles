@@ -6,17 +6,17 @@
 ######################################################################
 
 # dotfiles
-	alias  eb='vim ~/.bashrc'
-	alias  eg='vim ~/.gitconfig'
-	alias  ev='vim ~/.vimrc'
-	alias ebp='vim ~/.bash_profile'
+        alias  eb='vim ~/.dotfiles/bash/.bashrc'
+        alias ebp='vim ~/.dotfiles/bash/.bash_profile'
+        alias  eg='vim ~/.dotfiles/git/.gitconfig'
+        alias  ev='vim ~/.dotfiles/vim/.vimrc'
 
 # bash folder
-	alias efea='vim ~/.dotfiles/bash/fasteditaliases'
-	alias  ega='vim ~/.dotfiles/bash/gitaliases'
-	alias  eba='vim ~/.dotfiles/bash/aliases'
+        alias efea='vim ~/.dotfiles/bash/fasteditaliases'
+        alias  ega='vim ~/.dotfiles/bash/gitaliases'
+        alias  eba='vim ~/.dotfiles/bash/aliases'
 
 # organisational
-	alias et='vim ~/todo.asc'
-	alias ep='vim ~/priority.asc'
-	alias ea='vim ~/aim.asc'
+        alias et='vim ~/.priv/todo.asc'
+        alias ep='vim ~/.priv/priority.asc'
+        alias ea='vim ~/.priv/aim.asc'

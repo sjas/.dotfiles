@@ -5,14 +5,14 @@
 #
 
 # cycle through last commands
-	"": history-search-forward
-	"": history-search-backward
-
 # file completion when tabbing
-	# only show dotfiles when i typed a '.'
-	set match-hidden-files off
-	# guess what
-	set completion-ignore-case on
-	# show '/' or '*' after file names
-	set visible-stats on
-	set show-all-if-ambiguous on
+"": history-search-forward
+"": history-search-backward
+
+# only show dotfiles when i typed a '.'
+set match-hidden-files off
+# guess what
+set completion-ignore-case on
+# show '/' or '*' after file names
+set visible-stats on
+set show-all-if-ambiguous on
