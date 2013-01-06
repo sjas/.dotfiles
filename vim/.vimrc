@@ -216,41 +216,42 @@ vnoremap <C-k> <ESC><C-w>kv
 vnoremap <C-l> <ESC><C-w>lv
 
 " EASY EDITING OF CONFIG FILES
-nnoremap   <Leader>ev :e $MYVIMRC<CR>
-nnoremap   <Leader>eg :e ~/.gitconfig<CR>
-nnoremap   <Leader>eb :e ~/.bashrc<CR>
-nnoremap   <Leader>et :e ~/todo.asc<CR>
-nnoremap   <Leader>ep :e ~/priority<CR>
-nnoremap   <Leader>ea :e ~/aim<CR>
-nnoremap  <Leader>ebp :e ~/.bash_profile<CR>
-nnoremap <Leader>efea :e ~/bash/fasteditaliases<CR>
-nnoremap  <Leader>ega :e ~/bash/gitaliases<CR>
-nnoremap  <Leader>eba :e ~/bash/aliases<CR>
+nnoremap   <Leader>ev :e    ~/.dotfiles/vim/.vimrc<CR>
+nnoremap   <Leader>eg :e    ~/.dotfiles/git/.gitconfig<CR>
+nnoremap   <Leader>eb :e    ~/.dotfiles/bash/.bashrc<CR>
+nnoremap  <Leader>ebp :e    ~/.dotfiles/bash/.bash_profile<CR>
+nnoremap <Leader>efea :e    ~/.dotfiles/bash/fasteditaliases<CR>
+nnoremap  <Leader>ega :e    ~/.dotfiles/bash/gitaliases<CR>
+nnoremap  <Leader>eba :e    ~/.dotfiles/bash/aliases<CR>
+nnoremap   <Leader>et :e    ~/.priv/todo.asc<CR>
+nnoremap   <Leader>ep :e    ~/.priv/priority.asc<CR>
+nnoremap   <Leader>ea :e    ~/.priv/aim.asc<CR>
 "in horizontal splitview
-nnoremap   <Leader>evt :sp $MYVIMRC<CR>
-nnoremap   <Leader>egt :sp ~/.gitconfig<CR>
-nnoremap   <Leader>ebt :sp ~/.bashrc<CR>
-nnoremap   <Leader>ett :sp ~/todo.asc<CR>
-nnoremap   <Leader>ept :sp ~/priority<CR>
-nnoremap   <Leader>eat :sp ~/aim<CR>
-nnoremap  <Leader>ebpt :sp ~/.bash_profile<CR>
-nnoremap <Leader>efeat :sp ~/bash/fasteditaliases<CR>
-nnoremap  <Leader>egat :sp ~/bash/gitaliases<CR>
-nnoremap  <Leader>ebat :sp ~/bash/aliases<CR>
+nnoremap   <Leader>evt :sp  ~/.dotfiles/vim/.vimrc<CR>
+nnoremap   <Leader>egt :sp  ~/.dotfiles/git/.gitconfig<CR>
+nnoremap   <Leader>ebt :sp  ~/.dotfiles/bash/.bashrc<CR>
+nnoremap  <Leader>ebpt :sp  ~/.dotfiles/bash/.bash_profile<CR>
+nnoremap <Leader>efeat :sp  ~/.dotfiles/bash/fasteditaliases<CR>
+nnoremap  <Leader>egat :sp  ~/.dotfiles/bash/gitaliases<CR>
+nnoremap  <Leader>ebat :sp  ~/.dotfiles/bash/aliases<CR>
+nnoremap   <Leader>ett :sp  ~/.priv/todo.asc<CR>
+nnoremap   <Leader>ept :sp  ~/.priv/priority.asc<CR>
+nnoremap   <Leader>eat :sp  ~/.priv/aim.asc<CR>
 "in vertical splitview
-nnoremap   <Leader>evv :vsp $MYVIMRC<CR>
-nnoremap   <Leader>egv :vsp ~/.gitconfig<CR>
-nnoremap   <Leader>ebv :vsp ~/.bashrc<CR>
-nnoremap   <Leader>etv :vsp ~/todo.asc<CR>
-nnoremap   <Leader>epv :vsp ~/priority<CR>
-nnoremap   <Leader>eav :vsp ~/aim<CR>
-nnoremap  <Leader>ebpv :vsp ~/.bash_profile<CR>
-nnoremap <Leader>efeav :vsp ~/bash/fasteditaliases<CR>
-nnoremap  <Leader>egav :vsp ~/bash/gitaliases<CR>
-nnoremap  <Leader>ebav :vsp ~/bash/aliases<CR>
-"'source <file>'
-nnoremap <Leader>sv :source $MYVIMRC<CR>
-nnoremap <Leader>sb :source ~/.bashrc<CR>
+nnoremap   <Leader>evv :vsp ~/.dotfiles/vim/.vimrc<CR>
+nnoremap   <Leader>egv :vsp ~/.dotfiles/git/.gitconfig<CR>
+nnoremap   <Leader>ebv :vsp ~/.dotfiles/bash/.bashrc<CR>
+nnoremap  <Leader>ebpv :vsp ~/.dotfiles/bash/.bash_profile<CR>
+nnoremap <Leader>efeav :vsp ~/.dotfiles/bash/fasteditaliases<CR>
+nnoremap  <Leader>egav :vsp ~/.dotfiles/bash/gitaliases<CR>
+nnoremap  <Leader>ebav :vsp ~/.dotfiles/bash/aliases<CR>
+nnoremap   <Leader>etv :vsp ~/.priv/todo.asc<CR>
+nnoremap   <Leader>epv :vsp ~/.priv/priority.asc<CR>
+nnoremap   <Leader>eav :vsp ~/.priv/aim.asc<CR>
+"sourcing
+nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup.sh<CR>
+"nnoremap <Leader>sv :source $MYVIMRC<CR>
+"nnoremap <Leader>sb :source ~/.bashrc<CR>
 "VUNDLE
 nnoremap <Leader>bi :BundleInstall<CR>
 nnoremap <Leader>bu :BundleInstall!<CR>
