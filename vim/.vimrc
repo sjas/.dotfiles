@@ -33,7 +33,9 @@ Bundle 'YankRing.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
-"Bundle 'Shougo/neocomplcache-snippets-complete' Bundle 'scrooloose/nerdtree'
+" deprecated:
+"Bundle 'Shougo/neocomplcache-snippets-complete'
+Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Lokaltog/vim-powerline'
@@ -250,6 +252,7 @@ nnoremap   <Leader>epv :vsp ~/.priv/priority.asc<CR>
 nnoremap   <Leader>eav :vsp ~/.priv/aim.asc<CR>
 "sourcing
 nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup.sh<CR>
+" next line not needed anymore. using it just causes human errors
 "nnoremap <Leader>sv :source $MYVIMRC<CR>
 "nnoremap <Leader>sb :source ~/.bashrc<CR>
 "VUNDLE

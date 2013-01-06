@@ -5,6 +5,9 @@
 #
 ######################################################################
 
+# setup
+        alias  ed='vim ~/.dotfiles/dotfiles-setup.sh'
+
 # dotfiles
         alias  eb='vim ~/.dotfiles/bash/.bashrc'
         alias ebp='vim ~/.dotfiles/bash/.bash_profile'

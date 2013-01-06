@@ -23,10 +23,11 @@ echo 'copied sources...'
 source ~/.bash_profile
 
 #keyboard
-source ~/.xmodmaprc
-source ~/.Xkbmap
+# this does not work here it seems
+#source ~/.xmodmaprc
+#source ~/.Xkbmap
 
 #vim
-source ~/.vimrc
+vim +':source $MYVIMRC' +':q'
 
 echo '... sources sourced.'
