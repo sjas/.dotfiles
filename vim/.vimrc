@@ -143,7 +143,7 @@ nnoremap <Leader>fa :wa<CR>
 nnoremap <Leader>fq :q!<CR>
 nnoremap <Leader>fd :e!<CR>
 " PROFESSIONALLY OPEN FILES
-nnoremap <Leader>fe :e <C-R>=expand('%:t').'/'<cr>
+nnoremap <Leader>fe :e <C-R>=expand('%:p').'/'<cr>
 "nnoremap <Leader>fe :e <C-R>=expand('%:h').'/'<cr>
 " FAST RUN BINDING
 nnoremap <Leader>fr :w<CR>:silent ! %<CR>
@@ -252,7 +252,7 @@ nnoremap   <Leader>epv :vsp ~/.priv/priority.asc<CR>
 nnoremap   <Leader>eav :vsp ~/.priv/aim.asc<CR>
 "sourcing
 nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup.sh<CR>
-" next line not needed anymore. using it just causes human errors
+" next lines not needed anymore. using it just causes human errors
 "nnoremap <Leader>sv :source $MYVIMRC<CR>
 "nnoremap <Leader>sb :source ~/.bashrc<CR>
 "VUNDLE
@@ -297,6 +297,9 @@ nnoremap <Leader>HL <ESC><ESC>:s/\v/  /<CR>^hxhx
 nnoremap <Leader>hl <ESC><ESC>:s/\v/ /<CR>^hx
 " UPPERCASE CURRENT LINE
 nnoremap <Leader>uu VgU
+" ADD CURRENT DATE AT THE END OF FILE
+" comment it out and jump back to last edit location
+nnoremap <Leader>fs :.!date<cr><esc>
 
 "
 "   G E N E R A L  S E T T I N G S
@@ -485,4 +488,3 @@ au FileType c,cpp,java,php,javascript,python,twig,xml,yml au BufWritePre <buffer
 " right now i use <Leader>= to fix sizes
 " after i resized the window
 "au VimResized noea ea "this does not work as it should
-" // EOF

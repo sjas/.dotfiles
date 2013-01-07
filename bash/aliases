@@ -43,10 +43,10 @@
         alias grep='grep --color=always -i'
 # # # # # # # # # # # # # # # # # # # # #
 
-
 #vi
         alias v='vim'
         # use vim as pager
+        # needs to be set up separatly
         #alias vm='~/.bash/vman.sh'
 # # # # # # # # # # # # # # # # # # # # #
 
@@ -98,9 +98,10 @@
 
 
 #ips
-        function ips {
-                'ifconfig | grep 'inet' | awk '{print $2}''
+        function getips {
+                `ifconfig | grep 'inet' | awk '{print $2}'`
         }
+        alias ips=getips
 # # # # # # # # # # # # # # # # # # # # #
 
 
