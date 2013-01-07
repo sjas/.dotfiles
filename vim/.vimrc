@@ -252,7 +252,7 @@ nnoremap   <Leader>epv :vsp ~/.priv/priority.asc<CR>
 nnoremap   <Leader>eav :vsp ~/.priv/aim.asc<CR>
 "sourcing
 nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>
-nnoremap <Leader>sf :!cd %home%/.dotfiles/ && dotfiles-setup-win.bat<CR>
+nnoremap <Leader>sf :!cd c:\Users\sjas\.dotfiles/ && dotfiles-setup-win.bat<CR>
 " next lines not needed anymore. using it just causes human errors
 "nnoremap <Leader>sv :source $MYVIMRC<CR>
 "nnoremap <Leader>sb :source ~/.bashrc<CR>
@@ -312,7 +312,8 @@ se nonu "nu"
 " RELATIVE LINE NUMBERS - since 7.3, mac is 7.2
 " TODO: get this working on only on vim 7.3+, in visual mode?
 " use an if clause...
-se nornu "rnu"
+" deactivated since i only work with 7.2 on all platforms curently
+"se nornu "rnu"
 " WORD WRAP
 se wrap "nowrap"
 " RULER
