@@ -24,7 +24,9 @@ echo 'copied sources...'
 source ~/.bash_profile
 
 #keyboard
-# this does not work here it seems
+# this is for virtual consoles
+sudo loadkeys ~/.dotfiles/keyboard/CapsToControl.map.gz
+# these do not need to be sourced, they work in X
 #source ~/.xmodmaprc
 #source ~/.Xkbmap
 
