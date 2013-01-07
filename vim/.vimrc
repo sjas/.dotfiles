@@ -251,7 +251,8 @@ nnoremap   <Leader>etv :vsp ~/.priv/todo.asc<CR>
 nnoremap   <Leader>epv :vsp ~/.priv/priority.asc<CR>
 nnoremap   <Leader>eav :vsp ~/.priv/aim.asc<CR>
 "sourcing
-nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup.sh<CR>
+nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>
+nnoremap <Leader>sf :!cd %home%/.dotfiles/ && dotfiles-setup-win.bat<CR>
 " next lines not needed anymore. using it just causes human errors
 "nnoremap <Leader>sv :source $MYVIMRC<CR>
 "nnoremap <Leader>sb :source ~/.bashrc<CR>
