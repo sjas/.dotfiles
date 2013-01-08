@@ -304,6 +304,12 @@ nnoremap <Leader>uu VgU
 " ADD CURRENT DATE AT THE END OF FILE
 " comment it out and jump back to last edit location
 nnoremap <Leader>fs :.!date<cr><esc>
+" remove unneeded carriage returns
+nnoremap <Leader><Leader>e :s/$
+vnoremap <Leader><Leader>e :s/$
+" remove prepending whitespaces
+nnoremap <Leader><Leader>w :s/^\s*
+vnoremap <Leader><Leader>w :s/^\s*
 
 "
 "   G E N E R A L  S E T T I N G S
