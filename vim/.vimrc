@@ -343,10 +343,13 @@ se ml "noml"
 se mls=5 "mls=0"
 
 " LaTeX stuff can be found in $VIMFILES/ftplugin/tex.vim
-"source $VIMRUNTIME/ftplugin/tex.vim
+source $VIMRUNTIME/ftplugin/tex.vim
 " LATEX STUFF
-" needed for win32, TODO: fix this with an if
-" set shellslash
+" needed for win32
+if has('win32') || has('win64')
+    "set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+    set shellslash
+endif
 set grepprg=grep\ -nH\ $*
 "indent just a little, TODO: fix this with an if just for latex files
 "set sw=2
@@ -548,8 +551,8 @@ function! ScaleFontDown()
   let &guifont = substitute(&guifont, '\:h.\{-}\:', new_font_size, '')
 endfunction
 
-nmap <C-S-F11> :call ScaleFontDown()<CR>
-nmap <C-S-F12> :call ScaleFontUp()<CR>
+nmap <C-F11> :call ScaleFontDown()<CR>
+nmap <C-F12> :call ScaleFontUp()<CR>
 
 " schriften toggle
 "nmap <C-S-F1> :set guifont=Droid_Sans_Mono:h8.0:cANSI<CR>
