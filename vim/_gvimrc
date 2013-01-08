@@ -1,0 +1,150 @@
+" Make external commands work through a pipe instead of a pseudo-tty
+set noguipty
+set mousehide		" Hide the mouse when typing text
+
+" Make shift-insert work like in Xterm
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+
+" Only do this for Vim version 5.0 and later.
+if version >= 500
+
+  " I like highlighting strings inside C comments
+  let c_comment_strings=1
+
+  " Switch on syntax highlighting if it wasn't on yet.
+  if !exists("syntax_on")
+    syntax on
+  endif
+
+  " Switch on search pattern highlighting.
+  set hlsearch
+
+  " For Win32 version, have "K" lookup the keyword in a help file
+"  if has("win32")
+"    let winhelpfile='windows.hlp'
+"    map K :execute "!start winhlp32 -k <cword> " . winhelpfile <CR>
+"  endif
+endif
+
+" THIS IS SOME PERSONALIZED STIFF WHERE I DONT REALLY KNOW WHY I INCLUDED IT
+" IT WILL ALL BECOME CLEAR AFTER A WHILE?
+behave xterm
+" anstelle von:
+" behave mswin
+imap jj <ESC>
+" use tempdirs for backupfiles
+"set backupdir=$TEMP
+"set directory=$TEMP
+" I DONT KNOW IF THIS COLORSCHEME JUST WORKS ON GVIM, SO IT STAYS HERE...
+"colo soruby
+" fullscreen starten
+au GUIEnter * simalt ~x
+" buttonleiste ausblenden
+if has('gui_running')
+  set guioptions-=T   " Remove toolbar, 'm' statt 'T' fürs menu...
+endif
+
+" schriftart herausfinden mit ":set guifont?"
+" menu aufrufen mit ":set guifont=*"
+" lucida sans typewriter = KURSIV im original!!!
+set guifont=lucida_sans_typewriter_regular:h9:cANSI
+""""set guifont=Envy_Code_R:h10.0:b:cANSI
+" schriftgrössentoggle
+" CTRL+SHIFT+F11/F12 um schriftgrösse zu ändern
+function! ScaleFontUp()
+  let gf_size_whole = matchstr(&guifont, '\(\:h\)\@<=\d\+')
+  let gf_size_frac = matchstr(&guifont, '\(\:h\d\+\.\)\@<=\d\=')
+  let font_size = gf_size_whole * 10 + gf_size_frac
+  let font_size = font_size + 5
+  let gf_size_whole = font_size / 10
+  let gf_size_frac = font_size - gf_size_whole * 10
+  let new_font_size = ':h'.gf_size_whole.'.'.gf_size_frac.':'
+  let &guifont = substitute(&guifont, '\:h.\{-}\:', new_font_size, '')
+endfunction
+
+function! ScaleFontDown()
+  let gf_size_whole = matchstr(&guifont, '\(\:h\)\@<=\d\+')
+  let gf_size_frac = matchstr(&guifont, '\(\:h\d\+\.\)\@<=\d\=')
+  let font_size = gf_size_whole * 10 + gf_size_frac
+  let font_size = font_size - 5
+  let gf_size_whole = font_size / 10
+  let gf_size_frac = font_size - gf_size_whole * 10
+  let new_font_size = ':h'.gf_size_whole.'.'.gf_size_frac.':'
+  let &guifont = substitute(&guifont, '\:h.\{-}\:', new_font_size, '')
+endfunction
+
+nmap <C-S-F11> :call ScaleFontDown()<CR>
+nmap <C-S-F12> :call ScaleFontUp()<CR>
+
+" schriften toggle
+"nmap <C-S-F1> :set guifont=Droid_Sans_Mono:h8.0:cANSI<CR>
+"nmap <C-S-F2> :set guifont=Droid_Sans_Mono:h8.0:b:cANSI<CR>
+
+"nmap <C-S-F3> :set guifont=Envy_Code_R:h8.0:cANSI<CR>
+"nmap <C-S-F4> :set guifont=Envy_Code_R:h8.0:b:cANSI<CR>
+
+"nmap <C-S-F5> :set guifont=Inconsolata:h8.0:cANSI<CR>
+"nmap <C-S-F6> :set guifont=Inconsolata:h8.0:b:cANSI<CR>
+
+"nmap <C-S-F7> :set guifont=Lucida_Sans_Typewriter:h8.5:b:cANSI<CR>
+"nmap <C-S-F8> :set guifont=Lucida_Sans_Typewriter:h9.0:b:cANSI<CR>
+
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" can be called correctly.
+set shellslash
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
+
+" zencoding hotkey
+let g:user_zen_leader_key = '<C-b>'
+
+let g:use_zen_complete_tag = 1
+
+  let g:user_zen_settings = {
+  \  'lang' : 'ja',
+  \  'html' : {
+  \    'filters' : 'html',
+  \    'indentation' : ' '
+  \  },
+  \  'perl' : {
+  \    'indentation' : '  ',
+  \    'aliases' : {
+  \      'req' : "require '|'"
+  \    },
+  \    'snippets' : {
+  \      'use' : "use strict\nuse warnings\n\n",
+  \      'w' : "warn \"${cursor}\";",
+  \    },
+  \  },
+  \  'php' : {
+  \    'extends' : 'html',
+  \    'filters' : 'html,c',
+  \  },
+  \  'css' : {
+  \    'filters' : 'fc',
+  \  },
+  \  'javascript' : {
+  \    'snippets' : {
+  \      'jq' : "$(function() {\n\t${cursor}${child}\n});",
+  \      'jq:each' : "$.each(arr, function(index, item)\n\t${child}\n});",
+  \      'fn' : "(function() {\n\t${cursor}\n})();",
+  \      'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
+  \    },
+  \  },
+  \ 'java' : {
+  \  'indentation' : '    ',
+  \  'snippets' : {
+  \   'main': "public static void main(String[] args) {\n\t|\n}",
+  \   'println': "System.out.println(\"|\");",
+  \   'class': "public class | {\n}\n",
+  \  },
+  \ },
+  \}
