@@ -1,5 +1,3 @@
-"
-"
 "     S  J  A  S     M  A  S  T  E  R     .  V  I  M  R  C
 "
 "
@@ -93,7 +91,7 @@ nnoremap ss/ :%s/
 vnoremap s/ :s/
 " RESET SEARCH HIGHLIGHTING
 "nnoremap <Leader><backspace> :noh<CR><CR>:<BACKSPACE>k
-nnoremap <Leader><backspace> /asdf<CR><ESC>
+nnoremap <Leader><backspace> /qwerqwerasdfasdf<CR><ESC>
 " HIGHLIGHT RESULTS
 se hls
 " IGNORE CASE
@@ -101,9 +99,8 @@ se ic "noic"
 " SMARTCASE: SENSITIVE WHEN UC CHAR PRESENT
 se scs "noscs"
 " SHOW PROPER WHITESPACE
-"se listchars=tab:,.,trail:.,extends:#,nbsp:.
-se listchars=tab:,.,trail:.,extends:#,nbsp:.,eol:$
-"se listchars=eol:$
+" random eol chars to choose from: Ξ♦‡╬∆Ω∙⌂₣‰↨¬⌐
+se listchars=tab:,.,trail:.,extends:#,nbsp:.,eol:♦
 se list "list nolist
 " INCREMENTAL SEARCH
 se is "nois"
@@ -122,8 +119,7 @@ se sts=4
 " shiftwidth: number of spaces for autoindent
 se sw=4
 " tabstop: how many spaces will be shown for a tab
-se ts=8
-" TODO rewrite this stuff for python files explicitly!!!
+se ts=4
 " backspace settings
 se backspace=indent,eol,start
 
@@ -255,10 +251,9 @@ nnoremap   <Leader>epv :vsp ~/.priv/priority.asc<CR>
 nnoremap   <Leader>eav :vsp ~/.priv/aim.asc<CR>
 "sourcing
 nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>
-nnoremap <Leader>sf :!cd c:\Users\sjas\.dotfiles/ && dotfiles-setup-win.bat<CR>
-" next lines not needed anymore. using it just causes human errors
-"nnoremap <Leader>sv :source $MYVIMRC<CR>
-"nnoremap <Leader>sb :source ~/.bashrc<CR>
+nnoremap <Leader>sf :silent !c:\Users\sjas\.dotfiles\dotfiles-setup-win.bat<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
+nnoremap <Leader>sb :source ~/.bash_profile<CR>
 "VUNDLE
 nnoremap <Leader>bi :BundleInstall<CR>
 nnoremap <Leader>bu :BundleInstall!<CR>
@@ -639,6 +634,8 @@ let g:use_zen_complete_tag = 1
 "REMOVE TRAILING WHITESPACE AND ^M CHARS
 au FileType c,cpp,java,php,javascript,python,twig,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
+"au Filetype asciidoc se nolist
+
 "
 "  U N U S E D   S T U F F
 "
@@ -646,8 +643,6 @@ au FileType c,cpp,java,php,javascript,python,twig,xml,yml au BufWritePre <buffer
 " ESCAPE INS MODE BESIDES CTRL-[
 "imap jj <ESC>l
 "imap kk <ESC>k
-
-"au Filetype asciidoc se nolist
 
 "SOURCE VIMRC AUTOMATICALLY
 " seems to have hang ups...
