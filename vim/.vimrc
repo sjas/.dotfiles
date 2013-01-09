@@ -6,18 +6,18 @@
 "
 "   B A S E   S E T T I N G S   +   V U N D L E   I N T E G R A T I O N
 "
-" DEFAULT IS '\' FOR LEADER KEY - '<space>' IS MORE ACCESSIBLE
-" inserted via <C-v><space>, proper keycode needed!
-" define this before any of the plugins is loaded...
-let mapleader = ' '
-let maplocalleader = ' '
 " VUNDLE TO RULE IT ALL: absolutely needs the following
 " be iMproved: USE vim NOT vi
 se nocompatible
 "se shellslash
 filetype off "VUNDLE NEEDS THIS HERE
-se rtp+=~/.dotfiles/vim/.vim/bundle/vundle/
+se rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+" DEFAULT IS '\' FOR LEADER KEY - '<space>' IS MORE ACCESSIBLE
+" inserted via <C-v><space>, proper keycode needed!
+" define this before any of the plugins is loaded...
+let mapleader = ' '
+let maplocalleader = ' '
 filetype plugin indent on "back to normal 
 Bundle 'gmarik/vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
