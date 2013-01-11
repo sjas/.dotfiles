@@ -7,7 +7,6 @@
 " VUNDLE TO RULE IT ALL: absolutely needs the following
 " be iMproved: USE vim NOT vi
 se nocompatible
-"se shellslash
 filetype off "VUNDLE NEEDS THIS HERE
 se rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -24,11 +23,12 @@ Bundle 'sjl/vitality.vim'
 " threesome is now called splice...
 " and it does not play nicely with fugitive...
 "Bundle 'sjl/threesome.vim'
-Bundle 'sjl/badwolf'
+Bundle 'sjl/splice.vim'
 Bundle 'sjl/gundo.vim'
+Bundle 'sjl/badwolf'
+"Bundle 'tpope/vim-fugitive'
 Bundle 'arpeggio'
 Bundle 'YankRing.vim'
-Bundle 'tpope/vim-fugitive'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 " deprecated:
@@ -100,7 +100,7 @@ se ic "noic"
 se scs "noscs"
 " SHOW PROPER WHITESPACE
 " random eol chars to choose from: Ξ♦‡╬∆Ω∙⌂₣‰↨¬⌐
-se listchars=tab:,.,trail:.,extends:#,nbsp:.,eol:♦
+se listchars=tab:↨¬,trail:⌐,extends:‡,precedes:╬,nbsp:Ξ,eol:♦
 se list "list nolist
 " INCREMENTAL SEARCH
 se is "nois"
@@ -348,10 +348,10 @@ se mls=5 "mls=0"
 source $VIMRUNTIME/ftplugin/tex.vim
 " LATEX STUFF
 " needed for win32
-if has('win32') || has('win64')
+"if has('win32') || has('win64')
     "set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-    set shellslash
-endif
+    "set shellslash
+"endif
 set grepprg=grep\ -nH\ $*
 "indent just a little, TODO: fix this with an if just for latex files
 "set sw=2
@@ -571,7 +571,7 @@ nmap <C-F12> :call ScaleFontUp()<CR>
 
 " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
 " can be called correctly.
-set shellslash
+"set shellslash
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
