@@ -36,7 +36,8 @@ Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
+"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'Align'
 Bundle 'surround.vim'
 Bundle 'mattn/zencoding-vim'
@@ -64,7 +65,7 @@ Bundle 'sjas/csExplorer'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'spf13/vim-colors'
 Bundle 'nelstrom/vim-mac-classic-theme'
-colo badwolf
+colo desert
 Bundle 'sjas/ColorSamplerPack'
 se magic "how to handle rexexp escaping
 " powerline
