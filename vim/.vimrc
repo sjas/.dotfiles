@@ -43,18 +43,22 @@ Bundle 'surround.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'SearchComplete'
 Bundle 'plasticboy/vim-markdown'
-"Bundle 'ShowMarks'
+Bundle 'ShowMarks'
 Bundle 'colorizer'
 Bundle 'repeat.vim'
 Bundle 'FuzzyFinder'
 " required for FuzzyFinder
 Bundle 'L9'
+Bundle 'kien/rainbow_parentheses.vim'
 " proper asciidoc goodness
 Bundle 'sjas/asciidoc-vim'
 " Haskell plugin
 Bundle 'sjas/haskellmode-vim'
 "Bundle 'sjas/todo.txt-vim'
-Bundle 'workflowish'
+"Bundle 'workflowish'
+" TODO
+"Bundle 'Twinside/vim-haskellConceal'
+"Bundle 'ehamberg/vim-cute-python'
 " LaTeX Stuff
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 "Bundle 'tomtom/checksyntax_vim'
@@ -139,11 +143,14 @@ nnoremap <Leader>fw :w<CR>
 nnoremap <Leader>fa :wa<CR>
 nnoremap <Leader>fq :q!<CR>
 nnoremap <Leader>fd :e!<CR>
+" PASTE FROM CLIPBOARD EASILY
+nnoremap <Leader>v "+p
 " PROFESSIONALLY OPEN FILES
 nnoremap <Leader>fe :e <C-R>=expand('%:p').'/'<cr>
 "nnoremap <Leader>fe :e <C-R>=expand('%:h').'/'<cr>
 " FAST RUN BINDING
-nnoremap <Leader>fr :w<CR>:silent ! %<CR>
+"nnoremap <Leader>fr :w<CR>:silent ! %<CR>
+nnoremap <Leader>fr :w<CR>:!python % -f ./raw-material/Dfn.graphml<CR>
 " OPEN VERTICAL HELP
 nnoremap ;vh :vert help
 nnoremap ;hv :vert help
@@ -266,7 +273,11 @@ nnoremap <Leader>bs :BundleSearch<CR>
 let NERDTreeShowHidden=1
 "this is a BAD hack: minimize NERDTREE completely after opening it
 "then resize is to be 40 chars wide, place cursor 10 chars from left
-nnoremap <Leader><CR> :NERDTreeToggle<CR>999<C-w><40<C-w>>010l
+"this also works just for opening.
+"TODO fix this also, some day... soon haha... ...
+nnoremap <Leader><CR> :NERDTreeFind<CR>999<C-w><40<C-w>>010l
+" this is not working, fix it some day...
+"autocmd BufEnter * silent! if bufname('%') !~# 'NERD_tree_' | cd %:p:h | NERDTreeCWD | wincmd p | endif
 " OPEN LAST CLOSED WINDOW
 nnoremap <Leader>n :vs<bar>:b#<CR>
 " OPEN YANKRING
@@ -402,7 +413,7 @@ let g:Tex_SmartKeyQuote = 0
 " LaTeX shortcuts
 iab lra $\longrightarrow$
 iab isabel \textsc{isabel}
-"iab ttt \texttt{} <++><esc><left><left><left><left>i<esc><left>
+"iab ttt \texttt{} <esc><left><left><left><left>i<esc><left>
 
 " JSON HIGHLIGHTING
 "au BufNewFile,BufRead *.json set ft=javascript
@@ -628,6 +639,37 @@ let g:use_zen_complete_tag = 1
   \  },
   \ },
   \}
+
+" rainbow_parentheses.vim
+" key for activating plugin
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+"let g:rbpt_loadcmd_toggle = 0
+
+nnoremap <Leader>rb :RainbowParenthesesLoadRound<cr>:RainbowParenthesesLoadSquare<cr>:RainbowParenthesesLoadBraces<cr>:RainbowParenthesesLoadChevrons<cr>:RainbowParenthesesToggle<cr>
+" uncomment this for auto-on
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
+"au Syntax * RainbowParenthesesLoadChevrons
 
 "
 "   A U T O L O A D I N G   S T U F F
