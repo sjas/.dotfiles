@@ -6,14 +6,14 @@
 # # # # # # # # # # # # # # # # # # # # #
 
 #include fasteditaliases / aliases / gitaliases
-        source ~/.dotfiles/bash/fasteditaliases
-        source ~/.dotfiles/bash/aliases
-        source ~/.dotfiles/bash/gitaliases
+        source ~/.dotfiles/aliases/fasteditaliases
+        source ~/.dotfiles/aliases/aliases
+        source ~/.dotfiles/aliases/gitaliases
 # # # # # # # # # # # # # # # # # # # # #
 # emacs like editing at bash promt
 # <C-x><C-e> opens command in vim
-        #set -o emacs
-        set -o vi
+        set -o emacs
+        #set -o vi
 
 # prompt
         # base layout:
