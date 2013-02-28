@@ -41,11 +41,12 @@ plugins=(command-coloring zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-unsetopt promptcr
+#unsetopt promptcr
 
 export PAGER='less'
 export EDITOR=vim
 export VISUAL=vim
+export SVN_EDITOR=vim
 
 # less
         # ignorecase in search, status, no bell
