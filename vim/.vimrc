@@ -57,7 +57,7 @@ Bundle 'sjas/asciidoc-vim'
 " Haskell plugin
 Bundle 'sjas/haskellmode-vim'
 "Bundle 'sjas/todo.txt-vim'
-"Bundle 'workflowish'
+Bundle 'workflowish'
 " TODO
 "Bundle 'Twinside/vim-haskellConceal'
 "Bundle 'ehamberg/vim-cute-python'
