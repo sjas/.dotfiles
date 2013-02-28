@@ -250,9 +250,9 @@ nnoremap  <Leader>ebp :e    ~/.dotfiles/bash/.bash_profile<CR>
 nnoremap <Leader>efea :e    ~/.dotfiles/aliases/fasteditaliases<CR>
 nnoremap  <Leader>ega :e    ~/.dotfiles/aliases/gitaliases<CR>
 nnoremap  <Leader>eba :e    ~/.dotfiles/aliases/aliases<CR>
-nnoremap   <Leader>et :e    ~/.priv/todo.asc<CR>
-nnoremap   <Leader>ep :e    ~/.priv/priority.asc<CR>
-nnoremap   <Leader>ea :e    ~/.priv/aim.asc<CR>
+nnoremap   <Leader>et :e    ~/.priv/todo.wofl<CR>
+nnoremap   <Leader>ep :e    ~/.priv/priority.wofl<CR>
+nnoremap   <Leader>ea :e    ~/.priv/aim.wofl<CR>
 nnoremap   <Leader>ez :e    ~/.dotfiles/zsh/.zshrc<CR>
 "in horizontal splitview
 nnoremap   <Leader>evt :sp  ~/.dotfiles/vim/.vimrc<CR>
@@ -263,9 +263,9 @@ nnoremap  <Leader>ebpt :sp  ~/.dotfiles/bash/.bash_profile<CR>
 nnoremap <Leader>efeat :sp  ~/.dotfiles/aliases/fasteditaliases<CR>
 nnoremap  <Leader>egat :sp  ~/.dotfiles/aliases/gitaliases<CR>
 nnoremap  <Leader>ebat :sp  ~/.dotfiles/aliases/aliases<CR>
-nnoremap   <Leader>ett :sp  ~/.priv/todo.asc<CR>
-nnoremap   <Leader>ept :sp  ~/.priv/priority.asc<CR>
-nnoremap   <Leader>eat :sp  ~/.priv/aim.asc<CR>
+nnoremap   <Leader>ett :sp  ~/.priv/todo.wofl<CR>
+nnoremap   <Leader>ept :sp  ~/.priv/priority.wofl<CR>
+nnoremap   <Leader>eat :sp  ~/.priv/aim.wofl<CR>
 nnoremap   <Leader>ezt :sp  ~/.dotfiles/zsh/.zshrc<CR>
 "in vertical splitview
 nnoremap   <Leader>evv :vsp ~/.dotfiles/vim/.vimrc<CR>
@@ -276,9 +276,9 @@ nnoremap  <Leader>ebpv :vsp ~/.dotfiles/bash/.bash_profile<CR>
 nnoremap <Leader>efeav :vsp ~/.dotfiles/aliases/fasteditaliases<CR>
 nnoremap  <Leader>egav :vsp ~/.dotfiles/aliases/gitaliases<CR>
 nnoremap  <Leader>ebav :vsp ~/.dotfiles/aliases/aliases<CR>
-nnoremap   <Leader>etv :vsp ~/.priv/todo.asc<CR>
-nnoremap   <Leader>epv :vsp ~/.priv/priority.asc<CR>
-nnoremap   <Leader>eav :vsp ~/.priv/aim.asc<CR>
+nnoremap   <Leader>etv :vsp ~/.priv/todo.wofl<CR>
+nnoremap   <Leader>epv :vsp ~/.priv/priority.wofl<CR>
+nnoremap   <Leader>eav :vsp ~/.priv/aim.wofl<CR>
 nnoremap   <Leader>ezv :vsp ~/.dotfiles/zsh/.zshrc<CR>
 "sourcing
 nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>

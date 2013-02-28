@@ -20,7 +20,7 @@
         alias  esa='vim ~/.dotfiles/aliases/aliases'
 
 # organisational
-        alias et='vim ~/.priv/todo.asc'
-        alias ep='vim ~/.priv/priority.asc'
-        alias ea='vim ~/.priv/aim.asc'
+        alias et='vim ~/.priv/todo.wofl'
+        alias ep='vim ~/.priv/priority.wofl'
+        alias ea='vim ~/.priv/aim.wofl'
         alias ez='vim ~/.dotfiles/.zshrc'
