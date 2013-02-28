@@ -1,0 +1,26 @@
+#
+#
+#     s  j  a  s     f  a  s  t     e  d  i  t     a  l  i  a  s  e  s
+#
+#
+######################################################################
+
+# setup
+        alias  ed='vim ~/.dotfiles/dotfiles-setup.sh'
+
+# dotfiles
+        alias  eb='vim ~/.dotfiles/bash/.bashrc'
+        alias ebp='vim ~/.dotfiles/bash/.bash_profile'
+        alias  eg='vim ~/.dotfiles/git/.gitconfig'
+        alias  ev='vim ~/.dotfiles/vim/.vimrc'
+
+# bash folder
+        alias efea='vim ~/.dotfiles/aliases/fasteditaliases'
+        alias  ega='vim ~/.dotfiles/aliases/gitaliases'
+        alias  esa='vim ~/.dotfiles/aliases/aliases'
+
+# organisational
+        alias et='vim ~/.priv/todo.asc'
+        alias ep='vim ~/.priv/priority.asc'
+        alias ea='vim ~/.priv/aim.asc'
+        alias ez='vim ~/.dotfiles/.zshrc'

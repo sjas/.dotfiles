@@ -1,3 +1,5 @@
+"
+"
 "     S  J  A  S     M  A  S  T  E  R     .  V  I  M  R  C
 "
 "
@@ -22,7 +24,6 @@ Bundle 'sjl/vitality.vim'
 " three-way-diffing
 " threesome is now called splice...
 " and it does not play nicely with fugitive...
-"Bundle 'sjl/threesome.vim'
 Bundle 'sjl/splice.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'sjl/badwolf'
@@ -47,6 +48,7 @@ Bundle 'ShowMarks'
 Bundle 'colorizer'
 Bundle 'repeat.vim'
 Bundle 'FuzzyFinder'
+Bundle 'taglist.vim'
 " required for FuzzyFinder
 Bundle 'L9'
 Bundle 'kien/rainbow_parentheses.vim'
@@ -97,7 +99,7 @@ vnoremap s/ :s/
 " RESET SEARCH HIGHLIGHTING
 "nnoremap <Leader><backspace> :noh<CR><CR>:<BACKSPACE>k
 nnoremap <Leader><backspace> /qwerqwerasdfasdf<CR><ESC>
-" HIGHLIGHT RESULTS
+" HIGHLIGHT RESULTS / hlsearch
 se hls
 " IGNORE CASE
 se ic "noic"
@@ -114,6 +116,7 @@ se scrolljump=0 "negative values are in percent
 se scrolloff=4 "cursor stays in mid of screen...
 " ctags tag list
 set tags=./tags;/
+nnoremap <Leader>ct :!ctags -R .<cr>
 " TAB / SPACE / EDITING SETTINGS
 " autoindent
 se ai "noai"
@@ -143,14 +146,18 @@ nnoremap <Leader>fw :w<CR>
 nnoremap <Leader>fa :wa<CR>
 nnoremap <Leader>fq :q!<CR>
 nnoremap <Leader>fd :e!<CR>
-" PASTE FROM CLIPBOARD EASILY
-nnoremap <Leader>v "+p
+" CUT,COPY,PASTE FROM CLIPBOARD EASILY
+set clipboard=unnamed
+"vnoremap <Leader>x "+d
+"vnoremap <Leader>c "+y
+"nnoremap <Leader>v "+p
 " PROFESSIONALLY OPEN FILES
-nnoremap <Leader>fe :e <C-R>=expand('%:p').'/'<cr>
-"nnoremap <Leader>fe :e <C-R>=expand('%:h').'/'<cr>
+nnoremap <Leader>fe :e <C-R>=expand('%:h').'/'<cr>
+"nnoremap <Leader>fe :e <C-R>=expand('%:p').'/'<cr>
 " FAST RUN BINDING
 "nnoremap <Leader>fr :w<CR>:silent ! %<CR>
-nnoremap <Leader>fr :w<CR>:!python % -f ./raw-material/Dfn.graphml<CR>
+nnoremap <Leader>fr :w<CR>:silent !ghcii.sh %<CR>
+"nnoremap <Leader>fr :w<CR>:!python % -f ./raw-material/Dfn.graphml<CR>
 " OPEN VERTICAL HELP
 nnoremap ;vh :vert help
 nnoremap ;hv :vert help
@@ -164,6 +171,18 @@ vnoremap < <gv
 vnoremap > >gv
 " fix Y behaviour
 nnoremap Y y$
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
+let g:gundo_width = 60
+let g:gundo_preview_height = 40
+let g:gundo_right = 0
+let g:gundo_preview_bottom = 0
+let g:gundo_help = 1
+let g:gundo_map_move_older = 'j'
+let g:gundo_map_move_newer = 'k'
+let g:gundo_close_on_revert = 0
+let g:undo_auto_preview = 1
 
 " ARPEGGIO SETTINGS TO MY FINGERS AND WRISTS
 call arpeggio#load()
@@ -188,8 +207,9 @@ cmap w!! w !sudo tee % >/dev/null
 " WINDOW MANAGEMENT SETTINGS
 "moving from window to window
 nnoremap <C-h>  <C-w>h
-nnoremap <C-j>  <C-w>j
-nnoremap <C-k>  <C-w>k
+"sadly, next two bindings dont really work.
+"nnoremap <C-j>  <C-w>j
+"nnoremap <C-k>  <C-w>k
 nnoremap <C-l>  <C-w>l
 "open new blank file
 nnoremap o<C-h> :lefta vsp new<cr>
@@ -227,36 +247,39 @@ nnoremap  <Leader>egv :e    ~/.dotfiles/vim/_gvimrc<CR>
 nnoremap   <Leader>eg :e    ~/.dotfiles/git/.gitconfig<CR>
 nnoremap   <Leader>eb :e    ~/.dotfiles/bash/.bashrc<CR>
 nnoremap  <Leader>ebp :e    ~/.dotfiles/bash/.bash_profile<CR>
-nnoremap <Leader>efea :e    ~/.dotfiles/bash/fasteditaliases<CR>
-nnoremap  <Leader>ega :e    ~/.dotfiles/bash/gitaliases<CR>
-nnoremap  <Leader>eba :e    ~/.dotfiles/bash/aliases<CR>
+nnoremap <Leader>efea :e    ~/.dotfiles/aliases/fasteditaliases<CR>
+nnoremap  <Leader>ega :e    ~/.dotfiles/aliases/gitaliases<CR>
+nnoremap  <Leader>eba :e    ~/.dotfiles/aliases/aliases<CR>
 nnoremap   <Leader>et :e    ~/.priv/todo.asc<CR>
 nnoremap   <Leader>ep :e    ~/.priv/priority.asc<CR>
 nnoremap   <Leader>ea :e    ~/.priv/aim.asc<CR>
+nnoremap   <Leader>ez :e    ~/.dotfiles/zsh/.zshrc<CR>
 "in horizontal splitview
 nnoremap   <Leader>evt :sp  ~/.dotfiles/vim/.vimrc<CR>
 nnoremap  <Leader>egvt :sp  ~/.dotfiles/vim/_gvimrc<CR>
 nnoremap   <Leader>egt :sp  ~/.dotfiles/git/.gitconfig<CR>
 nnoremap   <Leader>ebt :sp  ~/.dotfiles/bash/.bashrc<CR>
 nnoremap  <Leader>ebpt :sp  ~/.dotfiles/bash/.bash_profile<CR>
-nnoremap <Leader>efeat :sp  ~/.dotfiles/bash/fasteditaliases<CR>
-nnoremap  <Leader>egat :sp  ~/.dotfiles/bash/gitaliases<CR>
-nnoremap  <Leader>ebat :sp  ~/.dotfiles/bash/aliases<CR>
+nnoremap <Leader>efeat :sp  ~/.dotfiles/aliases/fasteditaliases<CR>
+nnoremap  <Leader>egat :sp  ~/.dotfiles/aliases/gitaliases<CR>
+nnoremap  <Leader>ebat :sp  ~/.dotfiles/aliases/aliases<CR>
 nnoremap   <Leader>ett :sp  ~/.priv/todo.asc<CR>
 nnoremap   <Leader>ept :sp  ~/.priv/priority.asc<CR>
 nnoremap   <Leader>eat :sp  ~/.priv/aim.asc<CR>
+nnoremap   <Leader>ezt :sp  ~/.dotfiles/zsh/.zshrc<CR>
 "in vertical splitview
 nnoremap   <Leader>evv :vsp ~/.dotfiles/vim/.vimrc<CR>
 nnoremap  <Leader>egvv :vsp ~/.dotfiles/vim/_gvimrc<CR>
 nnoremap   <Leader>egv :vsp ~/.dotfiles/git/.gitconfig<CR>
 nnoremap   <Leader>ebv :vsp ~/.dotfiles/bash/.bashrc<CR>
 nnoremap  <Leader>ebpv :vsp ~/.dotfiles/bash/.bash_profile<CR>
-nnoremap <Leader>efeav :vsp ~/.dotfiles/bash/fasteditaliases<CR>
-nnoremap  <Leader>egav :vsp ~/.dotfiles/bash/gitaliases<CR>
-nnoremap  <Leader>ebav :vsp ~/.dotfiles/bash/aliases<CR>
+nnoremap <Leader>efeav :vsp ~/.dotfiles/aliases/fasteditaliases<CR>
+nnoremap  <Leader>egav :vsp ~/.dotfiles/aliases/gitaliases<CR>
+nnoremap  <Leader>ebav :vsp ~/.dotfiles/aliases/aliases<CR>
 nnoremap   <Leader>etv :vsp ~/.priv/todo.asc<CR>
 nnoremap   <Leader>epv :vsp ~/.priv/priority.asc<CR>
 nnoremap   <Leader>eav :vsp ~/.priv/aim.asc<CR>
+nnoremap   <Leader>ezv :vsp ~/.dotfiles/zsh/.zshrc<CR>
 "sourcing
 nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>
 nnoremap <Leader>sf :silent !c:\Users\sjas\.dotfiles\dotfiles-setup-win.bat<CR>
@@ -269,6 +292,12 @@ nnoremap <Leader>bc :BundleClean<CR>
 nnoremap <Leader>bl :BundleList<CR>
 nnoremap <Leader>bs :BundleSearch<CR>
 
+" Taglist
+nnoremap <Leader>ta  :TlistAddFiles 
+nnoremap <Leader>tar :TlistAddFilesRecursive 
+nnoremap <Leader>tl  :TlistToggle<cr>
+nnoremap <Leader>tu  :TlistUpdate<cr>
+
 " NERDTREE
 let NERDTreeShowHidden=1
 "this is a BAD hack: minimize NERDTREE completely after opening it
@@ -279,7 +308,8 @@ nnoremap <Leader><CR> :NERDTreeFind<CR>999<C-w><40<C-w>>010l
 " this is not working, fix it some day...
 "autocmd BufEnter * silent! if bufname('%') !~# 'NERD_tree_' | cd %:p:h | NERDTreeCWD | wincmd p | endif
 " OPEN LAST CLOSED WINDOW
-nnoremap <Leader>n :vs<bar>:b#<CR>
+"todo remap this to next tab
+"nnoremap <Leader>n :vs<bar>:b#<CR>
 " OPEN YANKRING
 nnoremap <silent> <Leader>p :YRShow<CR>
 " CHOOSE COLORSCHEME
@@ -302,8 +332,7 @@ nnoremap <Leader>0 :se foldlevel=0<CR>
 " INSERT FILETYPE CONFIG MODELINE + jump back where i was
 nnoremap <Leader>ft <ESC><ESC>Go<CR># vim: se ft=config:<ESC>g;g;
 " HEADLINING
-" TODO further improve this so the whole codeblock will be created, with help
-" of NERDcommenter
+"TODO how to create whole commentblocks?
 nnoremap <Leader>HL <ESC><ESC>:s/\v/  /<CR>^hxhx
 nnoremap <Leader>hl <ESC><ESC>:s/\v/ /<CR>^hx
 " UPPERCASE CURRENT LINE
@@ -311,7 +340,6 @@ nnoremap <Leader>uu VgU
 " ADD CURRENT DATE AT THE END OF FILE
 " comment it out and jump back to last edit location
 nnoremap <Leader>fs :.!date<cr><esc>
-" TODO check if this actually works
 " remove unneeded carriage returns
 nnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
@@ -496,26 +524,6 @@ set mousehide		" Hide the mouse when typing text
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" Only do this for Vim version 5.0 and later.
-if version >= 500
-
-  " I like highlighting strings inside C comments
-  let c_comment_strings=1
-
-  " Switch on syntax highlighting if it wasn't on yet.
-  if !exists("syntax_on")
-    syntax on
-  endif
-
-  " Switch on search pattern highlighting.
-  set hlsearch
-
-  " For Win32 version, have "K" lookup the keyword in a help file
-"  if has("win32")
-"    let winhelpfile='windows.hlp'
-"    map K :execute "!start winhlp32 -k <cword> " . winhelpfile <CR>
-"  endif
-endif
 
 " THIS IS SOME PERSONALIZED STIFF WHERE I DONT REALLY KNOW WHY I INCLUDED IT
 " IT WILL ALL BECOME CLEAR AFTER A WHILE?
@@ -530,6 +538,7 @@ behave xterm
 "colo soruby
 " fullscreen starten
 au GUIEnter * simalt ~x
+au GUIEnter * simalt <f10>
 " buttonleiste ausblenden
 if has('gui_running')
   set guioptions-=T   " Remove toolbar, 'm' statt 'T' fürs menu...
@@ -662,8 +671,7 @@ let g:rbpt_colorpairs = [
     \ ]
 let g:rbpt_max = 16
 "let g:rbpt_loadcmd_toggle = 0
-
-nnoremap <Leader>rb :RainbowParenthesesLoadRound<cr>:RainbowParenthesesLoadSquare<cr>:RainbowParenthesesLoadBraces<cr>:RainbowParenthesesLoadChevrons<cr>:RainbowParenthesesToggle<cr>
+nnoremap <Leader>er :RainbowParenthesesLoadRound<cr>:RainbowParenthesesLoadSquare<cr>:RainbowParenthesesLoadBraces<cr>:RainbowParenthesesLoadChevrons<cr>:RainbowParenthesesToggle<cr>
 " uncomment this for auto-on
 "au VimEnter * RainbowParenthesesToggle
 "au Syntax * RainbowParenthesesLoadRound
@@ -677,23 +685,6 @@ nnoremap <Leader>rb :RainbowParenthesesLoadRound<cr>:RainbowParenthesesLoadSquar
 "REMOVE TRAILING WHITESPACE AND ^M CHARS
 au FileType c,cpp,java,php,javascript,python,twig,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
-"au Filetype asciidoc se nolist
-
-"
-"  U N U S E D   S T U F F
-"
-
-" ESCAPE INS MODE BESIDES CTRL-[
-"imap jj <ESC>l
-"imap kk <ESC>k
-
-"SOURCE VIMRC AUTOMATICALLY
-" seems to have hang ups...
-"autocmd BufWritePost $MYVIMRC source $MYVIMRC
+au Filetype asciidoc se nolist
 " SAVE ALL FILES WHEN FOCUS IS LOST
-"au FocusLost * :wa
-" WHEN RESIZING THE WINDOW
-" TODO: make this bastard work
-" right now i use <Leader>= to fix sizes
-" after i resized the window
-"au VimResized noea ea "this does not work as it should
+au FocusLost * :wa

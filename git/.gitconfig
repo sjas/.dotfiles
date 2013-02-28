@@ -6,6 +6,15 @@
 	diff = on
 	interactive = on
 	status = on
+[diff]
+    tool = vimdiff
+[mergetool "vimdiff"]
+    cmd = vimdiff "$LOCAL" "$REMOTE"
+[merge]
+    tool = splice
+[mergetool "splice"]
+    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+    trustExitCode = true
 [alias]
   #  'git h' for help, 'git la' to list aliases	=====	
 	h 	= help #(...)
@@ -55,11 +64,14 @@
 	d	= diff HEAD # diff staged + unstaged against HEAD
 	ds	= diff --staged # diff staged against HEAD
 	du	= diff # diff unstaged against HEAD
+    dt	= difftool
       
       #  check current state locally	=====
 	#  index status	=====
-	s	= status
-	ss	= status -uno # don't show untracked stuff
+	s	= status --short
+	ss	= status -uno --short# don't show untracked stuff
+	sa	= status
+	ssa	= status -uno # don't show untracked stuff
 	#  currently versioned files at HEAD	=====
 	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less
 	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less
