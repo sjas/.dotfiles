@@ -57,7 +57,7 @@ Bundle 'sjas/asciidoc-vim'
 " Haskell plugin
 Bundle 'sjas/haskellmode-vim'
 "Bundle 'sjas/todo.txt-vim'
-Bundle 'workflowish'
+Bundle 'sjas/workflowish'
 " TODO
 "Bundle 'Twinside/vim-haskellConceal'
 "Bundle 'ehamberg/vim-cute-python'
@@ -319,16 +319,16 @@ nnoremap <Leader>i :echo g:colors_name<CR>
 
 "map <leader>et :tabe %% "i dont work with tabs
 " FOLDLEVELS
-nnoremap <Leader>1 :se foldlevel=1<CR>
-nnoremap <Leader>2 :se foldlevel=2<CR>
-nnoremap <Leader>3 :se foldlevel=3<CR>
-nnoremap <Leader>4 :se foldlevel=4<CR>
-nnoremap <Leader>5 :se foldlevel=5<CR>
-nnoremap <Leader>6 :se foldlevel=6<CR>
-nnoremap <Leader>7 :se foldlevel=7<CR>
-nnoremap <Leader>8 :se foldlevel=8<CR>
-nnoremap <Leader>9 :se foldlevel=9<CR>
-nnoremap <Leader>0 :se foldlevel=0<CR>
+nnoremap <Leader>1 :se foldlevel=0<CR>
+nnoremap <Leader>2 :se foldlevel=1<CR>
+nnoremap <Leader>3 :se foldlevel=2<CR>
+nnoremap <Leader>4 :se foldlevel=3<CR>
+nnoremap <Leader>5 :se foldlevel=4<CR>
+nnoremap <Leader>6 :se foldlevel=5<CR>
+nnoremap <Leader>7 :se foldlevel=6<CR>
+nnoremap <Leader>8 :se foldlevel=7<CR>
+nnoremap <Leader>9 :se foldlevel=8<CR>
+nnoremap <Leader>0 :se foldlevel=9<CR>
 " INSERT FILETYPE CONFIG MODELINE + jump back where i was
 nnoremap <Leader>ft <ESC><ESC>Go<CR># vim: se ft=config:<ESC>g;g;
 " HEADLINING
