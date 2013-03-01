@@ -99,6 +99,8 @@ vnoremap s/ :s/
 " RESET SEARCH HIGHLIGHTING
 "nnoremap <Leader><backspace> :noh<CR><CR>:<BACKSPACE>k
 nnoremap <Leader><backspace> /qwerqwerasdfasdf<CR><ESC>
+"intendation highlighting
+nnoremap <Leader>ih :match Search /\%(\_^\s*\)\@<=\%(\%1v\|\%5v\|\%9v\)\s/<cr>
 " HIGHLIGHT RESULTS / hlsearch
 se hls
 " IGNORE CASE
