@@ -12,5 +12,6 @@ To achieve this, the *.dotfiles* folder has to be checked out into your ~ folder
 When editing configs through the shortcuts, the deployscript has to be used afterwards currently.  I was not able to resolve this otherwise through symlinks (yet).  This makes me want to drink.  The configs should only be edited from within the .dotfiles folder, so configuration changes can be pushed back to origin easily.
 
 
-sjas
+- sjas
+
 Fri Mar  1 14:41:11 CET 2013
