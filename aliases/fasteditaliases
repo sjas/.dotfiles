@@ -22,5 +22,6 @@
 
 # organisational
         alias et='vim ~/.priv/todo.wofl'
+        alias st='cat ~/.priv/todo.wofl | grep "^\s*+"'
         alias ep='vim ~/.priv/priority.wofl'
         alias ea='vim ~/.priv/aim.wofl'
