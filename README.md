@@ -14,4 +14,4 @@ When editing configs through the shortcuts, the deployscript has to be used afte
 
 - sjas
 
-Fri Mar  1 14:41:11 CET 2013
+Fr,  1. Mrz 2013 15:59:29
