@@ -33,8 +33,8 @@
 	aa	= add .
 	ai	= add -i
 	#  unchoose	=====
-	rm	= rm -r #... unversion and delete
-	rmc	= rm -r --cached #... unversion, but leave in working copy
+	r	= rm -r #... unversion and delete
+	rc	= rm -r --cached #... unversion, but leave in working copy
 	#  do	=====
 	c	= commit -m #...
 	fc	= commit -am fastcommit
@@ -43,7 +43,7 @@
 	mca	= commit -a
 	cam	= commit --amend -C HEAD # update last commit
 	#  undo	=====
-	r	= reset --hard HEAD
+	rs	= reset --hard HEAD
 
       #  name stuff properly	=====
 	#  tag	=====
