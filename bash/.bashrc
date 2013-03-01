@@ -10,6 +10,8 @@
         source ~/.dotfiles/aliases/aliases
         source ~/.dotfiles/aliases/gitaliases
 # # # # # # # # # # # # # # # # # # # # #
+# fix stuff in aliases file
+export LS3=''
 # emacs like editing at bash promt
 # <C-x><C-e> opens command in vim
         set -o emacs

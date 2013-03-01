@@ -49,7 +49,7 @@
 # # # # # # # # # # # # # # # # # # # # #
 
 #mkdir
-        alias mkdir=mkdir -p
+        alias mkdir='mkdir -p'
 
 #cdnd - 'cd new dir'
         mkdircd(){
