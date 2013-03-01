@@ -9,12 +9,13 @@
         alias  ed='vim ~/.dotfiles/dotfiles-setup.sh'
 
 # dotfiles
+        alias  ez='vim ~/.dotfiles/zsh/.zshrc'
         alias  eb='vim ~/.dotfiles/bash/.bashrc'
         alias ebp='vim ~/.dotfiles/bash/.bash_profile'
         alias  eg='vim ~/.dotfiles/git/.gitconfig'
         alias  ev='vim ~/.dotfiles/vim/.vimrc'
 
-# bash folder
+# edit aliases
         alias efea='vim ~/.dotfiles/aliases/fasteditaliases'
         alias  ega='vim ~/.dotfiles/aliases/gitaliases'
         alias  esa='vim ~/.dotfiles/aliases/aliases'
@@ -23,4 +24,3 @@
         alias et='vim ~/.priv/todo.wofl'
         alias ep='vim ~/.priv/priority.wofl'
         alias ea='vim ~/.priv/aim.wofl'
-        alias ez='vim ~/.dotfiles/.zshrc'
