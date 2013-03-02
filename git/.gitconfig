@@ -112,8 +112,8 @@
 	rba	= rebase --abort
 
       #  interact with the rest of the world	=====
-	pp	= pull
-	p	= push
+	p	= pull
+	pp	= push
 	rmrb	= push --delete origin #... remote branch to be deleted
 	fp	= !git mca && git p # fast push script, be wary!	
 	f	= fetch
