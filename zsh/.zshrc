@@ -41,7 +41,10 @@ plugins=(command-coloring zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-#unsetopt promptcr
+#dont let the prompt overwrite output
+unsetopt promptcr
+#no damned autocorrect
+unsetopt correct_all
 
 export PAGER='less'
 export EDITOR=vim
