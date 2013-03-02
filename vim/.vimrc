@@ -322,6 +322,10 @@ nnoremap <Leader>o :vnew<CR>:ColorSchemeExplorer<CR>
 nnoremap <Leader>i :echo g:colors_name<CR>
 
 "map <leader>et :tabe %% "i dont work with tabs
+" FOLDING
+"easier moving, because z sucks and w is overrated
+"nnoremap z w
+"nnoremap w z
 " FOLDLEVELS
 nnoremap <Leader>1 :se foldlevel=0<CR>
 nnoremap <Leader>2 :se foldlevel=1<CR>
@@ -450,9 +454,9 @@ iab isabel \textsc{isabel}
 " JSON HIGHLIGHTING
 "au BufNewFile,BufRead *.json set ft=javascript
 " MANPAGES FROM WITHIN VIM
-"source $VIMRUNTIME/ftplugin/man.vim
+source $VIMRUNTIME/ftplugin/man.vim
+source $VIMRUNTIME/ftplugin/ant.vim
 "source $VIMRUNTIME/ftplugin/muttrc.vim
-"source $VIMRUNTIME/ftplugin/ant.vim
 
 " NEOCOMPLCACHE
 " Disable AutoComplPop.
