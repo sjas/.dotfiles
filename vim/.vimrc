@@ -455,6 +455,8 @@ iab isabel \textsc{isabel}
 "au BufNewFile,BufRead *.json set ft=javascript
 " MANPAGES FROM WITHIN VIM
 source $VIMRUNTIME/ftplugin/man.vim
+"next line needs ; since i switched ; with : and vice versa
+nnoremap ;man :Man
 source $VIMRUNTIME/ftplugin/ant.vim
 "source $VIMRUNTIME/ftplugin/muttrc.vim
 
