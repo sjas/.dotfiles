@@ -37,6 +37,7 @@
 
 #vim
         alias v=vim
+        alias vi=vim
         alias vm=~/.dotfiles/vim/vman.sh
 # # # # # # # # # # # # # # # # # # # # #
 

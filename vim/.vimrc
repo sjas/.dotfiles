@@ -117,7 +117,7 @@ se list "list nolist
 se is "nois"
 " WHAT'S SHOWN WHEN SCROLLING
 se scrolljump=0 "negative values are in percent
-se scrolloff=4 "cursor stays in mid of screen...
+se scrolloff=0 "cursor stays in mid of screen...
 " ctags tag list
 set tags=./tags;/
 nnoremap <Leader>ct :!ctags -R .<cr>
