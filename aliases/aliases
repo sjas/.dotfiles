@@ -27,8 +27,8 @@
         fi
         alias  ls='ls $LS1 $LS2 $LS3 -B '
         alias  la='ls $LS1 $LS2 $LS3 -A ' # also lists hidden files
-        alias   l='ls $LS1 $LS2 $LS3 -lA' # listing view of all files
-        alias  ll='ls $LS1 $LS2 $LS3 -lB' # like before, but w/o hidden files
+        alias   l='ls $LS1 $LS2 $LS3 -lB' # listing view of all files
+        alias  ll='ls $LS1 $LS2 $LS3 -lA' # like before, but w/o hidden files
         alias vls='ls $LS1 $LS2 $LS3 -B  | grep ".*" | less -R'
         alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R' # also lists hidden files
         alias  vl='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R' # list of files
