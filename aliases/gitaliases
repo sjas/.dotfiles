@@ -10,8 +10,7 @@ alias gha="git ha"
 alias ghi="git hi"
 alias gla="git la"
 
-alias gclb="git clb"
-alias gclf="git clf"
+alias gcl="git cl"
 
 alias ga="git a"
 alias gaa="git aa"
