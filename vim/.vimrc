@@ -27,7 +27,7 @@ Bundle 'sjl/vitality.vim'
 Bundle 'sjl/splice.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'sjl/badwolf'
-"Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-fugitive'
 Bundle 'arpeggio'
 Bundle 'YankRing.vim'
 Bundle 'Shougo/neocomplcache'
@@ -37,13 +37,15 @@ Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
-"Bundle 'Lokaltog/powerline'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
 Bundle 'Align'
 Bundle 'surround.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'SearchComplete'
+
 Bundle 'plasticboy/vim-markdown'
+Bundle "timcharper/textile.vim"
+
 Bundle 'ShowMarks'
 Bundle 'colorizer'
 Bundle 'repeat.vim'
@@ -57,12 +59,12 @@ Bundle 'sjas/asciidoc-vim'
 " Haskell plugin
 Bundle 'sjas/haskellmode-vim'
 "Bundle 'sjas/todo.txt-vim'
+Bundle 'jceb/vim-orgmode'
 Bundle 'sjas/workflowish'
+Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 " TODO
 "Bundle 'Twinside/vim-haskellConceal'
 "Bundle 'ehamberg/vim-cute-python'
-" LaTeX Stuff
-Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 "Bundle 'tomtom/checksyntax_vim'
 "Bundle 'tomtom/quickfixsigns_vim'
 " ColorScheme Explorer
@@ -176,6 +178,9 @@ vnoremap > >gv
 " fix Y behaviour
 nnoremap Y y$
 
+" ShowMarks
+let showmarks_enable = 0
+nnoremap <Leader>sm :ShowMarksToggle<CR>
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
 let g:gundo_width = 60
@@ -194,9 +199,9 @@ call arpeggio#load()
 "Arpeggio nnoremap jk <Esc>
 Arpeggio inoremap jk <Esc>
 Arpeggio vnoremap jk <Esc>
-" git
+" fugitive
 Arpeggio nnoremap gc :Git commit -a<cr>
-Arpeggio nnoremap ga :Git add .<cr>
+Arpeggio nnoremap ga :silent Git add .<cr>
 Arpeggio nnoremap gf :Git pull<cr>
 Arpeggio nnoremap gu :Git push<cr>
 Arpeggio nnoremap gs :Git status<cr>
