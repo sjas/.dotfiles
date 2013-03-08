@@ -25,7 +25,7 @@
   #  with '#...' afterwards parameters needed are indicated	=====
 
       #  it has to start somwhere	=====
-	clone 	= clone -v --progress
+	cl 	= clone -v --progress
 
       #  daily bread	=====
 	#  choose	=====
