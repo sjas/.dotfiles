@@ -8,13 +8,13 @@
 	status = on
 [diff]
     tool = vimdiff
-[mergetool "vimdiff"]
-    cmd = vimdiff "$LOCAL" "$REMOTE"
 [merge]
     tool = splice
 [mergetool "splice"]
     cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
     trustExitCode = true
+[mergetool "vimdiff"]
+    cmd = vimdiff "$LOCAL" "$REMOTE"
 [alias]
   #  'git h' for help, 'git la' to list aliases	=====	
 	h 	= help #(...)
