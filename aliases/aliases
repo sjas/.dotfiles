@@ -1,34 +1,31 @@
 #
 #
-#     s  j  a  s     b  a  s  h     a  l  i  a  s  e  s
+#     s  j  a  s     s  h  e  l  l     a  l  i  a  s  e  s
 #
 #
-#######################################################
+##########################################################
 
 #ls
-        #get os type first
-        if [[ `uname` == Darwin* ]];
-            then export MYOS="mac";
-        else 
-            export MYOS="linux";
-        fi
-        # # # # # # # # # # # # # # # # # # # # #
-        # os check for getting right settings chosen
+        # os check for getting coloring right
         #on linux:
-        if [[ '$MYOS' == 'linux' ]]; then
-                export LS_OPTIONS='-hF --color=always --time-style=long-iso'
+        if [[ `uname` == Linux ]]; then
+                export LS1='--color=always'
         #on mac:
-        elif [[ '$MYOS' == 'mac' ]]; then
-                export LS_OPTIONS='-hGF --time-style=long-iso'
+        elif [[ `uname` == Darwin* ]]; then
+                export LS1='-G'
+        #on windows/cygwin/mingw/other
         else 
-            export LS1='-hXF'
-            export LS2='--color=auto'
-            export LS3='--time-style=long-iso'
+            export LS1='--color=auto'
         fi
+
+        export LS2='-hF'
+        export LS3='--time-style=long-iso'
+
         alias  ls='ls $LS1 $LS2 $LS3 -B '
         alias  la='ls $LS1 $LS2 $LS3 -A ' # also lists hidden files
         alias   l='ls $LS1 $LS2 $LS3 -lB' # listing view of all files
         alias  ll='ls $LS1 $LS2 $LS3 -lA' # like before, but w/o hidden files
+        # for very long listings use less
         alias vls='ls $LS1 $LS2 $LS3 -B  | grep ".*" | less -R'
         alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R' # also lists hidden files
         alias  vl='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R' # list of files
