@@ -50,6 +50,10 @@
         alias tail='tail -n200'
 # # # # # # # # # # # # # # # # # # # # #
 
+#du
+        alias du='du -h'
+# # # # # # # # # # # # # # # # # # # # #
+
 #mkdir
         alias mkdir='mkdir -p'
 
