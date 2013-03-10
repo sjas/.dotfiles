@@ -120,8 +120,8 @@
 
       #  use svn if you have to	=====
     sco	= svn clone #...
-    sci	= svn dcommit #...
-    sup	= svn rebase #...
+    sci	= svn dcommit #push locally committed changes to svn
+    sup	= svn rebase # = svn update
   # log settings ahead:
   # l+ and l+o are the same basically.
   # l+o's just exist if you need a longer revision identificator.
