@@ -66,7 +66,7 @@ export SVN_EDITOR=vim
      # LESS COLORS FOR MAN PAGES
         export LESS_TERMCAP_mb=$'\E[1;31m'       # begin blinking
      # CHANGE FIRST NUMBER PAIR FOR COMMAND AND FLAG COLOR
-        export LESS_TERMCAP_md=$'\E[0;32m'  # begin bold... now Green
+        export LESS_TERMCAP_md=$'\E[1;32m'  # begin bold... now Green
      # CHANGE FIRST NUMBER PAIR FOR PARAMETER COLOR
         export LESS_TERMCAP_us=$'\E[1;33m' # begin underline ... now Yellow
         export LESS_TERMCAP_me=$'\E[0m'           # end mode
