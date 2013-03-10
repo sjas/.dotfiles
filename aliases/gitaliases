@@ -77,10 +77,10 @@ alias gsbl="git sbl"
 alias gsblf="git sblf"
 alias gsl="git sl"
 
-alias gco="git co"
 alias gb="git b"
-alias gbc="git bc"
-alias gbd="git bd"
+alias gbr="git br"
+alias gco="git co"
+alias gcob="git cob"
 
 alias gm="git m"
 alias grb="git rb"
@@ -92,7 +92,6 @@ alias grba="git rba"
 alias gpp="git pp"
 alias gp="git p"
 alias grmrb="git rmrb"
-
 gitfastpush(){
 	git ca "$*";
 	git p
@@ -100,6 +99,10 @@ gitfastpush(){
 alias gfp=gitfastpush
 alias gf="git f"
 alias grem="git rem"
+
+alias gsco="git sco"
+alias gsci="git sci"
+alias gsup="git sup"
 
 alias gllc="git llc"
 alias glsha="git lsha"

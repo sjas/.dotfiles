@@ -98,10 +98,9 @@
 
       #  branch your way to victory, add <branch name>	=====
 	b	= branch #(...), without argument show existing ones
+	br	= branch -d #...
 	co	= checkout #...
-	bc	= checkout -b #... create + checkout branch
-	bd	= branch -d #...
-	fb	= !git st && git b
+	cob	= checkout -b #... create + checkout branch
 
       #  merge your way back into madness
 	m	= merge --no-ff #...
@@ -118,10 +117,14 @@
 	fp	= !git mca && git p # fast push script, be wary!	
 	f	= fetch
 	rem	= remote -v # show remotes
+
+      #  use svn if you have to	=====
+    sco	= svn clone #...
+    sci	= svn dcommit #...
+    sup	= svn rebase #...
   # log settings ahead:
   # l+ and l+o are the same basically.
   # l+o's just exist if you need a longer revision identificator.
-
 
       #  dig in history what went wrong	=====
   	rl	= reflog
