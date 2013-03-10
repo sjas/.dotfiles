@@ -89,8 +89,9 @@ alias grbc="git rbc"
 alias grbs="git rbs"
 alias grba="git rba"
 
-alias gpp="git pp"
 alias gp="git p"
+alias gpp="git pp"
+alias gpup="git pup"
 alias grmrb="git rmrb"
 gitfastpush(){
 	git ca "$*";

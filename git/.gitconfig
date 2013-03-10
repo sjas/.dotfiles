@@ -113,8 +113,9 @@
       #  interact with the rest of the world	=====
 	p	= pull
 	pp	= push
+    pup	= !git p && git pp # pull and push, not nice but sometimes convenient
 	rmrb	= push --delete origin #... remote branch to be deleted
-	fp	= !git mca && git p # fast push script, be wary!	
+	fp	= !git mca && git pp # fast push script, be wary!	
 	f	= fetch
 	rem	= remote -v # show remotes
 
