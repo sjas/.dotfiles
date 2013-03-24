@@ -62,6 +62,7 @@ Bundle 'sjas/haskellmode-vim'
 Bundle 'jceb/vim-orgmode'
 Bundle 'sjas/workflowish'
 Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
+"Bundle 'AutomaticLaTexPlugin'
 " TODO
 "Bundle 'Twinside/vim-haskellConceal'
 "Bundle 'ehamberg/vim-cute-python'
@@ -393,7 +394,7 @@ se wildmode=list:longest,full
 "
 "   F  I  L  E  T  Y  P  E     S  P  E  C  I  F  I  C
 "
-" ENABLE MODELINES
+" ENABLE MODELINES AND HOW MANY LINES ARE CHECKED
 se ml "noml"
 se mls=5 "mls=0"
 
@@ -430,9 +431,13 @@ let g:Tex_CompileRule_pdf         = 'pdflatex -synctex=1 --interaction=nonstopmo
 "let g:Tex_ViewRule_dvi            = 'C:/Program Files (x86)/Adobe/Acrobat 10.0/Acrobat/Acrobat.exe'
 "let g:Tex_ViewRule_ps             = 'C:/Program Files (x86)/Adobe/Acrobat 10.0/Acrobat/Acrobat.exe'
 "let g:Tex_ViewRule_pdf            = 'C:/Program Files (x86)/Adobe/Acrobat 10.0/Acrobat/Acrobat.exe'
-let g:Tex_ViewRule_dvi            = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
-let g:Tex_ViewRule_ps             = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
-let g:Tex_ViewRule_pdf            = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
+"let g:Tex_ViewRule_dvi            = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
+"let g:Tex_ViewRule_ps             = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
+"let g:Tex_ViewRule_pdf            = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
+let g:Tex_ViewRule_dvi            = 'C:/Program Files (x86)/SumatraPDF/sumatrapdf.exe'
+let g:Tex_ViewRule_ps             = 'C:/Program Files (x86)/SumatraPDF/sumatrapdf.exe'
+let g:Tex_ViewRule_pdf            = 'C:/Program Files (x86)/SumatraPDF/sumatrapdf.exe'
+
 " formatdependencies
 let g:Tex_FormatDependency_ps     = 'dvi,ps'
 let g:Tex_FormatDependency_pspdf  = 'dvi,ps,pspdf'
