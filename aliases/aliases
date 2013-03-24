@@ -39,8 +39,12 @@
 # # # # # # # # # # # # # # # # # # # # #
 
 #grep
-        # always use ignore case
-        alias grep='grep --color=always -i'
+        # always use:
+        #   color
+        #   ignore case
+        #   print line number
+        #   recursive search
+        alias grep='grep --color=always -i -n -r'
 # # # # # # # # # # # # # # # # # # # # #
 
 #tail
