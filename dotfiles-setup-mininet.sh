@@ -16,4 +16,6 @@ sudo loadkeys ~/.dotfiles/keyboard/CapsToControl.map.gz
 #source ~/.xmodmaprc
 #source ~/.Xkbmap
 
+echo 'colo desert' >> .vimrc
+
 vim +':source $MYVIMRC' +':q'
