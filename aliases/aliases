@@ -7,6 +7,10 @@
 
 #cd
         alias ..='cd ..'
+        alias ...='cd ../..'
+        alias ....='cd ../../..'
+        alias .....='cd ../../../..'
+
 #ls
         # os check for getting coloring right
         #on linux:
