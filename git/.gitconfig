@@ -33,7 +33,7 @@
 	aa	= add .
 	ai	= add -i
 	#  unchoose	=====
-	r	= rm -r #... unversion and delete
+	r	= rm -rf #... unversion and delete
 	rc	= rm -r --cached #... unversion, but leave in working copy
 	#  do	=====
 	c	= commit -m #...
@@ -130,6 +130,7 @@
       #  dig in history what went wrong	=====
   	rl	= reflog
 	l	= log --graph --oneline --decorate=short
+    lp	= log -p
 	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
 	lll	= log --graph --abbrev-commit --decorate=short # --pretty=medium
 	lo	= log --graph --oneline --decorate=short --abbrev=7
