@@ -5,6 +5,8 @@
 #
 ##########################################################
 
+#open windows explorer from shell in current folder
+        alias e='explorer .'
 #cd
         alias ..='cd ..'
         alias ...='cd ../..'
