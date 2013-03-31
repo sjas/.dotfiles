@@ -434,9 +434,12 @@ let g:Tex_CompileRule_pdf         = 'pdflatex -synctex=1 --interaction=nonstopmo
 "let g:Tex_ViewRule_dvi            = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
 "let g:Tex_ViewRule_ps             = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
 "let g:Tex_ViewRule_pdf            = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
-let g:Tex_ViewRule_dvi            = 'C:/Program Files (x86)/SumatraPDF/sumatrapdf.exe'
-let g:Tex_ViewRule_ps             = 'C:/Program Files (x86)/SumatraPDF/sumatrapdf.exe'
-let g:Tex_ViewRule_pdf            = 'C:/Program Files (x86)/SumatraPDF/sumatrapdf.exe'
+"let g:Tex_ViewRule_dvi            = '/cygdrive/c/Program\ Files\ \(x86\)/SumatraPDF/sumatrapdf.exe'
+"let g:Tex_ViewRule_ps             = '/cygdrive/c/Program\ Files\ \(x86\)/SumatraPDF/sumatrapdf.exe'
+"let g:Tex_ViewRule_pdf            = '/cygdrive/c/Program\ Files\ \(x86\)/SumatraPDF/sumatrapdf.exe'
+let g:Tex_ViewRule_dvi            = 'sumatrapdf'
+let g:Tex_ViewRule_ps             = 'sumatrapdf'
+let g:Tex_ViewRule_pdf            = 'sumatrapdf'
 
 " formatdependencies
 let g:Tex_FormatDependency_ps     = 'dvi,ps'
