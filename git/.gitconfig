@@ -7,41 +7,41 @@
 	interactive = on
 	status = on
 [diff]
-    tool = vimdiff
+	tool = vimdiff
 [merge]
-    tool = splice
+	tool = splice
 [mergetool "splice"]
-    cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-    trustExitCode = true
+	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+	trustExitCode = true
 [mergetool "vimdiff"]
-    cmd = vimdiff "$LOCAL" "$REMOTE"
+	cmd = vimdiff "$LOCAL" "$REMOTE"
 [alias]
 #  'git h' for help, 'git la' to list aliases	=====
-	h		= help #(...)
-	ha		= !git help -a | less
-	hi		= help -i #... yet to find out how to use 'info' program
-	la		= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' | sed -e 's/#.*/[0;32m&[0m/g' | less -R"
+	h	= help #(...)
+	ha	= !git help -a | less
+	hi	= help -i #... yet to find out how to use 'info' program
+	la	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' | sed -e 's/#.*/[0;32m&[0m/g' | less -R"
 
 #  it has to start somwhere	=====
-	cl		= clone -v --progress
+	cl	= clone -v --progress
 
 #  daily bread	=====
 	#  choose	=====
-	a		= add #...
-	aa		= add -A .
-	ai		= add -i
+	a	= add #...
+	aa	= add -A .
+	ai	= add -i
 	#  unchoose	=====
-	r		= rm -rf #... unversion and delete
-	rc		= rm -r --cached #... unversion, but leave in working copy
+	r	= rm -rf #... unversion and delete
+	rc	= rm -r --cached #... unversion, but leave in working copy
 	#  do	=====
-	c		= commit -m #...
-	fc		= commit -am fastcommit
-	ca		= commit -am #...
-	mc		= commit # think 'message-commit
-	mca		= commit -a
-	cam		= commit --amend -C HEAD # update last commit
+	c	= commit -m #...
+	fc	= commit -am fastcommit
+	ca	= commit -am #...
+	mc	= commit # think 'message-commit
+	mca	= commit -a
+	cam	= commit --amend -C HEAD # update last commit
 	#  undo	=====
-	rs		= reset --hard HEAD
+	rs	= reset --hard HEAD
 
 #  name stuff properly	=====
 	#  tag	=====
@@ -49,86 +49,86 @@
 	tl	= tag -n # show existing tags with messages
 	td	= tag -d #...
 	#  notes	=====
-	n		= !git notes list | sed -e 's/\\([a-z0-9]\\{4\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
-	nv		= !git notes list | sed -e 's/\\([a-z0-9]\\{7\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
-	na		= notes add
-	nap		= notes append
-	ne		= notes edit
-	nr		= notes remove
+	n	= !git notes list | sed -e 's/\\([a-z0-9]\\{4\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
+	nv	= !git notes list | sed -e 's/\\([a-z0-9]\\{7\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
+	na	= notes add
+	nap	= notes append
+	ne	= notes edit
+	nr	= notes remove
 	#  show everything related to a SHA1	=====
-	sh		= show
+	sh	= show
 	#  check current changes you have made	=====
-	d		= diff HEAD # diff staged + unstaged against HEAD
-	ds		= diff --staged # diff staged against HEAD
-	du		= diff # diff unstaged against HEAD
-	dt		= difftool
+	d	= diff HEAD # diff staged + unstaged against HEAD
+	ds	= diff --staged # diff staged against HEAD
+	du	= diff # diff unstaged against HEAD
+	dt	= difftool
 
 #  check current state locally	=====
 	#  index status	=====
-	s		= status --short
-	ss		= status -uno --short# don't show untracked stuff
-	sa		= status
-	ssa		= status -uno # don't show untracked stuff
+	s	= status --short
+	ss	= status -uno --short# don't show untracked stuff
+	sa	= status
+	ssa	= status -uno # don't show untracked stuff
 	#  currently versioned files at HEAD	=====
-	lsf		= !git ls-tree HEAD --full-tree -r -t --name-only | less
+	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less
 	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less
-	ls		= ls-tree -r --name-only #... SHA1
-	lsd		= ls-tree -r -t -d --name-only #... SHA1
+	ls	= ls-tree -r --name-only #... SHA1
+	lsd	= ls-tree -r -t -d --name-only #... SHA1
 	lsfa	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less
 	lsfad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4 | less
 	lsfav	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=7 | less
 	lsfadv	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=7 | less
 
 #  tempsave stuff without branching or committing	=====
-	st		= stash
-	stl		= stash list
-	stp		= stash pop
-	sta		= stash apply
+	st	= stash
+	stl	= stash list
+	stp	= stash pop
+	sta	= stash apply
 
 #  check what is going on everywhere	=====
-	sb		= show-branch -a --list # just list with current commit
-	sba		= show-branch --color=always -a --more=10 --no-name # all
+	sb	= show-branch -a --list # just list with current commit
+	sba	= show-branch --color=always -a --more=10 --no-name # all
 	sbaf	= show-branch --color=always -a --more=10 # all full
-	sbl		= show-branch --color=always --reflog=10 --no-name # local
+	sbl	= show-branch --color=always --reflog=10 --no-name # local
 	sblf	= show-branch --color=always --reflog=10 # local full
-	sl		= shortlog -nse
+	sl	= shortlog -nse
 
 #  branch your way to victory, add <branch name>	=====
-	b		= branch #(...), without argument show existing ones
-	br		= branch -d #...
-	co		= checkout #...
-	cob		= checkout -b #... create + checkout branch
+	b	= branch #(...), without argument show existing ones
+	br	= branch -d #...
+	co	= checkout #...
+	cob	= checkout -b #... create + checkout branch
 
 #  merge your way back into madness
-	m		= merge --no-ff #...
-	rb		= rebase #...
-	rbi		= rebase -i
-	rbc		= rebase --continue
-	rbs		= rebase --skip
-	rba		= rebase --abort
+	m	= merge --no-ff #...
+	rb	= rebase #...
+	rbi	= rebase -i
+	rbc	= rebase --continue
+	rbs	= rebase --skip
+	rba	= rebase --abort
 
 #  interact with the rest of the world	=====
-	p		= pull
-	pp		= push
-	pup		= !git p && git pp # pull and push, not nice but sometimes convenient
+	p	= pull
+	pp	= push
+	pup	= !git p && git pp # pull and push, not nice but sometimes convenient
 	rmrb	= push --delete origin #... remote branch to be deleted
-	fp		= !git mca && git pp # fast push script, be wary!	
-	f		= fetch
-	rem		= remote -v # show remotes
+	fp	= !git mca && git pp # fast push script, be wary!	
+	f	= fetch
+	rem	= remote -v # show remotes
 
 #  use svn if you have to	=====
-	sco		= svn clone #...
-	sci		= svn dcommit #push locally committed changes to svn
-	sup		= svn rebase # = svn update
+	sco	= svn clone #...
+	sci	= svn dcommit #push locally committed changes to svn
+	sup	= svn rebase # = svn update
 
 #  dig in history what went wrong	=====
-	rl		= reflog
-	l		= log --graph --oneline --decorate=short
-	lp		= log -p #... filename, shows diffs for file in question
-	ll		= log --graph --abbrev-commit --decorate=short --pretty=short
-	lll		= log --graph --abbrev-commit --decorate=short # --pretty=medium
-	lo		= log --graph --oneline --decorate=short --abbrev=7
-	llo		= log --graph --abbrev=7 --decorate=short --pretty=short
+	rl	= reflog
+	l	= log --graph --oneline --decorate=short
+	lp	= log -p #... filename, shows diffs for file in question
+	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
+	lll	= log --graph --abbrev-commit --decorate=short # --pretty=medium
+	lo	= log --graph --oneline --decorate=short --abbrev=7
+	llo	= log --graph --abbrev=7 --decorate=short --pretty=short
 	lllo	= log --graph --abbrev=7 --decorate=short #--pretty=medium
 
 [core]
@@ -184,3 +184,4 @@
 	#
 	# there also exist .gitattributes files now... how do they relate?
 
+# vim: ts=8:
