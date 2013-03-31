@@ -73,7 +73,7 @@
         }
         alias cdnd=mkdircd
 # pushd, popd, dirs
-        alias d='dirs'
+        alias d='dirs -v'
         alias o='popd'
         alias p='pushd'
 # # # # # # # # # # # # # # # # # # # # #
