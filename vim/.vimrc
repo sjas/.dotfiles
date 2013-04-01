@@ -407,8 +407,8 @@ source $VIMRUNTIME/ftplugin/tex.vim
     "set shellslash
 "endif
 set grepprg=grep\ -nH\ $*
-"indent just a little, TODO: fix this with an if just for latex files
-"set sw=2
+"indent just a little
+au Filetype tex se sw=2
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
