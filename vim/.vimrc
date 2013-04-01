@@ -396,7 +396,7 @@ se wildmode=list:longest,full
 "
 " ENABLE MODELINES AND HOW MANY LINES ARE CHECKED
 se ml "noml"
-se mls=5 "mls=0"
+se mls=2 "mls=0"
 
 " LaTeX stuff can be found in $VIMFILES/ftplugin/tex.vim
 source $VIMRUNTIME/ftplugin/tex.vim
@@ -444,6 +444,13 @@ let g:Tex_ViewRule_dvi            = 'sumatrapdf'
 let g:Tex_ViewRule_ps             = 'sumatrapdf'
 let g:Tex_ViewRule_pdf            = 'sumatrapdf'
 
+" shell settings...
+set shell=zsh.exe
+set shellcmdflag=-c
+set shellslash
+
+let g:Tex_Leader='`'
+
 " formatdependencies
 let g:Tex_FormatDependency_ps     = 'dvi,ps'
 let g:Tex_FormatDependency_pspdf  = 'dvi,ps,pspdf'
@@ -464,7 +471,6 @@ let g:Tex_SmartKeyBS = 1
 let g:Tex_SmartKeyQuote = 0 
 " LaTeX shortcuts
 iab lra $\longrightarrow$
-iab isabel \textsc{isabel}
 "iab ttt \texttt{} <esc><left><left><left><left>i<esc><left>
 
 " JSON HIGHLIGHTING
