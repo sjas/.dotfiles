@@ -27,7 +27,7 @@
 
 #  daily bread	=====
 	#  choose	=====
-	a	= add #...
+	a	= add -A#...
 	aa	= add -A .
 	ai	= add -i
 	#  unchoose	=====
