@@ -416,7 +416,10 @@ set iskeyword+=:
 " create mapping only for certain file type
 "autocmd FileType tex :nmap <F4> \ll\lv
 "autocmd FileType tex :imap <F4> <ESC>\ll\lvgi
-"let g:tex_flavor                  = 'latex'
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor                  = 'latex'
 let g:Tex_DefaultTargetFormat     = 'pdf'
 let g:Tex_CompileRule_dvi         = 'latex -synctex=1 --interaction=nonstopmode $*'
 let g:Tex_CompileRule_ps          = 'dvips -synctex=1 -Pwww -o $*.ps $*.dvi'
@@ -620,10 +623,6 @@ nmap <C-F12> :call ScaleFontUp()<CR>
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
 
 
 " zencoding hotkey
