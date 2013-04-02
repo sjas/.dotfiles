@@ -202,8 +202,8 @@ Arpeggio inoremap jk <Esc>
 Arpeggio vnoremap jk <Esc>
 " fugitive
 Arpeggio nnoremap gc :Git commit -a<cr>
-Arpeggio nnoremap ga :silent Git add .<cr>
-Arpeggio nnoremap gf :Git pull<cr>
+Arpeggio nnoremap ga :Git add .<cr>
+Arpeggio nnoremap gh :Git pull<cr>
 Arpeggio nnoremap gu :Git push<cr>
 Arpeggio nnoremap gs :Git status<cr>
 Arpeggio nnoremap gl :Git log<cr>
@@ -303,6 +303,7 @@ nnoremap <Leader>bl :BundleList<CR>
 nnoremap <Leader>bs :BundleSearch<CR>
 
 " Taglist
+" TODO
 nnoremap <Leader>ta  :TlistAddFiles 
 nnoremap <Leader>tar :TlistAddFilesRecursive 
 nnoremap <Leader>tl  :TlistToggle<cr>
@@ -471,6 +472,7 @@ let g:Tex_SmartKeyBS = 1
 let g:Tex_SmartKeyQuote = 0 
 " LaTeX shortcuts
 iab lra $\longrightarrow$
+iab hh \<++>{<++>}\label{_<++>}<++>
 "iab ttt \texttt{} <esc><left><left><left><left>i<esc><left>
 
 " JSON HIGHLIGHTING
