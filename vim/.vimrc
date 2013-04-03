@@ -356,10 +356,8 @@ nnoremap <Leader>uu VgU
 " comment it out and jump back to last edit location
 nnoremap <Leader>fs :.!date<cr><esc>
 " remove unneeded carriage returns
-nnoremap <Leader><Leader>e :s/
-$<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>e :s/
-$<cr>/qwerqwer<cr><esc>
+nnoremap <Leader><Leader>e :s/ $<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>e :s/ $<cr>/qwerqwer<cr><esc>
 " remove prepending whitespaces
 nnoremap <Leader><Leader>w :s/^\s*<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>w :s/^\s*<cr>/qwerqwer<cr><esc>
@@ -474,9 +472,7 @@ let g:Tex_SmartKeyBS = 1
 let g:Tex_SmartKeyQuote = 0 
 " LaTeX shortcuts
 iab lra $\longrightarrow$
-iab hh \<++>{<++>}
-\label{_<++>}
-<++>
+iab hh \<++>{<++>} \label{_<++>} <++>
 "iab ttt \texttt{} <esc><left><left><left><left>i<esc><left>
 
 " JSON HIGHLIGHTING
