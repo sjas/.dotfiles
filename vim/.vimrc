@@ -717,8 +717,8 @@ nnoremap <Leader>er :RainbowParenthesesLoadRound<cr>:RainbowParenthesesLoadSquar
 "   A U T O L O A D I N G   S T U F F
 "
 "REMOVE TRAILING WHITESPACE AND ^M CHARS
-au FileType c,cpp,java,php,javascript,python,tex,twig,workflowish,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-au Filetype workflowish setlocal nolist sw=2 tw=80 cc=81
+au FileType c,cpp,java,php,javascript,python,tex,twig,wofl,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+au Filetype wofl setlocal nolist sw=2 tw=80 cc=81
 au FileType m setlocal nolist
 
 au Filetype asciidoc setlocal nolist
