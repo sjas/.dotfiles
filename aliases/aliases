@@ -5,8 +5,10 @@
 #
 ##########################################################
 
+#FIRST THE WINDOW SPECIFIC STUFF
 #open windows explorer from shell in current folder
         alias e='explorer .'
+        alias xc='startxwin'
 #cd
         alias ..='cd ..'
         alias ...='cd ../..'
