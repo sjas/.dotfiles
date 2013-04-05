@@ -113,7 +113,7 @@ se ic "noic"
 " SMARTCASE: SENSITIVE WHEN UC CHAR PRESENT
 se scs "noscs"
 " SHOW PROPER WHITESPACE
-" random eol chars to choose from: Ξ♦‡╬∆Ω∙⌂₣‰↨¬⌐
+" random eol chars to choose from: Ξ♦‡╬∆Ω∙⌂₣‰↨¬⌐
 se listchars=tab:↨¬,trail:⌐,extends:‡,precedes:╬,nbsp:Ξ,eol:♦
 se list "list nolist
 " INCREMENTAL SEARCH
@@ -360,8 +360,8 @@ nnoremap <Leader>uu VgU
 " comment it out and jump back to last edit location
 nnoremap <Leader>fs :.!date<cr><esc>
 " remove unneeded carriage returns
-nnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
+nnoremap <Leader><Leader>e :s/ $<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>e :s/ $<cr>/qwerqwer<cr><esc>
 " remove prepending whitespaces
 nnoremap <Leader><Leader>w :s/^\s*<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>w :s/^\s*<cr>/qwerqwer<cr><esc>
@@ -450,7 +450,7 @@ let g:Tex_ViewRule_ps             = 'sumatrapdf'
 let g:Tex_ViewRule_pdf            = 'sumatrapdf'
 
 " shell settings...
-set shell=zsh.exe
+set shell=bash
 set shellcmdflag=-c
 set shellslash
 
@@ -476,7 +476,7 @@ let g:Tex_SmartKeyBS = 1
 let g:Tex_SmartKeyQuote = 0 
 " LaTeX shortcuts
 iab lra $\longrightarrow$
-iab hh \<++>{<++>}\label{_<++>}<++>
+iab hh \<++>{<++>} \label{_<++>} <++>
 "iab ttt \texttt{} <esc><left><left><left><left>i<esc><left>
 
 " JSON HIGHLIGHTING
