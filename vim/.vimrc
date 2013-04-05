@@ -98,7 +98,7 @@ se gd "nogd
 nnoremap s/ :s/
 " all lines 'supersubstitute'
 nnoremap ss/ :%s/
-" in visual mode, this will work expands to: 
+" in visual mode, this will expand to:
 " :'<,'>s/
 vnoremap s/ :s/
 " RESET SEARCH HIGHLIGHTING
@@ -151,7 +151,8 @@ noremap : ;
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>fw :w<CR>
 nnoremap <Leader>fa :wa<CR>
-nnoremap <Leader>fq :q!<CR>
+nnoremap <Leader>fq :q<CR>
+nnoremap <Leader>rq :q!<CR>
 nnoremap <Leader>fd :e!<CR>
 " CUT,COPY,PASTE FROM CLIPBOARD EASILY
 set clipboard=unnamed
@@ -212,6 +213,9 @@ Arpeggio nnoremap gd :Gsdiff HEAD<cr>
 cmap w!! w !sudo tee % >/dev/null
 
 "fast align hack in visual mode
+" in visual mode, this will expand to:
+" :'<,'>Align 
+vnoremap <Leader>al :Align 
 "vnoremap align :Align
 
 " WINDOW MANAGEMENT SETTINGS
@@ -408,8 +412,8 @@ source $VIMRUNTIME/ftplugin/tex.vim
     "set shellslash
 "endif
 set grepprg=grep\ -nH\ $*
-"indent just a little
-au Filetype tex se sw=2
+"indent just a little and wrap text automatically
+au Filetype tex setlocal sw=2 tw=80 cc=81
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
@@ -584,8 +588,8 @@ endif
 "set guifont=lucida_sans_typewriter_regular:h9:cANSI
 set guifont=Lucida_Console:h9:cANSI
 """"set guifont=Envy_Code_R:h10.0:b:cANSI
-" schriftgrössentoggle
-" CTRL+SHIFT+F11/F12 um schriftgrösse zu ändern
+" font size toggle
+" CTRL+SHIFT+F11/F12 to toggle font size
 function! ScaleFontUp()
   let gf_size_whole = matchstr(&guifont, '\(\:h\)\@<=\d\+')
   let gf_size_frac = matchstr(&guifont, '\(\:h\d\+\.\)\@<=\d\=')
@@ -713,8 +717,11 @@ nnoremap <Leader>er :RainbowParenthesesLoadRound<cr>:RainbowParenthesesLoadSquar
 "   A U T O L O A D I N G   S T U F F
 "
 "REMOVE TRAILING WHITESPACE AND ^M CHARS
-au FileType c,cpp,java,php,javascript,python,twig,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+au FileType c,cpp,java,php,javascript,python,tex,twig,workflowish,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+au Filetype workflowish setlocal nolist sw=2 tw=80 cc=81
+au FileType m setlocal nolist
 
-au Filetype asciidoc se nolist
+au Filetype asciidoc setlocal nolist
 " SAVE ALL FILES WHEN FOCUS IS LOST
+" works only in gvim IIRC
 au FocusLost * :wa
