@@ -49,6 +49,7 @@ alias gd="git d"
 alias gds="git ds"
 alias gdu="git du"
 alias gdt="git dt"
+alias gdh="git dh"
 
 alias gst="git st"
 alias gstl="git stl"
@@ -78,7 +79,7 @@ alias gsblf="git sblf"
 alias gsl="git sl"
 
 alias gb="git b"
-alias gbr="git br"
+alias gbd="git bd"
 alias gco="git co"
 alias gcob="git cob"
 

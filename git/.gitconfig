@@ -62,6 +62,8 @@
 	ds	= diff --staged # diff staged against HEAD
 	du	= diff # diff unstaged against HEAD
 	dt	= difftool
+	#  diff master against origin master to show changes to main repository
+	dh	= diff master..origin/master
 
 #  check current state locally	=====
 	#  index status	=====
@@ -95,7 +97,7 @@
 
 #  branch your way to victory, add <branch name>	=====
 	b	= branch #(...), without argument show existing ones
-	br	= branch -d #...
+	bd	= branch -D #...
 	co	= checkout #...
 	cob	= checkout -b #... create + checkout branch
 
