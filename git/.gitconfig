@@ -17,9 +17,9 @@
 	cmd = vimdiff "$LOCAL" "$REMOTE"
 [alias]
 #  'git h' for help, 'git la' to list aliases	=====
-	h	= help #(...)
+	h	= help #(...<git command>)
 	ha	= !git help -a | less
-	hi	= help -i #... yet to find out how to use 'info' program
+	hi	= help -i #... yet to find out how to use the 'info' program
 	la	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' | sed -e 's/#.*/[0;32m&[0m/g' | less -R"
 
 #  it has to start somwhere	=====
@@ -27,27 +27,29 @@
 
 #  daily bread	=====
 	#  choose	=====
-	a	= add -A#...
+	a	= add -A #...<filename>
 	aa	= add -A .
 	ai	= add -i
 	#  unchoose	=====
-	r	= rm -rf #... unversion and delete
-	rc	= rm -r --cached #... unversion, but leave in working copy
+	r	= rm -rf #...<filename> unversion and delete
+	rc	= rm -r --cached #...<filename> unversion, but leave in working copy
 	#  do	=====
-	c	= commit -m #...
+	c	= commit -m #..commitmessage.
 	fc	= commit -am fastcommit
-	ca	= commit -am #...
+	ca	= commit -am #...commitmessage
 	mc	= commit # think 'message-commit
 	mca	= commit -a
-	cam	= commit --amend -C HEAD # update last commit
+	cam	= commit --amend -c HEAD # update last commit
+	fcam	= commit --amend -C HEAD # update last commit, and use same commit message
 	#  undo	=====
-	rs	= reset --hard HEAD
+	rs	= reset HEAD #...<filename> --- take a single added file off the index again
+	rshh	= reset --hard HEAD # undos all changes in working copy, cannot be reverted
 
 #  name stuff properly	=====
 	#  tag	=====
-	t	= tag #(...) arguments: none/-f/-m
+	t	= tag #(...<tag name>), arguments: none/-f/-m
 	tl	= tag -n # show existing tags with messages
-	td	= tag -d #...
+	td	= tag -d #...<tag name>
 	#  notes	=====
 	n	= !git notes list | sed -e 's/\\([a-z0-9]\\{4\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
 	nv	= !git notes list | sed -e 's/\\([a-z0-9]\\{7\\}\\)\\([a-z0-9]*\\)/\\1\\r/g' -e 's/r$/ /g' -e 's/\\(^[a-z0-9]*\\)/ /g'
@@ -58,7 +60,7 @@
 	#  show everything related to a SHA1	=====
 	sh	= show
 	#  check current changes you have made	=====
-	d	= diff HEAD # diff staged + unstaged against HEAD
+	d	= diff HEAD #(...<filename>) diff staged + unstaged against HEAD
 	ds	= diff --staged # diff staged against HEAD
 	du	= diff # diff unstaged against HEAD
 	dt	= difftool
@@ -96,14 +98,14 @@
 	sl	= shortlog -nse
 
 #  branch your way to victory, add <branch name>	=====
-	b	= branch #(...), without argument show existing ones
-	bd	= branch -D #...
+	b	= branch #(...<branch name>), without argument show existing ones
+	bd	= branch -D #...<branch name>
 	co	= checkout #...
-	cob	= checkout -b #... create + checkout branch
+	cob	= checkout -b #...<branch name> create + checkout branch
 
 #  merge your way back into madness
-	m	= merge --no-ff #...
-	rb	= rebase #...
+	m	= merge --no-ff #...<branch name>
+	rb	= rebase #...<branch name>
 	rbi	= rebase -i
 	rbc	= rebase --continue
 	rbs	= rebase --skip
@@ -113,20 +115,20 @@
 	p	= pull
 	pp	= push
 	pup	= !git p && git pp # pull and push, not nice but sometimes convenient
-	rmrb	= push --delete origin #... remote branch to be deleted
+	rmrb	= push --delete origin #...<branch name> remote branch to be deleted
 	fp	= !git mca && git pp # fast push script, be wary!	
 	f	= fetch
-	rem	= remote -v # show remotes
+	rem	= remote -v #(...<lookup man page for this>) withough argument just shows remotes, else does all kinds of funny stuff
 
 #  use svn if you have to	=====
-	sco	= svn clone #...
+	sco	= svn clone #...<svn repository url>
 	sci	= svn dcommit #push locally committed changes to svn
 	sup	= svn rebase # = svn update
 
 #  dig in history what went wrong	=====
 	rl	= reflog
 	l	= log --graph --oneline --decorate=short
-	lp	= log -p #... filename, shows diffs for file in question
+	lp	= log -p #...<filename> shows diffs for file in question
 	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
 	lll	= log --graph --abbrev-commit --decorate=short # --pretty=medium
 	lo	= log --graph --oneline --decorate=short --abbrev=7

@@ -30,7 +30,9 @@ alias gca=gitcommitall
 alias gmc="git mc"
 alias gmca="git mca"
 alias gcam="git cam"
+alias gfcam="git fcam"
 alias grs="git rs"
+alias grshh="git rshh"
 alias gccm="git ccm"
 
 alias gt="git t"
