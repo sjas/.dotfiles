@@ -5,6 +5,9 @@
 #
 ##########################################################
 
+# to have a universal /bin folder in ~
+export PATH=~/bin:$PATH
+
 #cd
         alias ..='cd ..'
         alias ...='cd ../..'
