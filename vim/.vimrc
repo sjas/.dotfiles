@@ -21,62 +21,59 @@ filetype plugin indent on "back to normal
 Bundle 'gmarik/vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
 Bundle 'sjl/vitality.vim'
-" three-way-diffing
-" threesome is now called splice...
-" and it does not play nicely with fugitive...
+" required for FuzzyFinder
+Bundle 'L9'
+" general
 Bundle 'sjl/splice.vim'
 Bundle 'sjl/gundo.vim'
-Bundle 'sjl/badwolf'
 Bundle 'tpope/vim-fugitive'
 Bundle 'arpeggio'
+Bundle 'FuzzyFinder'
+Bundle 'taglist.vim'
 Bundle 'YankRing.vim'
-Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neocomplcache'
 " deprecated:
 "Bundle 'Shougo/neocomplcache-snippets-complete'
-Bundle 'scrooloose/nerdtree'
+" editing
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
 Bundle 'Align'
 Bundle 'surround.vim'
 Bundle 'mattn/zencoding-vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
 Bundle 'SearchComplete'
-
-Bundle 'plasticboy/vim-markdown'
-Bundle "timcharper/textile.vim"
-
-Bundle 'ShowMarks'
-Bundle 'colorizer'
 Bundle 'repeat.vim'
-Bundle 'FuzzyFinder'
-Bundle 'taglist.vim'
-" required for FuzzyFinder
-Bundle 'L9'
-Bundle 'kien/rainbow_parentheses.vim'
-" proper asciidoc goodness
+" markup languages and syntax highlighting
+Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'sjas/asciidoc-vim'
-" Haskell plugin
-Bundle 'sjas/haskellmode-vim'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'timcharper/textile.vim'
+Bundle 'sjas/octave.vim'
+" organize text files
 "Bundle 'sjas/todo.txt-vim'
 Bundle 'jceb/vim-orgmode'
 Bundle 'sjas/workflowish'
-Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
-"Bundle 'AutomaticLaTexPlugin'
-" TODO
+
+" GUI stuff
+Bundle 'ShowMarks'
+Bundle 'colorizer'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'sjas/haskellmode-vim'
+Bundle 'ehamberg/vim-cute-python'
 "Bundle 'Twinside/vim-haskellConceal'
-"Bundle 'ehamberg/vim-cute-python'
+" TODO
 "Bundle 'tomtom/checksyntax_vim'
 "Bundle 'tomtom/quickfixsigns_vim'
-" ColorScheme Explorer
+" colorscheme stuff
 Bundle 'sjas/csExplorer'
-"   C O L O R S C H E M E S
+Bundle 'sjl/badwolf'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'spf13/vim-colors'
 Bundle 'nelstrom/vim-mac-classic-theme'
-"colo desert
-colo badwolf
 Bundle 'sjas/ColorSamplerPack'
+colo badwolf
 se magic "how to handle rexexp escaping
 " powerline
 se ls=2 "always show statusline
@@ -98,7 +95,7 @@ se gd "nogd
 nnoremap s/ :s/
 " all lines 'supersubstitute'
 nnoremap ss/ :%s/
-" in visual mode, this will work expands to: 
+" in visual mode, this will expand to:
 " :'<,'>s/
 vnoremap s/ :s/
 " RESET SEARCH HIGHLIGHTING
@@ -113,7 +110,7 @@ se ic "noic"
 " SMARTCASE: SENSITIVE WHEN UC CHAR PRESENT
 se scs "noscs"
 " SHOW PROPER WHITESPACE
-" random eol chars to choose from: Ξ♦‡╬∆Ω∙⌂₣‰↨¬⌐
+" random eol chars to choose from: Ξ♦‡╬∆Ω∙⌂₣‰↨¬⌐
 se listchars=tab:↨¬,trail:⌐,extends:‡,precedes:╬,nbsp:Ξ,eol:♦
 se list "list nolist
 " INCREMENTAL SEARCH
@@ -151,7 +148,8 @@ noremap : ;
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>fw :w<CR>
 nnoremap <Leader>fa :wa<CR>
-nnoremap <Leader>fq :q!<CR>
+nnoremap <Leader>fq :q<CR>
+nnoremap <Leader>rq :q!<CR>
 nnoremap <Leader>fd :e!<CR>
 " CUT,COPY,PASTE FROM CLIPBOARD EASILY
 set clipboard=unnamed
@@ -202,8 +200,8 @@ Arpeggio inoremap jk <Esc>
 Arpeggio vnoremap jk <Esc>
 " fugitive
 Arpeggio nnoremap gc :Git commit -a<cr>
-Arpeggio nnoremap ga :silent Git add .<cr>
-Arpeggio nnoremap gf :Git pull<cr>
+Arpeggio nnoremap ga :Git add .<cr>
+Arpeggio nnoremap gh :Git pull<cr>
 Arpeggio nnoremap gu :Git push<cr>
 Arpeggio nnoremap gs :Git status<cr>
 Arpeggio nnoremap gl :Git log<cr>
@@ -212,6 +210,9 @@ Arpeggio nnoremap gd :Gsdiff HEAD<cr>
 cmap w!! w !sudo tee % >/dev/null
 
 "fast align hack in visual mode
+" in visual mode, this will expand to:
+" :'<,'>Align 
+vnoremap <Leader>al :Align 
 "vnoremap align :Align
 
 " WINDOW MANAGEMENT SETTINGS
@@ -303,6 +304,7 @@ nnoremap <Leader>bl :BundleList<CR>
 nnoremap <Leader>bs :BundleSearch<CR>
 
 " Taglist
+" TODO
 nnoremap <Leader>ta  :TlistAddFiles 
 nnoremap <Leader>tar :TlistAddFilesRecursive 
 nnoremap <Leader>tl  :TlistToggle<cr>
@@ -355,8 +357,8 @@ nnoremap <Leader>uu VgU
 " comment it out and jump back to last edit location
 nnoremap <Leader>fs :.!date<cr><esc>
 " remove unneeded carriage returns
-nnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
+nnoremap <Leader><Leader>e :s/ $<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>e :s/ $<cr>/qwerqwer<cr><esc>
 " remove prepending whitespaces
 nnoremap <Leader><Leader>w :s/^\s*<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>w :s/^\s*<cr>/qwerqwer<cr><esc>
@@ -396,7 +398,7 @@ se wildmode=list:longest,full
 "
 " ENABLE MODELINES AND HOW MANY LINES ARE CHECKED
 se ml "noml"
-se mls=5 "mls=0"
+se mls=2 "mls=0"
 
 " LaTeX stuff can be found in $VIMFILES/ftplugin/tex.vim
 source $VIMRUNTIME/ftplugin/tex.vim
@@ -407,8 +409,8 @@ source $VIMRUNTIME/ftplugin/tex.vim
     "set shellslash
 "endif
 set grepprg=grep\ -nH\ $*
-"indent just a little, TODO: fix this with an if just for latex files
-"set sw=2
+"indent just a little and wrap text automatically
+au Filetype tex setlocal sw=2 tw=80 cc=81
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels. Very useful!
@@ -416,7 +418,10 @@ set iskeyword+=:
 " create mapping only for certain file type
 "autocmd FileType tex :nmap <F4> \ll\lv
 "autocmd FileType tex :imap <F4> <ESC>\ll\lvgi
-"let g:tex_flavor                  = 'latex'
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor                  = 'latex'
 let g:Tex_DefaultTargetFormat     = 'pdf'
 let g:Tex_CompileRule_dvi         = 'latex -synctex=1 --interaction=nonstopmode $*'
 let g:Tex_CompileRule_ps          = 'dvips -synctex=1 -Pwww -o $*.ps $*.dvi'
@@ -434,9 +439,19 @@ let g:Tex_CompileRule_pdf         = 'pdflatex -synctex=1 --interaction=nonstopmo
 "let g:Tex_ViewRule_dvi            = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
 "let g:Tex_ViewRule_ps             = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
 "let g:Tex_ViewRule_pdf            = 'C:/Program Files/Tracker Software/PDF Viewer/PDFXCview.exe'
-let g:Tex_ViewRule_dvi            = 'C:/Program Files (x86)/SumatraPDF/sumatrapdf.exe'
-let g:Tex_ViewRule_ps             = 'C:/Program Files (x86)/SumatraPDF/sumatrapdf.exe'
-let g:Tex_ViewRule_pdf            = 'C:/Program Files (x86)/SumatraPDF/sumatrapdf.exe'
+"let g:Tex_ViewRule_dvi            = '/cygdrive/c/Program\ Files\ \(x86\)/SumatraPDF/sumatrapdf.exe'
+"let g:Tex_ViewRule_ps             = '/cygdrive/c/Program\ Files\ \(x86\)/SumatraPDF/sumatrapdf.exe'
+"let g:Tex_ViewRule_pdf            = '/cygdrive/c/Program\ Files\ \(x86\)/SumatraPDF/sumatrapdf.exe'
+let g:Tex_ViewRule_dvi            = 'sumatrapdf'
+let g:Tex_ViewRule_ps             = 'sumatrapdf'
+let g:Tex_ViewRule_pdf            = 'sumatrapdf'
+
+" shell settings...
+set shell=bash
+set shellcmdflag=-c
+set shellslash
+
+let g:Tex_Leader='`'
 
 " formatdependencies
 let g:Tex_FormatDependency_ps     = 'dvi,ps'
@@ -458,7 +473,7 @@ let g:Tex_SmartKeyBS = 1
 let g:Tex_SmartKeyQuote = 0 
 " LaTeX shortcuts
 iab lra $\longrightarrow$
-iab isabel \textsc{isabel}
+iab hh \<++>{<++>} \label{_<++>} <++>
 "iab ttt \texttt{} <esc><left><left><left><left>i<esc><left>
 
 " JSON HIGHLIGHTING
@@ -570,8 +585,8 @@ endif
 "set guifont=lucida_sans_typewriter_regular:h9:cANSI
 set guifont=Lucida_Console:h9:cANSI
 """"set guifont=Envy_Code_R:h10.0:b:cANSI
-" schriftgrössentoggle
-" CTRL+SHIFT+F11/F12 um schriftgrösse zu ändern
+" font size toggle
+" CTRL+SHIFT+F11/F12 to toggle font size
 function! ScaleFontUp()
   let gf_size_whole = matchstr(&guifont, '\(\:h\)\@<=\d\+')
   let gf_size_frac = matchstr(&guifont, '\(\:h\d\+\.\)\@<=\d\=')
@@ -617,10 +632,6 @@ nmap <C-F12> :call ScaleFontUp()<CR>
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
 
 
 " zencoding hotkey
@@ -703,8 +714,12 @@ nnoremap <Leader>er :RainbowParenthesesLoadRound<cr>:RainbowParenthesesLoadSquar
 "   A U T O L O A D I N G   S T U F F
 "
 "REMOVE TRAILING WHITESPACE AND ^M CHARS
-au FileType c,cpp,java,php,javascript,python,twig,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+au FileType c,cpp,java,php,javascript,python,tex,twig,wofl,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+au Filetype wofl setlocal nolist sw=2 tw=80 cc=81
+au FileType m setlocal nolist
+au BufNewFile,BufRead *.m     setlocal ft=octave syntax=octave nolist
 
-au Filetype asciidoc se nolist
+au Filetype asciidoc setlocal nolist
 " SAVE ALL FILES WHEN FOCUS IS LOST
+" works only in gvim IIRC
 au FocusLost * :wa

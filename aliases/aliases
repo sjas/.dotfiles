@@ -8,6 +8,10 @@
 # to have a universal /bin folder in ~
 export PATH=~/bin:$PATH
 
+#FIRST THE WINDOW SPECIFIC STUFF
+#open windows explorer from shell in current folder
+        alias e='explorer .'
+        alias xc='startxwin'
 #cd
         alias ..='cd ..'
         alias ...='cd ../..'
@@ -74,7 +78,7 @@ export PATH=~/bin:$PATH
         }
         alias cdnd=mkdircd
 # pushd, popd, dirs
-        alias d='dirs'
+        alias d='dirs -v'
         alias o='popd'
         alias p='pushd'
 # # # # # # # # # # # # # # # # # # # # #
