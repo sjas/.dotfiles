@@ -21,62 +21,59 @@ filetype plugin indent on "back to normal
 Bundle 'gmarik/vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
 Bundle 'sjl/vitality.vim'
-" three-way-diffing
-" threesome is now called splice...
-" and it does not play nicely with fugitive...
+" required for FuzzyFinder
+Bundle 'L9'
+" general
 Bundle 'sjl/splice.vim'
 Bundle 'sjl/gundo.vim'
-Bundle 'sjl/badwolf'
 Bundle 'tpope/vim-fugitive'
 Bundle 'arpeggio'
+Bundle 'FuzzyFinder'
+Bundle 'taglist.vim'
 Bundle 'YankRing.vim'
-Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neocomplcache'
 " deprecated:
 "Bundle 'Shougo/neocomplcache-snippets-complete'
-Bundle 'scrooloose/nerdtree'
+" editing
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
 Bundle 'Align'
 Bundle 'surround.vim'
 Bundle 'mattn/zencoding-vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
 Bundle 'SearchComplete'
-
-Bundle 'plasticboy/vim-markdown'
-Bundle "timcharper/textile.vim"
-
-Bundle 'ShowMarks'
-Bundle 'colorizer'
 Bundle 'repeat.vim'
-Bundle 'FuzzyFinder'
-Bundle 'taglist.vim'
-" required for FuzzyFinder
-Bundle 'L9'
-Bundle 'kien/rainbow_parentheses.vim'
-" proper asciidoc goodness
+" markup languages and syntax highlighting
+Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'sjas/asciidoc-vim'
-" Haskell plugin
-Bundle 'sjas/haskellmode-vim'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'timcharper/textile.vim'
+Bundle 'sjas/octave.vim'
+" organize text files
 "Bundle 'sjas/todo.txt-vim'
 Bundle 'jceb/vim-orgmode'
 Bundle 'sjas/workflowish'
-Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
-"Bundle 'AutomaticLaTexPlugin'
-" TODO
+
+" GUI stuff
+Bundle 'ShowMarks'
+Bundle 'colorizer'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'sjas/haskellmode-vim'
+Bundle 'ehamberg/vim-cute-python'
 "Bundle 'Twinside/vim-haskellConceal'
-"Bundle 'ehamberg/vim-cute-python'
+" TODO
 "Bundle 'tomtom/checksyntax_vim'
 "Bundle 'tomtom/quickfixsigns_vim'
-" ColorScheme Explorer
+" colorscheme stuff
 Bundle 'sjas/csExplorer'
-"   C O L O R S C H E M E S
+Bundle 'sjl/badwolf'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'spf13/vim-colors'
 Bundle 'nelstrom/vim-mac-classic-theme'
-"colo desert
-colo badwolf
 Bundle 'sjas/ColorSamplerPack'
+colo badwolf
 se magic "how to handle rexexp escaping
 " powerline
 se ls=2 "always show statusline
@@ -720,6 +717,7 @@ nnoremap <Leader>er :RainbowParenthesesLoadRound<cr>:RainbowParenthesesLoadSquar
 au FileType c,cpp,java,php,javascript,python,tex,twig,wofl,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 au Filetype wofl setlocal nolist sw=2 tw=80 cc=81
 au FileType m setlocal nolist
+au BufNewFile,BufRead *.m     setlocal ft=octave syntax=octave nolist
 
 au Filetype asciidoc setlocal nolist
 " SAVE ALL FILES WHEN FOCUS IS LOST
