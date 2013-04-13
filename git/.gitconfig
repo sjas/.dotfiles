@@ -65,19 +65,20 @@
 	du	= diff # diff unstaged against HEAD
 	dt	= difftool
 	#  diff master against origin master to show changes to main repository
-	dh	= diff master..origin/master
+	dh	= diff master..origin/master # against head, includes local changes
+	dhp	= diff master...origin/master # pure against head, excludes local changes
 
 #  check current state locally	=====
 	#  index status	=====
 	s	= status --short
-	ss	= status -uno --short# don't show untracked stuff
+	ss	= status -uno --short # don't show untracked stuff
 	sa	= status
 	ssa	= status -uno # don't show untracked stuff
 	#  currently versioned files at HEAD	=====
-	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less
-	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less
-	ls	= ls-tree -r --name-only #... SHA1
-	lsd	= ls-tree -r -t -d --name-only #... SHA1
+	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less # all
+	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
+	ls	= ls-tree -r --name-only #... revision
+	lsd	= ls-tree -r -t -d --name-only #... revision
 	lsfa	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less
 	lsfad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4 | less
 	lsfav	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=7 | less
