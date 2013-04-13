@@ -60,7 +60,7 @@
 	#  show everything related to a SHA1	=====
 	sh	= show
 	#  check current changes you have made	=====
-	d	= diff HEAD #(...<filename>) diff staged + unstaged against HEAD
+	d	= diff #(...<filename>) diff staged + unstaged against HEAD
 	ds	= diff --staged # diff staged against HEAD
 	du	= diff # diff unstaged against HEAD
 	dt	= difftool
