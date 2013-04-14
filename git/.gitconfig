@@ -15,6 +15,8 @@
 	trustExitCode = true
 [mergetool "vimdiff"]
 	cmd = vimdiff "$LOCAL" "$REMOTE"
+[http]
+	sslverify = false
 [alias]
 #  'git h' for help, 'git la' to list aliases	=====
 	h	= help #(...<git command>)
@@ -60,11 +62,12 @@
 	#  show everything related to a SHA1	=====
 	sh	= show
 	#  check current local changes you have made	=====
-	d	= diff #(...<filename>) diff staged + unstaged against HEAD
-	ds	= diff --staged # diff staged against HEAD
-	du	= diff # diff unstaged against HEAD
+    d	= diff HEAD #(...<filename>) diff staged + unstaged against HEAD = add . && commit
+    ds	= diff --staged # diff staged against HEAD = commit
+    du	= diff # diff unstaged against HEAD = commit -a
 	dt	= difftool
 	#  check current changes residing in origin/master (= main repository)	=====
+	#  local changes are shown in red!!!	=====
 	dh	= diff ..origin/master # all changes, including non-commited ones
 	dhc	= diff HEAD..origin/master # against head, includes just local commits
 	dhp	= diff HEAD...origin/master # pure against head, excludes all local changes and commmits
