@@ -15,6 +15,8 @@
 	trustExitCode = true
 [mergetool "vimdiff"]
 	cmd = vimdiff "$LOCAL" "$REMOTE"
+[http]
+	sslverify = false
 [alias]
 #  'git h' for help, 'git la' to list aliases	=====
 	h	= help #(...<git command>)
@@ -59,25 +61,28 @@
 	nr	= notes remove
 	#  show everything related to a SHA1	=====
 	sh	= show
-	#  check current changes you have made	=====
-	d	= diff HEAD #(...<filename>) diff staged + unstaged against HEAD
-	ds	= diff --staged # diff staged against HEAD
-	du	= diff # diff unstaged against HEAD
+	#  check current local changes you have made	=====
+    d	= diff HEAD #(...<filename>) diff staged + unstaged against HEAD = add . && commit
+    ds	= diff --staged # diff staged against HEAD = commit
+    du	= diff # diff unstaged against HEAD = commit -a
 	dt	= difftool
-	#  diff master against origin master to show changes to main repository
-	dh	= diff master..origin/master
+	#  check current changes residing in origin/master (= main repository)	=====
+	#  local changes are shown in red!!!	=====
+	dh	= diff ..origin/master # all changes, including non-commited ones
+	dhc	= diff HEAD..origin/master # against head, includes just local commits
+	dhp	= diff HEAD...origin/master # pure against head, excludes all local changes and commmits
 
 #  check current state locally	=====
 	#  index status	=====
 	s	= status --short
-	ss	= status -uno --short# don't show untracked stuff
+	ss	= status -uno --short # don't show untracked stuff
 	sa	= status
 	ssa	= status -uno # don't show untracked stuff
 	#  currently versioned files at HEAD	=====
-	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less
-	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less
-	ls	= ls-tree -r --name-only #... SHA1
-	lsd	= ls-tree -r -t -d --name-only #... SHA1
+	lsf	= !git ls-tree HEAD --full-tree -r -t --name-only | less # all
+	lsfd	= !git ls-tree HEAD --full-tree -r -t -d --name-only | less # just dirs
+	ls	= ls-tree -r --name-only #... revision
+	lsd	= ls-tree -r -t -d --name-only #... revision
 	lsfa	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=4 | less
 	lsfad	= !git ls-tree HEAD --full-tree -r -t -l -d --abbrev=4 | less
 	lsfav	= !git ls-tree HEAD --full-tree -r -t -l --abbrev=7 | less
@@ -112,12 +117,12 @@
 	rba	= rebase --abort
 
 #  interact with the rest of the world	=====
+	f	= fetch
 	p	= pull
 	pp	= push
 	pup	= !git p && git pp # pull and push, not nice but sometimes convenient
 	rmrb	= push --delete origin #...<branch name> remote branch to be deleted
-	fp	= !git mca && git pp # fast push script, be wary!	
-	f	= fetch
+	fp	= !git mca && git pup # fast push script, be wary!
 	rem	= remote -v #(...<lookup man page for this>) withough argument just shows remotes, else does all kinds of funny stuff
 
 #  use svn if you have to	=====

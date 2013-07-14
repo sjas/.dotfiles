@@ -391,7 +391,8 @@ se smd "nosmd"
 se wildmenu
 " LIST MATCHES, THEN LONGEST COMMON PART, THEN ALL.
 se wildmode=list:longest,full
-
+" properly encrypt files
+se cm=blowfish
 
 "
 "   F  I  L  E  T  Y  P  E     S  P  E  C  I  F  I  C

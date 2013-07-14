@@ -52,6 +52,8 @@ alias gds="git ds"
 alias gdu="git du"
 alias gdt="git dt"
 alias gdh="git dh"
+alias gdhc="git dhc"
+alias gdhp="git dhp"
 
 alias gst="git st"
 alias gstl="git stl"
