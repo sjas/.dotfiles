@@ -22,10 +22,10 @@
 	h	= help #(...<git command>)
 	ha	= !git help -a | less
 	hi	= help -i #... yet to find out how to use the 'info' program
-	la	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' | sed -e 's/#.*/[0;32m&[0m/g' | less -R"
+	la	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g' | less -R"
 
 #  it has to start somwhere	=====
-	cl	= clone -v --progress
+	cl	= clone --progress -v
 
 #  daily bread	=====
 	#  choose	=====
@@ -62,9 +62,9 @@
 	#  show everything related to a SHA1	=====
 	sh	= show
 	#  check current local changes you have made	=====
-    d	= diff HEAD #(...<filename>) diff staged + unstaged against HEAD = add . && commit
-    ds	= diff --staged # diff staged against HEAD = commit
-    du	= diff # diff unstaged against HEAD = commit -a
+	d	= diff HEAD #(...<filename>) diff staged + unstaged against HEAD = add . && commit
+	ds	= diff --staged # diff staged against HEAD = commit
+	du	= diff # diff unstaged against HEAD = commit -a
 	dt	= difftool
 	#  check current changes residing in origin/master (= main repository)	=====
 	#  local changes are shown in red!!!	=====
