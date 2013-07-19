@@ -6,8 +6,9 @@
 
 # cycle through last commands
 # file completion when tabbing
-"": history-search-forward
-"": history-search-backward
+# CTRL+R/T
+#"": history-search-forward
+#"": history-search-backward
 
 # only show dotfiles when i typed a '.'
 set match-hidden-files off
