@@ -62,7 +62,7 @@ Bundle 'colorizer'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'sjas/haskellmode-vim'
 Bundle 'ehamberg/vim-cute-python'
-"Bundle 'Twinside/vim-haskellConceal'
+Bundle 'Twinside/vim-haskellConceal'
 " TODO
 "Bundle 'tomtom/checksyntax_vim'
 "Bundle 'tomtom/quickfixsigns_vim'

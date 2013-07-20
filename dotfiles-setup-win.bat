@@ -1,5 +1,5 @@
 cd %home%
-cp .dotfiles\vim\.vimrc _vimrc
+cp .dotfiles\vim\.vimrc .vimrc
 cp .dotfiles\git\.gitconfig .gitconfig
 
 cp -R .dotfiles/vim/.vim .
