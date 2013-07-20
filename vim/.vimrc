@@ -33,6 +33,7 @@ Bundle 'taglist.vim'
 Bundle 'YankRing.vim'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/vimshell'
 " deprecated:
 "Bundle 'Shougo/neocomplcache-snippets-complete'
 " editing
@@ -40,6 +41,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Align'
 Bundle 'surround.vim'
+Bundle 'matchit.zip'
 Bundle 'mattn/zencoding-vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
@@ -63,6 +65,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'sjas/haskellmode-vim'
 Bundle 'ehamberg/vim-cute-python'
 Bundle 'Twinside/vim-haskellConceal'
+Bundle 'Twinside/vim-hoogle'
 " TODO
 "Bundle 'tomtom/checksyntax_vim'
 "Bundle 'tomtom/quickfixsigns_vim'
@@ -293,7 +296,8 @@ nnoremap   <Leader>eav :vsp ~/.priv/aim.wofl<CR>
 nnoremap   <Leader>ezv :vsp ~/.dotfiles/zsh/.zshrc<CR>
 "sourcing
 nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>
-nnoremap <Leader>sf :silent !c:\Users\sjas\.dotfiles\dotfiles-setup-win.bat<CR>
+"nnoremap <Leader>sf :silent !c:\Users\sjas\.dotfiles\dotfiles-setup-win.bat<CR>
+nnoremap <Leader>sf :!/cygdrive/c/Users/sjas/.dotfiles/dotfiles-setup-win.bat<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <Leader>sb :source ~/.bash_profile<CR>
 "VUNDLE
@@ -488,7 +492,7 @@ source $VIMRUNTIME/ftplugin/ant.vim
 
 " NEOCOMPLCACHE
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
+let g:acp_enableAtStartup = 1
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
@@ -634,6 +638,10 @@ nmap <C-F12> :call ScaleFontUp()<CR>
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
 
+" haskellmode
+let g:ghc="/cygdrive/c/lang/HaskellPlattform/bin/ghc"
+let g:haddock_browser="/cygdrive/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
+let g:haddock_docdir="/cygdrive/c/lang/HaskellPlattform/doc/html/"
 
 " zencoding hotkey
 let g:user_zen_leader_key = '<C-b>'
