@@ -123,7 +123,10 @@
 	pup	= !git p && git pp # pull and push, not nice but sometimes convenient
 	rmrb	= push --delete origin #...<branch name> remote branch to be deleted
 	fp	= !git mca && git pup # fast push script, be wary!
+        # handling remote connections
 	rem	= remote -v #(...<lookup man page for this>) withough argument just shows remotes, else does all kinds of funny stuff
+	arem	= remote add #... <label for remote> <URL to remote>
+	rrem	= remote rm #... <label of remote to be deleted>
 
 #  use svn if you have to	=====
 	sco	= svn clone #...<svn repository url>
