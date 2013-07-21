@@ -384,7 +384,7 @@ se wrap "nowrap"
 " RULER
 se noru "ru"
 " CURSORLINE
-se nocul
+se cul "nocul
 " colorcolumn at 80 chars
 "se colorcolumn=81
 " SHOW MATCHING PARENS
