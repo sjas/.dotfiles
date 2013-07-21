@@ -24,7 +24,7 @@
 	hi	= help -i #... yet to find out how to use the 'info' program
 	la	= "!grep '\t=' ~/.gitconfig | sed -e 's/=/[0;31m=[0m/g' -e 's/#.*/[0;32m&[0m/g' | less -R"
 
-#  it has to start somwhere	=====
+#  it has to start somwhere	===== # -v needs to be set AFTER --progress, else it won't work
 	cl	= clone --progress -v
 
 #  daily bread	=====

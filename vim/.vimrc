@@ -164,7 +164,7 @@ nnoremap <Leader>fe :e <C-R>=expand('%:h').'/'<cr>
 "nnoremap <Leader>fe :e <C-R>=expand('%:p').'/'<cr>
 " FAST RUN BINDING
 "nnoremap <Leader>fr :w<CR>:silent ! %<CR>
-nnoremap <Leader>fr :w<CR>:silent !ghcii.sh %<CR>
+"nnoremap <Leader>fr :w<CR>:silent !ghcii.sh %<CR>
 "nnoremap <Leader>fr :w<CR>:!python % -f ./raw-material/Dfn.graphml<CR>
 " OPEN VERTICAL HELP
 nnoremap ;vh :vert help
@@ -703,7 +703,7 @@ set grepprg=grep\ -nH\ $*
 
 " haskellmode
 " shrotcut to run haskell code
-nnoremap <Leader>rh :!ghc --make Main.hs && ./Main<CR>
+nnoremap <Leader>fr :wa<CR>:!ghc --make Main.hs && ./Main<CR>
 let g:ghc="/cygdrive/c/lang/HaskellPlattform/bin/ghc"
 let g:haddock_browser="/cygdrive/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 let g:haddock_docdir="/cygdrive/c/lang/HaskellPlattform/doc/html/"
