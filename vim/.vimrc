@@ -32,9 +32,10 @@ Bundle 'FuzzyFinder'
 Bundle 'taglist.vim'
 Bundle 'YankRing.vim'
 Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/vimshell'
 " deprecated:
+"Bundle 'Shougo/neocomplcache'
 "Bundle 'Shougo/neocomplcache-snippets-complete'
 " editing
 Bundle 'scrooloose/nerdcommenter'
@@ -57,7 +58,6 @@ Bundle 'sjas/octave.vim'
 "Bundle 'sjas/todo.txt-vim'
 Bundle 'jceb/vim-orgmode'
 Bundle 'sjas/workflowish'
-
 " GUI stuff
 Bundle 'ShowMarks'
 Bundle 'colorizer'
@@ -490,67 +490,130 @@ nnoremap ;man :Man
 source $VIMRUNTIME/ftplugin/ant.vim
 "source $VIMRUNTIME/ftplugin/muttrc.vim
 
-" NEOCOMPLCACHE
+" NEOCOMPLETE
+" Note: This option must set it in .vimrc(_vimrc).
+" NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 1
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
 " Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-			\ 'default' : '',
-			\ 'vimshell' : $HOME.'/.vimshell_hist',
-			\ 'scheme' : $HOME.'/.gosh_completions'
-			\ }
-" Define keyword
-if !exists('g:neocomplcache_keyword_patterns')
-	let g:neocomplcache_keyword_patterns = {}
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-" Plugin key-mappings
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
-inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
-" SuperTab like snippets behavior.
-imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#smart_close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
 " <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BACKSPACE> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplcache#cancel_popup()
-inoremap <expr><C-e> neocomplcache#cancel_popup()
-" AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
-" Shell like behavior(not recommended).
-"se completeopt+=longest
-"let g:neocomplcache_enable_auto_select = 1
-"let g:neocomplcache_disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>"
-"inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
-" Enable omni completion.
-au FileType css setlocal omnifunc=csscomplete#CompleteCSS
-au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-au FileType python setlocal omnifunc=pythoncomplete#Complete
-au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-	let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-"au FileType ruby setlocal omnifunc=rubycomplete#Complete
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|'"
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
+" For cursor moving in insert mode(Not recommended)
+"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
+" Or set this.
+"let g:neocomplete#enable_cursor_hold_i = 1
+" Or set this.
+"let g:neocomplete#enable_insert_char_pre = 1
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.php =
+\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.c =
+\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.cpp =
+\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl =
+\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+
+" For smart TAB completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+"        \ <SID>check_back_space() ? "\<TAB>" :
+"        \ neocomplete#start_manual_complete()
+"  function! s:check_back_space() "{{{
+"    let col = col('.') - 1
+"    return !col || getline('.')[col - 1]  =~ '\s'
+"  endfunction"}}}
+
+" NEOSNIPPET
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    "\ "\<Plug>(neosnippet_expand_or_jump)"
+    "\: pumvisible() ? "\<C-n>" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    "\ "\<Plug>(neosnippet_expand_or_jump)"
+    "\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 "
 "   G V I M R C   S E T T I N G S
@@ -558,7 +621,7 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|'"
 
 " Make external commands work through a pipe instead of a pseudo-tty
 set noguipty
-set mousehide		" Hide the mouse when typing text
+set mousehide       " Hide the mouse when typing text
 
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
@@ -639,6 +702,8 @@ nmap <C-F12> :call ScaleFontUp()<CR>
 set grepprg=grep\ -nH\ $*
 
 " haskellmode
+" shrotcut to run haskell code
+nnoremap <Leader>rh :!ghc --make Main.hs && ./Main<CR>
 let g:ghc="/cygdrive/c/lang/HaskellPlattform/bin/ghc"
 let g:haddock_browser="/cygdrive/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 let g:haddock_docdir="/cygdrive/c/lang/HaskellPlattform/doc/html/"
@@ -727,6 +792,7 @@ au FileType c,cpp,java,php,javascript,python,tex,twig,wofl,xml,yml au BufWritePr
 au Filetype wofl setlocal nolist sw=2 tw=80 cc=81
 au FileType m setlocal nolist
 au BufNewFile,BufRead *.m     setlocal ft=octave syntax=octave nolist
+au BufEnter *.hs compiler ghc
 
 au Filetype asciidoc setlocal nolist
 " SAVE ALL FILES WHEN FOCUS IS LOST
