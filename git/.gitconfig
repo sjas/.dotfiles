@@ -30,7 +30,7 @@
 #  daily bread	=====
 	#  choose	=====
 	a	= add -A #...<filename>
-	aa	= add -A .*
+	aa	= add -A .
 	ai	= add -i
 	#  unchoose	=====
 	r	= rm -rf #...<filename> unversion and delete
