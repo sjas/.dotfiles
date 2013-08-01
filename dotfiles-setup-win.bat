@@ -1,3 +1,7 @@
+REM
+REM deploys my dotfiles on a windows with cygwin and zsh installed
+REM
+
 cd %home%
 cp .dotfiles\vim\.vimrc .vimrc
 cp .dotfiles\git\.gitconfig .gitconfig
