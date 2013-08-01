@@ -320,7 +320,8 @@ let NERDTreeShowHidden=1
 "then resize is to be 40 chars wide, place cursor 10 chars from left
 "this also works just for opening.
 "TODO fix this also, some day... soon haha... ...
-nnoremap <Leader><CR> :NERDTreeFind<CR>999<C-w><40<C-w>>010l
+nnoremap <Leader><CR> :NERDTreeToggle<CR>999<C-w><40<C-w>>010l
+"nnoremap <Leader><CR> :NERDTreeFind<CR>999<C-w><40<C-w>>010l
 " this is not working, fix it some day...
 "autocmd BufEnter * silent! if bufname('%') !~# 'NERD_tree_' | cd %:p:h | NERDTreeCWD | wincmd p | endif
 " OPEN LAST CLOSED WINDOW
