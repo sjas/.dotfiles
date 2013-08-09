@@ -125,6 +125,7 @@
 	fp	= !git mca && git pup # fast push script, be wary!
         # handling remote connections
 	rem	= remote -v #(...<lookup man page for this>) withough argument just shows remotes, else does all kinds of funny stuff
+	rems	= remote show #... <label for remote> show info for specific remote
 	arem	= remote add #... <label for remote> <URL to remote>
 	rrem	= remote rm #... <label of remote to be deleted>
 

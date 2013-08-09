@@ -105,6 +105,7 @@ gitfastpush(){
 alias gfp=gitfastpush
 alias gf="git f"
 alias grem="git rem"
+alias grems="git rems"
 alias garem="git arem"
 alias grrem="git rrem"
 
