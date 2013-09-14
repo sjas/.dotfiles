@@ -114,7 +114,7 @@ se ic "noic"
 se scs "noscs"
 " SHOW PROPER WHITESPACE
 " random eol chars to choose from: Ξ♦‡╬∆Ω∙⌂₣‰↨¬⌐
-se listchars=tab:↨¬,trail:⌐,extends:‡,precedes:╬,nbsp:Ξ,eol:♦
+se listchars=eol:♦,tab:↨¬,trail:⌐,extends:‡,precedes:╬,nbsp:Ξ
 se list "list nolist
 " INCREMENTAL SEARCH
 se is "nois"
