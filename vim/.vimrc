@@ -318,10 +318,6 @@ nnoremap <Leader>tu  :TlistUpdate<cr>
 
 " NERDTREE
 let NERDTreeShowHidden=1
-"this is a BAD hack: minimize NERDTREE completely after opening it
-"then resize is to be 40 chars wide, place cursor 10 chars from left
-"this also works just for opening.
-"TODO fix this also, some day... soon haha... ...
 nnoremap <Leader><CR> :NERDTreeToggle<CR>999<C-w><40<C-w>>010l
 "nnoremap <Leader><CR> :NERDTreeFind<CR>999<C-w><40<C-w>>010l
 " this is not working, fix it some day...
@@ -455,6 +451,7 @@ let g:Tex_ViewRule_ps             = 'sumatrapdf'
 let g:Tex_ViewRule_pdf            = 'sumatrapdf'
 
 " shell settings...
+nnoremap <leader><c-d> :sh<cr>
 set shell=zsh
 set shellcmdflag=-c
 set shellslash
