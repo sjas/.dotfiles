@@ -166,6 +166,8 @@ nnoremap <Leader>fe :e <C-R>=expand('%:h').'/'<cr>
 "nnoremap <Leader>fr :w<CR>:silent ! %<CR>
 "nnoremap <Leader>fr :w<CR>:silent !ghcii.sh %<CR>
 "nnoremap <Leader>fr :w<CR>:!python % -f ./raw-material/Dfn.graphml<CR>
+"nnoremap <Leader>fr :wa<CR>:!ghc --make Main.hs && ./Main<CR>
+nnoremap <leader>fr :wa<cr>:!/cygdrive/c/Users/sjas/work/sap-projekt/compile-latex.sh<cr>
 " OPEN VERTICAL HELP
 nnoremap ;vh :vert help
 nnoremap ;hv :vert help
@@ -453,7 +455,7 @@ let g:Tex_ViewRule_ps             = 'sumatrapdf'
 let g:Tex_ViewRule_pdf            = 'sumatrapdf'
 
 " shell settings...
-set shell=bash
+set shell=zsh
 set shellcmdflag=-c
 set shellslash
 
@@ -703,8 +705,6 @@ nmap <C-F12> :call ScaleFontUp()<CR>
 set grepprg=grep\ -nH\ $*
 
 " haskellmode
-" shrotcut to run haskell code
-nnoremap <Leader>fr :wa<CR>:!ghc --make Main.hs && ./Main<CR>
 let g:ghc="/cygdrive/c/lang/HaskellPlattform/bin/ghc"
 let g:haddock_browser="/cygdrive/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 let g:haddock_docdir="/cygdrive/c/lang/HaskellPlattform/doc/html/"
