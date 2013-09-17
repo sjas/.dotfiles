@@ -211,6 +211,7 @@ Arpeggio nnoremap gu :Git push<cr>
 Arpeggio nnoremap gs :Git status<cr>
 Arpeggio nnoremap gl :Git log<cr>
 Arpeggio nnoremap gd :Gsdiff HEAD<cr>
+Arpeggio nnoremap gk :Git show<cr>
 " WRITE READ-ONLY FILE AS ADMIN
 cmap w!! w !sudo tee % >/dev/null
 
@@ -475,7 +476,7 @@ let g:Tex_FormatDependency_dvipdf = 'dvi,dvipdf'
 " backspace deletes diacritics
 let g:Tex_SmartKeyBS = 1
 " '"' wird nicht ersetzt
-let g:Tex_SmartKeyQuote = 0 
+let g:Tex_SmartKeyQuote = 1
 " LaTeX shortcuts
 iab lra $\longrightarrow$
 iab hh \<++>{<++>} \label{_<++>} <++>
@@ -692,14 +693,6 @@ nmap <C-F12> :call ScaleFontUp()<CR>
 
 "nmap <C-S-F7> :set guifont=Lucida_Sans_Typewriter:h8.5:b:cANSI<CR>
 "nmap <C-S-F8> :set guifont=Lucida_Sans_Typewriter:h9.0:b:cANSI<CR>
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-"set shellslash
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
 
 " haskellmode
 let g:ghc="/cygdrive/c/lang/HaskellPlattform/bin/ghc"
