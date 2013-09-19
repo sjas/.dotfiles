@@ -361,11 +361,15 @@ nnoremap <Leader>uu VgU
 " comment it out and jump back to last edit location
 nnoremap <Leader>fs :.!date<cr><esc>
 " remove unneeded carriage returns
-nnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
-" remove prepending whitespaces
-nnoremap <Leader><Leader>w :%s/^\s*<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>w :%s/^\s*<cr>/qwerqwer<cr><esc>
+nnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
+" remove all indentations
+nnoremap <Leader><Leader>i :s/^\s*<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>i :s/^\s*<cr>/qwerqwer<cr><esc>
+" remove all appended whitesspace
+nnoremap <Leader><Leader>s :s/\s*$<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>s :s/\s*$<cr>/qwerqwer<cr><esc>
+
 
 "
 "   G E N E R A L  S E T T I N G S
@@ -452,6 +456,8 @@ let g:Tex_ViewRule_ps             = 'sumatrapdf'
 let g:Tex_ViewRule_pdf            = 'sumatrapdf'
 
 " shell settings...
+" set CWD to the one of opened buffer
+set autochdir
 nnoremap <leader><c-d> :sh<cr>
 set shell=zsh
 set shellcmdflag=-c
