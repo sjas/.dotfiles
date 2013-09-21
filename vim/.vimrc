@@ -17,6 +17,7 @@ call vundle#rc()
 " define this before any of the plugins is loaded...
 let mapleader = ' '
 let maplocalleader = ' '
+se mouse=a
 filetype plugin indent on "back to normal 
 Bundle 'gmarik/vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
@@ -168,6 +169,8 @@ nnoremap <Leader>fe :e <C-R>=expand('%:h').'/'<cr>
 "nnoremap <Leader>fr :w<CR>:!python % -f ./raw-material/Dfn.graphml<CR>
 "nnoremap <Leader>fr :wa<CR>:!ghc --make Main.hs && ./Main<CR>
 nnoremap <leader>fr :wa<cr>:!/cygdrive/c/Users/sjas/work/sap-projekt/compile-latex.sh<cr>
+nnoremap <leader>gt :wa<cr>:!/cygdrive/c/Users/sjas/work/ktr-ausarbeitung/build.sh<cr>
+nnoremap <leader>gr :wa<cr>:!/cygdrive/c/Users/sjas/work/ktr-praesentation/build.sh<cr>
 " OPEN VERTICAL HELP
 nnoremap ;vh :vert help
 nnoremap ;hv :vert help
