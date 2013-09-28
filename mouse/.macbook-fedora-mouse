@@ -11,5 +11,5 @@ synclient HorizTwoFingerScroll=1 	# enable horizontal scrolling
 synclient CoastingFriction=20		# default: 50, less scrolls longer
 synclient VertScrollDelta=300		# default: 235
 #speed
-synclient MinSpeed=3			# default: 1
-synclient MaxSpeed=3.2			# default: 1.75
+synclient MinSpeed=2			# default: 1
+synclient MaxSpeed=5			# default: 1.75
