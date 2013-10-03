@@ -1,0 +1,15 @@
+# MOUSE SETTINGS ON FEDORA MACBOOK
+# to have this set on startup of the xserver, this file has to be executed 
+# via the .Xsession file
+
+#buttons
+synclient TapButton1=1			# 1 finger tap = LMB
+synclient TapButton2=0			# 2 finger tap = unbound
+synclient TapButton3=3			# 3 finger tap = RMB
+#scrolling
+synclient HorizTwoFingerScroll=1 	# enable horizontal scrolling
+synclient CoastingFriction=20		# default: 50, less scrolls longer
+synclient VertScrollDelta=300		# default: 235
+#speed
+synclient MinSpeed=2			# default: 1
+synclient MaxSpeed=5			# default: 1.75
