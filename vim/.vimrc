@@ -17,7 +17,7 @@ call vundle#rc()
 " define this before any of the plugins is loaded...
 let mapleader = ' '
 let maplocalleader = ' '
-se mouse=a
+"se mouse=a
 filetype plugin indent on "back to normal 
 Bundle 'gmarik/vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
@@ -360,6 +360,8 @@ nnoremap <Leader>HL <ESC><ESC>:s/\v/  /<CR>^hxhx
 nnoremap <Leader>hl <ESC><ESC>:s/\v/ /<CR>^hx
 " UPPERCASE CURRENT LINE
 nnoremap <Leader>uu VgU
+" UNDERLINE CURRENT LINE
+nnoremap <Leader>ul yypVr=o<cr>
 " ADD CURRENT DATE AT THE END OF FILE
 " comment it out and jump back to last edit location
 nnoremap <Leader>fs :.!date<cr><esc>
