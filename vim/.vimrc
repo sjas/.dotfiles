@@ -227,10 +227,9 @@ vnoremap <Leader>al :Align
 " WINDOW MANAGEMENT SETTINGS
 "moving from window to window
 nnoremap <C-h>  <C-w>h
-"sadly, next two bindings dont really work.
-"nnoremap <C-j>  <C-w>j
-"nnoremap <C-k>  <C-w>k
 nnoremap <C-l>  <C-w>l
+nnoremap <C-j>  <C-w>j
+nnoremap <C-k>  <C-w>k
 "open new blank file
 nnoremap o<C-h> :lefta vsp new<cr>
 nnoremap o<C-j> :bel sp new<cr>
