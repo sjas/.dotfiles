@@ -13,11 +13,11 @@ filetype off "VUNDLE NEEDS THIS HERE
 se rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " DEFAULT IS '\' FOR LEADER KEY - '<space>' IS MORE ACCESSIBLE
-" inserted via <C-v><space>, proper keycode needed!
-" define this before any of the plugins is loaded...
+" inserted via <C-v><space>, as the proper keycode is needed!
+" define this before any of the plugins is loaded!
 let mapleader = ' '
 let maplocalleader = ' '
-"se mouse=a
+se mouse=a
 filetype plugin indent on "back to normal 
 Bundle 'gmarik/vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
@@ -32,7 +32,7 @@ Bundle 'arpeggio'
 Bundle 'FuzzyFinder'
 Bundle 'taglist.vim'
 Bundle 'YankRing.vim'
-Bundle 'Shougo/neosnippet'
+"Bundle 'Shougo/neosnippet'
 "Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/vimshell'
 " deprecated:
@@ -57,7 +57,7 @@ Bundle 'timcharper/textile.vim'
 Bundle 'sjas/octave.vim'
 " organize text files
 "Bundle 'sjas/todo.txt-vim'
-Bundle 'jceb/vim-orgmode'
+"Bundle 'jceb/vim-orgmode'
 Bundle 'sjas/workflowish'
 " GUI stuff
 Bundle 'ShowMarks'
@@ -66,7 +66,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'sjas/haskellmode-vim'
 Bundle 'ehamberg/vim-cute-python'
 Bundle 'Twinside/vim-haskellConceal'
-Bundle 'Twinside/vim-hoogle'
+"Bundle 'Twinside/vim-hoogle'
 " TODO
 "Bundle 'tomtom/checksyntax_vim'
 "Bundle 'tomtom/quickfixsigns_vim'
@@ -83,8 +83,8 @@ se magic "how to handle rexexp escaping
 se ls=2 "always show statusline
 se encoding=utf8
 se t_Co=256
+let g:Powerline_symbols = 'fancy'
 "let g:Powerline_symbols = 'compatible' "'fancy' and 'unicode' settings fuck up
-let g:Powerline_symbols = 'fancy' "'fancy' and 'unicode' settings fuck up
 
 
 "
@@ -177,8 +177,8 @@ nnoremap ;hv :vert help
 " PRICELESS
 nnoremap q; q:
 " move proper on wrapped lines
-nnoremap j gj
-nnoremap k gk
+"nnoremap j gj
+"nnoremap k gk
 " VISUAL SHIFTING
 vnoremap < <gv
 vnoremap > >gv
@@ -789,12 +789,13 @@ nnoremap <Leader>er :RainbowParenthesesLoadRound<cr>:RainbowParenthesesLoadSquar
 "
 "   A U T O L O A D I N G   S T U F F
 "
-"REMOVE TRAILING WHITESPACE AND ^M CHARS
-au FileType c,cpp,java,php,javascript,python,tex,twig,wofl,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+au FileType post setlocal ft=markdown syntax=markdown
 au Filetype wofl setlocal nolist sw=2 tw=80 cc=81
 au FileType m setlocal nolist
-au BufNewFile,BufRead *.m     setlocal ft=octave syntax=octave nolist
+au BufNewFile,BufRead *.m setlocal ft=octave syntax=octave nolist
 au BufEnter *.hs compiler ghc
+"REMOVE TRAILING WHITESPACE AND ^M CHARS
+"au FileType c,cpp,java,php,javascript,python,tex,twig,wofl,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 au Filetype asciidoc setlocal nolist
 " SAVE ALL FILES WHEN FOCUS IS LOST

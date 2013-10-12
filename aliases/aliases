@@ -8,6 +8,8 @@
 # to have a universal /bin folder in ~
 export PATH=~/bin:$PATH
 
+alias gg='gradle'
+
 #FIRST THE WINDOW SPECIFIC STUFF
 #open windows explorer from shell in current folder
         alias e='explorer .'
