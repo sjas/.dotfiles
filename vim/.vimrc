@@ -363,7 +363,10 @@ nnoremap <Leader>uu VgU
 nnoremap <Leader>ul yypVr=o<cr>
 " ADD CURRENT DATE AT THE END OF FILE
 " comment it out and jump back to last edit location
-nnoremap <Leader>fs :.!date<cr><esc>
+"nnoremap <Leader>fs :.!date<cr><esc>
+nnoremap <Leader>fs :.!date --rfc-3339=seconds<cr>$xxxxxx
+" for use in blogposts to insert 'date: YY-MM-DD hh:mm:ss'
+nnoremap <Leader><leader>fs Sdate:<esc>o<esc>:.!date --rfc-3339=seconds<cr><esc>kJ$xxxxxx
 " remove unneeded carriage returns
 nnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
@@ -788,9 +791,8 @@ nnoremap <Leader>er :RainbowParenthesesLoadRound<cr>:RainbowParenthesesLoadSquar
 "
 "   A U T O L O A D I N G   S T U F F
 "
-au FileType post setlocal ft=markdown syntax=markdown
-au Filetype wofl setlocal nolist sw=2 tw=80 cc=81
-au FileType m setlocal nolist
+au BufNewFile,BufRead *.post setlocal ft=markdown syntax=markdown
+au BufNewFile,BufRead *.wofl setlocal nolist sw=2 tw=80 cc=81
 au BufNewFile,BufRead *.m setlocal ft=octave syntax=octave nolist
 au BufEnter *.hs compiler ghc
 "REMOVE TRAILING WHITESPACE AND ^M CHARS

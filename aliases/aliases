@@ -19,6 +19,7 @@ alias gg='gradle'
         alias ...='cd ../..'
         alias ....='cd ../../..'
         alias .....='cd ../../../..'
+        alias ......='cd ../../../../..'
 
 #ls
         # os check for getting coloring right
@@ -32,46 +33,34 @@ alias gg='gradle'
         else 
             export LS1='--color=auto'
         fi
-
         export LS2='-hF'
         export LS3='--time-style=long-iso'
 
         alias  ls='ls $LS1 $LS2 $LS3 -B '
         alias  la='ls $LS1 $LS2 $LS3 -A ' # also lists hidden files
-        alias   l='ls $LS1 $LS2 $LS3 -lB' # listing view of all files
-        alias  ll='ls $LS1 $LS2 $LS3 -lA' # like before, but w/o hidden files
+        alias   l='ls $LS1 $LS2 $LS3 -lA' # listing view of all files
+        alias  ll='ls $LS1 $LS2 $LS3 -lB' # like before, but w/o hidden files
         # for very long listings use less
         alias vls='ls $LS1 $LS2 $LS3 -B  | grep ".*" | less -R'
         alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R' # also lists hidden files
-        alias  vl='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R' # list of files
-        alias vll='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R' # like before, but lists hidden files, too
-# # # # # # # # # # # # # # # # # # # # #
+        alias  vl='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R' # list of files
+        alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R' # like before, but lists hidden files, too
 
-#vim
         alias v=vim
         alias vi=vim
         alias vm=~/.dotfiles/vim/vman.sh
-# # # # # # # # # # # # # # # # # # # # #
-
-#grep
-        # always use:
-        #   color
-        #   ignore case
-        #   print line number
-        #   recursive search
-        alias grep='grep --color=always -i -n -r'
-# # # # # # # # # # # # # # # # # # # # #
-
-#tail
-        alias tail='tail -n200'
-# # # # # # # # # # # # # # # # # # # # #
-
-#du
+        alias grep='grep --color=always -i -n'
+        alias t='tail -n200'
+        alias h='head -n20'
+        alias g='git'
         alias du='du -h'
-# # # # # # # # # # # # # # # # # # # # #
-
-#mkdir
         alias mkdir='mkdir -p'
+        alias d='dirs -v'
+        alias o='popd'
+        alias p='pushd'
+        alias rmf="rm -rf"
+        alias rmfa="rm -rf *"
+        alias info='info --vi-keys'
 
 #cdnd - 'cd new dir'
         mkdircd(){
@@ -79,27 +68,8 @@ alias gg='gradle'
                 cd "$1"
         }
         alias cdnd=mkdircd
-# pushd, popd, dirs
-        alias d='dirs -v'
-        alias o='popd'
-        alias p='pushd'
-# # # # # # # # # # # # # # # # # # # # #
-
-
-#rm
-        alias rmf="rm -rf"
-        alias rmfa="rm -rf *"
-# # # # # # # # # # # # # # # # # # # # #
-
-
-#info
-        alias info='info --vi-keys'
-# # # # # # # # # # # # # # # # # # # # #
-
-
 #ips
         function getips {
                 `ifconfig | grep 'inet' | awk '{print $2}'`
         }
         alias ips=getips
-# # # # # # # # # # # # # # # # # # # # #
