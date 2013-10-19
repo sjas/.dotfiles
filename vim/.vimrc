@@ -168,6 +168,7 @@ nnoremap <Leader>fe :e <C-R>=expand('%:h').'/'<cr>
 "nnoremap <Leader>fr :w<CR>:silent !ghcii.sh %<CR>
 "nnoremap <Leader>fr :w<CR>:!python % -f ./raw-material/Dfn.graphml<CR>
 "nnoremap <Leader>fr :wa<CR>:!ghc --make Main.hs && ./Main<CR>
+nnoremap <Leader>fj :wa<CR>:!ghc --make Main.hs && ./Main<CR>
 nnoremap <leader>fr :wa<cr>:!/cygdrive/c/Users/sjas/work/sap-projekt/compile-latex.sh<cr>
 nnoremap <leader>gt :wa<cr>:!/cygdrive/c/Users/sjas/work/ktr-ausarbeitung/build.sh<cr>
 nnoremap <leader>gr :wa<cr>:!/cygdrive/c/Users/sjas/work/ktr-praesentation/build.sh<cr>
@@ -364,7 +365,7 @@ nnoremap <Leader>ul yypVr=o<cr>
 " ADD CURRENT DATE AT THE END OF FILE
 " comment it out and jump back to last edit location
 "nnoremap <Leader>fs :.!date<cr><esc>
-nnoremap <Leader>fs :.!date --rfc-3339=seconds<cr>$xxxxxx
+nnoremap <Leader>fs :.!date --rfc-3339=seconds \| cut -c1-19"<cr>
 " for use in blogposts to insert 'date: YY-MM-DD hh:mm:ss'
 nnoremap <Leader><leader>fs Sdate:<esc>o<esc>:.!date --rfc-3339=seconds<cr><esc>kJ$xxxxxx
 " remove unneeded carriage returns

@@ -16,6 +16,8 @@ cp ~/.dotfiles/keyboard/.xmodmaprc  ~
 cp ~/.dotfiles/keyboard/.Xkbmap     ~
 #vim
 cp ~/.dotfiles/vim/.vimrc           ~
+#emacs
+cp ~/.dotfiles/emacs/.emacs         ~
 
 echo 'copied sources...'
 

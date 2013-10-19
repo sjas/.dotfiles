@@ -9,6 +9,7 @@ cd
 #set gitconfig
 cp ~/.dotfiles/git/.gitconfig        .
 #cp ~/.dotfiles/git/.gitk              .
+cp ~/.dotfiles/emacs/.emacs           .
 #set up vim and plugins
 cp ~/.dotfiles/vim/.vimrc           .
 cp -R ~/.dotfiles/vim/.vim 	     .

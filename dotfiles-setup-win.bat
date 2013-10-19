@@ -4,6 +4,8 @@ REM
 
 cd %home%
 cp .dotfiles\vim\.vimrc .vimrc
+cp .dotfiles\emacs\.emacs .emacs
+cp .dotfiles\emacs\.emacs .emacs
 cp .dotfiles\git\.gitconfig .gitconfig
 
 cp -R .dotfiles/vim/.vim .
