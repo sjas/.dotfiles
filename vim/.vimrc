@@ -322,10 +322,11 @@ nnoremap <Leader>tu  :TlistUpdate<cr>
 
 " NERDTREE
 let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowLineNumbers=1
+let NERDTreeMinimalUI=1
+let NERDTreeSortOrder=['\/$','*']
 nnoremap <Leader><CR> :NERDTreeToggle<CR>999<C-w><40<C-w>>010l
-"nnoremap <Leader><CR> :NERDTreeFind<CR>999<C-w><40<C-w>>010l
-" this is not working, fix it some day...
-"autocmd BufEnter * silent! if bufname('%') !~# 'NERD_tree_' | cd %:p:h | NERDTreeCWD | wincmd p | endif
 " OPEN LAST CLOSED WINDOW
 "todo remap this to next tab
 "nnoremap <Leader>n :vs<bar>:b#<CR>
