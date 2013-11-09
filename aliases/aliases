@@ -20,7 +20,7 @@ alias gg='gradle'
 
 #FIRST THE WINDOW SPECIFIC STUFF
 #open windows explorer from shell in current folder
-        alias ee='explorer ./'
+        alias ee='explorer .'
         alias xc='startxwin'
 #cd
         alias ..='cd ..'
