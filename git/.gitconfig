@@ -104,6 +104,7 @@
 
 #  branch your way to victory, add <branch name>	=====
 	b	= branch #(...<branch name>), without argument show existing ones
+	ba	= branch -a # shows all local and remote branches
 	bd	= branch -D #...<branch name>
 	co	= checkout #...
 	cob	= checkout -b #...<branch name> create + checkout branch
