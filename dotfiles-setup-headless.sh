@@ -26,7 +26,7 @@ echo 'ACTIVATE'
 
 
 source ~/.bash_profile
-loadkeys ~/.CapsToControl.map.gz
+sudo loadkeys ~/.CapsToControl.map.gz
 vim +':source $MYVIMRC' +':q'
 
 
