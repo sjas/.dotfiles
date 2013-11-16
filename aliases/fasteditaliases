@@ -5,8 +5,15 @@
 #
 ######################################################################
 
+# RUN
+        alias svh='~/.dotfiles/dotfiles-setup-headless.sh'
+        alias svl='~/.dotfiles/dotfiles-setup-linux.sh'
+        alias svw='~/.dotfiles/dotfiles-setup-win.sh'
+
 # setup
-        alias  ed='vim ~/.dotfiles/dotfiles-setup.sh'
+        alias  edh='vim ~/.dotfiles/dotfiles-setup-headless.sh'
+        alias  edl='vim ~/.dotfiles/dotfiles-setup-linux.sh'
+        alias  edw='vim ~/.dotfiles/dotfiles-setup-win.bat'
 
 # dotfiles
         alias  ez='vim ~/.dotfiles/zsh/.zshrc'
@@ -14,6 +21,7 @@
         alias ebp='vim ~/.dotfiles/bash/.bash_profile'
         alias  eg='vim ~/.dotfiles/git/.gitconfig'
         alias  ev='vim ~/.dotfiles/vim/.vimrc'
+        alias eem='vim ~/.dotfiles/emacs/.emacs'
 
 # edit aliases
         alias efea='vim ~/.dotfiles/aliases/fasteditaliases'

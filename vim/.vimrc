@@ -263,7 +263,7 @@ vnoremap <C-l> <ESC><C-w>lv
 
 " EASY EDITING OF CONFIG FILES
 nnoremap   <Leader>ev :e    ~/.dotfiles/vim/.vimrc<CR>
-nnoremap  <Leader>egv :e    ~/.dotfiles/vim/_gvimrc<CR>
+nnoremap  <Leader>eem :e    ~/.dotfiles/emacs/.emacs<CR>
 nnoremap   <Leader>eg :e    ~/.dotfiles/git/.gitconfig<CR>
 nnoremap   <Leader>eb :e    ~/.dotfiles/bash/.bashrc<CR>
 nnoremap  <Leader>ebp :e    ~/.dotfiles/bash/.bash_profile<CR>
@@ -276,7 +276,7 @@ nnoremap   <Leader>ea :e    ~/.priv/aim.wofl<CR>
 nnoremap   <Leader>ez :e    ~/.dotfiles/zsh/.zshrc<CR>
 "in horizontal splitview
 nnoremap   <Leader>evt :sp  ~/.dotfiles/vim/.vimrc<CR>
-nnoremap  <Leader>egvt :sp  ~/.dotfiles/vim/_gvimrc<CR>
+nnoremap  <Leader>eemt :sp  ~/.dotfiles/emacs/.emacs<CR>
 nnoremap   <Leader>egt :sp  ~/.dotfiles/git/.gitconfig<CR>
 nnoremap   <Leader>ebt :sp  ~/.dotfiles/bash/.bashrc<CR>
 nnoremap  <Leader>ebpt :sp  ~/.dotfiles/bash/.bash_profile<CR>
@@ -289,7 +289,7 @@ nnoremap   <Leader>eat :sp  ~/.priv/aim.wofl<CR>
 nnoremap   <Leader>ezt :sp  ~/.dotfiles/zsh/.zshrc<CR>
 "in vertical splitview
 nnoremap   <Leader>evv :vsp ~/.dotfiles/vim/.vimrc<CR>
-nnoremap  <Leader>egvv :vsp ~/.dotfiles/vim/_gvimrc<CR>
+nnoremap  <Leader>eemv :vsp ~/.dotfiles/emacs/.emacs<CR>
 nnoremap   <Leader>egv :vsp ~/.dotfiles/git/.gitconfig<CR>
 nnoremap   <Leader>ebv :vsp ~/.dotfiles/bash/.bashrc<CR>
 nnoremap  <Leader>ebpv :vsp ~/.dotfiles/bash/.bash_profile<CR>
@@ -303,6 +303,7 @@ nnoremap   <Leader>ezv :vsp ~/.dotfiles/zsh/.zshrc<CR>
 "sourcing
 nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>
 "nnoremap <Leader>sf :silent !c:\Users\sjas\.dotfiles\dotfiles-setup-win.bat<CR>
+"todo fix this depending on the os used
 nnoremap <Leader>sf :!/cygdrive/c/Users/sjas/.dotfiles/dotfiles-setup-win.bat<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <Leader>sb :source ~/.bash_profile<CR>
