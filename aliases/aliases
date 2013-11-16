@@ -8,7 +8,7 @@
 # to have a universal /bin folder in ~
 export PATH=~/bin:$PATH
 
-alias e='emacs'
+alias e='emacs -fs'
 alias v='vim'
 alias t='tail -n200'
 alias h='head -n20'
