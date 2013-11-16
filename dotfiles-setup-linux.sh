@@ -2,37 +2,33 @@
 
 echo 'deploying sjas dotfiles...'
 
-### copy things
-#bash
-cp ~/.dotfiles/bash/.bashrc         ~
-cp ~/.dotfiles/bash/.bash_profile   ~
-#git
+
+
+echo 'COPY'
+cp ~/.dotfiles/vim/.vimrc            ~
+cp -R ~/.dotfiles/vim/.vim           ~
+cp ~/.dotfiles/emacs/.emacs          ~
+
 cp ~/.dotfiles/git/.gitconfig       ~
 cp ~/.dotfiles/git/.gitk            ~
-#keyboard ~
+
+cp ~/.dotfiles/zsh/.zshrc            ~
+cp ~/.dotfiles/bash/.bashrc         ~
+cp ~/.dotfiles/bash/.bash_profile   ~
+
 cp ~/.dotfiles/keyboard/.inputrc    ~
+cp ~/.dotfiles/keyboard/.CapsToControl.map.gz ~
 cp ~/.dotfiles/keyboard/.xinitrc    ~
 cp ~/.dotfiles/keyboard/.xmodmaprc  ~
 cp ~/.dotfiles/keyboard/.Xkbmap     ~
-#vim
-cp ~/.dotfiles/vim/.vimrc           ~
-#emacs
-cp ~/.dotfiles/emacs/.emacs         ~
 
-echo 'copied sources...'
-
-### sourcing files
-#bash
+echo 'ACTIVATE'
+loadkeys ~/.CapsToControl.map.gz 
+vim +':source $MYVIMRC' +':q'
+source ~/.xmodmaprc
+source ~/.Xkbmap
 source ~/.bash_profile
 
-#keyboard
-# this is for virtual consoles
-sudo loadkeys ~/.dotfiles/keyboard/.CapsToControl.map.gz
-# these do not need to be sourced, they work in X
-#source ~/.xmodmaprc
-#source ~/.Xkbmap
 
-#vim
-vim +':source $MYVIMRC' +':q'
 
-echo '... sources sourced.'
+echo 'deployed everything.'
