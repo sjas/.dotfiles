@@ -77,7 +77,6 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'spf13/vim-colors'
 Bundle 'nelstrom/vim-mac-classic-theme'
 Bundle 'sjas/ColorSamplerPack'
-colo badwolf
 se magic "how to handle rexexp escaping
 " powerline
 se ls=2 "always show statusline
@@ -145,9 +144,11 @@ se backspace=indent,eol,start
 "   I M P O R T A N T   S H O R T C U T S
 "
 " SPEED UP THINGS
-noremap ; :
-" remap the repeat-t/f-search function!
-noremap : ;
+"noremap ; :
+"noremap : ;
+"center screen on next match
+nnoremap n nzz
+nnoremap N Nzz
 " FAST q!, wq, w, e!
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>fw :w<CR>
@@ -805,3 +806,4 @@ au Filetype asciidoc setlocal nolist
 " SAVE ALL FILES WHEN FOCUS IS LOST
 " works only in gvim IIRC
 au FocusLost * :wa
+colo badwolf
