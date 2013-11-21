@@ -1,3 +1,5 @@
+
+
 ;; sjas emacs configuration file
 
 
@@ -12,10 +14,10 @@
 (package-initialize)
 (global-set-key (kbd "C-c ;") 'package-list-packages)
 
-;(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-;(add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))
-;(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-;(add-to-list 'auto-mode-alist '("\\.post\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.post\\'" . markdown-mode))
 
 (global-set-key (kbd "M-j") 'next-buffer)
 (global-set-key (kbd "M-k") 'previous-buffer)
@@ -40,7 +42,7 @@
 (ido-mode 1)
 
 (require 'hlinum)
-(linum-mode 1)
+(setq linum-mode t)
 
 (require 'key-chord)
 (key-chord-mode 1)
