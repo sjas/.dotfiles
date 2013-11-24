@@ -13,6 +13,7 @@ cp ~/.dotfiles/git/.gitconfig        ~
 
 
 cp ~/.dotfiles/zsh/.zshrc            ~
+cp ~/.dotfiles/zsh/.zsh_profile      ~
 cp ~/.dotfiles/bash/.bashrc          ~
 cp ~/.dotfiles/bash/.bash_profile    ~
 
@@ -23,11 +24,12 @@ cp ~/.dotfiles/keyboard/.CapsToControl.map.gz ~
 echo 'colo desert' >> .vimrc
 
 echo 'ACTIVATE'
-
+sudo loadkeys ~/.CapsToControl.map.gz
 
 source ~/.bash_profile
-sudo loadkeys ~/.CapsToControl.map.gz
+source ~/.zsh_profile
 vim +':source $MYVIMRC' +':q'
+
 
 
 

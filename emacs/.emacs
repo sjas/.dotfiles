@@ -80,6 +80,20 @@
 ;(load "~/.emacs.d/ess/lisp/ess-site")
 (require 'ess-site)
 
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+;
+(setq TeX-PDF-mode t)
+;(add-hook ‘LaTeX-mode-hook ‘LaTeX-math-mode)
+;(add-hook ‘LaTeX-mode-hook ‘auto-fill-mode)
+;(add-hook ‘LaTeX-mode-hook ‘flyspell-mode)
+(add-hook `tex-mode-hook `flyspell-mode)
+(add-hook `bibtex-mode-hook `flyspell-mode)
+(global-hl-line-mode 1)
+(line-number-mode 1)
+(column-number-mode 1)
+
 ;;; set from within emacs via 'M-x customize-themes'
 (require 'color-theme)
 (setq color-theme-is-global t)

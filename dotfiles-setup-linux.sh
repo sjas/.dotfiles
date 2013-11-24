@@ -24,10 +24,10 @@ cp ~/.dotfiles/keyboard/.Xmodmap    ~
 #cp ~/.dotfiles/keyboard/.Xkbmap     ~
 
 echo 'ACTIVATE'
-sudo loadkeys ~/.CapsToControl.map.gz 
-source ~/.xinitrc
-source ~/.bash_profile
-source ~/.zsh_profile
+#sudo loadkeys ~/.CapsToControl.map.gz 
+#source ~/.xinitrc
+#source ~/.bash_profile
+#source ~/.zsh_profile
 vim +':source $MYVIMRC' +':q'
 #source ~/.Xkbmap
 
