@@ -18,7 +18,7 @@ cp .dotfiles\bash\.bashrc .bashrc
 cp .dotfiles\bash\.bash_profile .bash_profile
 
 
-cp .dotfiles\keyboard\.CapsToControl.reg
+cp .dotfiles\keyboard\.CapsToControl.reg .CapsToControl.reg
 
 
 

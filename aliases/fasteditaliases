@@ -8,7 +8,7 @@
 # RUN
         alias svh='~/.dotfiles/dotfiles-setup-headless.sh'
         alias svl='~/.dotfiles/dotfiles-setup-linux.sh'
-        alias svw='~/.dotfiles/dotfiles-setup-win.sh'
+        alias svw='~/.dotfiles/dotfiles-setup-win.bat'
 
 # setup
         alias  edh='vim ~/.dotfiles/dotfiles-setup-headless.sh'
