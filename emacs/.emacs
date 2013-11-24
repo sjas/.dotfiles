@@ -2,16 +2,29 @@
 
 ;; sjas emacs configuration file
 
+; list the packages you want
+(setq package-list '(
+                     package1 
+                     package2
+                     ))
 
 (require 'package)
 (setq package-archives
       '(
         ("elpa" . "http://tromey.com/elpa/")
-        ("melpa" . "http://melpa.milkbox.net/packages/")
-        ("marmalade" . "http://marmalade-repo.org/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")
+        ("marmalade" . "http://marmalade-repo.org/packages/")
+        ("melpa" . "http://melpa.milkbox.net/packages/")
         ))
 (package-initialize)
+; fetch the list of packages available 
+(when (not package-archive-contents)
+  (package-refresh-contents))
+; install the missing packages
+(dolist (package package-list)
+  (when (not (package-installed-p package))
+    (package-install package)))
+
 (global-set-key (kbd "C-c ;") 'package-list-packages)
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
@@ -36,7 +49,7 @@
                   (find-file "~/.dotfiles/emacs/.emacs")))
 (global-set-key (kbd "C-c C-g") 
                 (lambda () (interactive) 
-                    (find-file "~/.dotfiles/git/.gitconfig")))
+                  (find-file "~/.dotfiles/git/.gitconfig")))
 ;; deployment; to 'reload' changes in .emacs, goto changed expression and use C-x C-e
 (global-set-key (kbd "C-c C-s") 
                 (lambda () (interactive) 
@@ -53,7 +66,7 @@
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
 (require 'ido)
 (ido-mode 1)
@@ -105,27 +118,27 @@
 
 ;; dirty fix for having AutoComplete everywhere
 ;(define-globalized-minor-mode real-global-auto-complete-mode
-  ;auto-complete-mode (lambda ()
-                       ;(if (not (minibufferp (current-buffer)))
-                         ;(auto-complete-mode 1))
-                       ;)
+;auto-complete-mode (lambda ()
+;(if (not (minibufferp (current-buffer)))
+;(auto-complete-mode 1))
+;)
 ;(real-global-auto-complete-mode t)
 
 ; no tabs!!!
 ;(add-hook 'after-change-major-mode-hook 
-          ;'(lambda () 
-             ;(setq-default indent-tabs-mode nil)
-             ;(setq c-basic-indent 4)
-             ;(setq tab-stop-list (number-sequence 4 200 4))
-             ;(setq tab-width 4)))
+;'(lambda () 
+;(setq-default indent-tabs-mode nil)
+;(setq c-basic-indent 4)
+;(setq tab-stop-list (number-sequence 4 200 4))
+;(setq tab-width 4)))
 
 ;;; FIX FOR OLD COLOR THEMES
 ;(defun plist-to-alist (the-plist)
-    ;(defun get-tuple-from-plist (the-plist)
-          ;(when the-plist
-                  ;(cons (car the-plist) (cadr the-plist))))
-      ;(let ((alist '()))
-            ;(while the-plist
-                         ;(add-to-list 'alist (get-tuple-from-plist the-plist))
-                               ;(setq the-plist (cddr the-plist)))
-              ;alist))
+;(defun get-tuple-from-plist (the-plist)
+;(when the-plist
+;(cons (car the-plist) (cadr the-plist))))
+;(let ((alist '()))
+;(while the-plist
+;(add-to-list 'alist (get-tuple-from-plist the-plist))
+;(setq the-plist (cddr the-plist)))
+;alist))
