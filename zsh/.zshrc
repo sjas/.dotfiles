@@ -1,3 +1,6 @@
+    if [ -f ~/.CapsToControl.map.gz ]; then
+        sudo loadkeys ~/.CapsToControl.map.gz
+    fi
 #
 #Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh

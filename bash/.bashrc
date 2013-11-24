@@ -5,6 +5,11 @@
 #
 # # # # # # # # # # # # # # # # # # # # #
 
+
+    if [ -f ~/.CapsToControl.map.gz ]; then
+        sudo loadkeys ~/.CapsToControl.map.gz
+    fi
+
 #include fasteditaliases / aliases / gitaliases
         source ~/.dotfiles/aliases/fasteditaliases
         source ~/.dotfiles/aliases/aliases

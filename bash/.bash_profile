@@ -8,8 +8,6 @@
 shopt -s checkwinsize
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-sudo loadkeys ~/.dotfiles/keyboard/CapsToControl.map.gz
-
 # # # # # # # # # # # # # # # # # # # # #
 # SOURCE GLOBAL DEFINITIONS
     if [ -f /etc/bashrc ]; then

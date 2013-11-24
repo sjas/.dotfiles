@@ -26,6 +26,23 @@
 (global-set-key (kbd "C-c k") 'flymake-goto-prev-error)
 (global-set-key (kbd "C-c h") 'flymake-display-err-menu-for-current-line)
 
+(global-set-key (kbd "C-c C-v") 
+                (lambda () (interactive) 
+                  (progn
+                    (find-file "~/.dotfiles/vim/.vimrc")
+                    (vimrc-mode))))
+(global-set-key (kbd "C-c C-e") 
+                (lambda () (interactive) 
+                  (find-file "~/.dotfiles/emacs/.emacs")))
+(global-set-key (kbd "C-c C-g") 
+                (lambda () (interactive) 
+                    (find-file "~/.dotfiles/git/.gitconfig")))
+;; deployment; to 'reload' changes in .emacs, goto changed expression and use C-x C-e
+(global-set-key (kbd "C-c C-s") 
+                (lambda () (interactive) 
+                  (shell-command (format "bash -c %s" (shell-quote-argument "~/.dotfiles/dotfiles-setup-linux.sh")))))
+;(global-set-key (kbd "C-c C-s") (lambda () (interactive) (find-file "")))
+
 (require 'evil)
 (evil-mode 1)
 
@@ -61,7 +78,7 @@
 
 
 ;(load "~/.emacs.d/ess/lisp/ess-site")
-;(require 'ess-site)
+(require 'ess-site)
 
 ;;; set from within emacs via 'M-x customize-themes'
 (require 'color-theme)

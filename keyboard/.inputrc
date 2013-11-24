@@ -17,3 +17,4 @@ set completion-ignore-case on
 # show '/' or '*' after file names
 set visible-stats on
 set show-all-if-ambiguous on
+#xmodmap ~/.Xmodmaprc
