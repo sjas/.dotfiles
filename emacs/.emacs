@@ -2,92 +2,6 @@
 
 ;; sjas emacs configuration file
 
-; list the packages you want
-(setq package-list '(
-		     'ac-math
-		     'auctex-latexmk
-		     'bash-completion
-		     'bibslurp
-		     'blank-mode
-		     'cdlatex
-		     'chm-view
-		     'color-theme
-		     'dash
-		     'ebib
-		     'ess-R-data-view
-		     'ess-R-object-popup
-		     'ess
-		     'ess-smart-underscore
-		     'evil-indent-textobject
-		     'evil-leader
-		     'evil-matchit
-		     'evil-nerd-commenter
-		     'evil-numbers
-		     'evil-paredit
-		     'evil
-		     'flymake-haskell-multi
-		     'flymake-easy
-		     'gdb-shell
-		     'ghc
-		     'ghci-completion
-		     'gitconfig-mode
-		     'haskell-mode
-		     'highlight-current-line
-		     'highlight-parentheses
-		     'highline
-		     'hlinum
-		     'ido-at-point
-		     'ido-ubiquitous
-		     'insert-shebang
-		     'java-file-create
-		     'javadoc-help
-		     'javarun
-		     'javascript
-		     'jedi-direx
-		     'direx
-		     'jedi
-		     'auto-complete
-		     'epc
-		     'ctable
-		     'concurrent
-		     'deferred
-		     'kanban
-		     'key-chord
-		     'keyfreq
-		     'keywiz
-		     'latex-extra
-		     'auctex
-		     'latex-pretty-symbols
-		     'latex-preview-pane
-		     'linum-relative
-		     'look-dired
-		     'look-mode
-		     'magit
-		     'git-rebase-mode
-		     'git-commit-mode
-		     'cl-lib
-		     'markdown-mode+
-		     'markdown-mode
-		     'minimap
-		     'paredit
-		     'parscope
-		     'popup
-		     'rainbow-delimiters
-		     'rainbow-mode
-		     'realgud
-		     's
-		     'scratch
-		     'tex-math-preview
-		     'tex-smart-umlauts
-		     'texdrive
-		     'typing
-		     'undo-tree
-		     'use-package
-		     'diminish
-		     'bind-key
-		     'vimrc-mode
-                     ))
-
 (require 'package)
 (setq package-archives
       '(
@@ -97,10 +11,97 @@
         ("melpa" . "http://melpa.milkbox.net/packages/")
         ))
 (package-initialize)
-					; fetch the list of packages available 
+
+; list the packages you want
+(setq package-list '(
+                     ac-math
+                     auctex-latexmk
+                     bash-completion
+                     bibslurp
+                     blank-mode
+                     cdlatex
+                     chm-view
+                     color-theme
+                     dash
+                     ebib
+                     ess-R-data-view
+                     ess-R-object-popup
+                     ess
+                     ess-smart-underscore
+                     evil-indent-textobject
+                     evil-leader
+                     evil-matchit
+                     evil-nerd-commenter
+                     evil-numbers
+                     evil-paredit
+                     evil
+                     flymake-haskell-multi
+                     flymake-easy
+                     gdb-shell
+                     ghc
+                     ghci-completion
+                     gitconfig-mode
+                     haskell-mode
+                     highlight-current-line
+                     highlight-parentheses
+                     highline
+                     hlinum
+                     ido-at-point
+                     ido-ubiquitous
+                     insert-shebang
+                     java-file-create
+                     javadoc-help
+                     javarun
+                     javascript
+                     jedi-direx
+                     direx
+                     jedi
+                     auto-complete
+                     epc
+                     ctable
+                     concurrent
+                     deferred
+                     kanban
+                     key-chord
+                     keyfreq
+                     keywiz
+                     latex-extra
+                     auctex
+                     latex-pretty-symbols
+                     latex-preview-pane
+                     linum-relative
+                     look-dired
+                     look-mode
+                     magit
+                     git-rebase-mode
+                     git-commit-mode
+                     cl-lib
+                     markdown-mode+
+                     markdown-mode
+                     minimap
+                     paredit
+                     parscope
+                     popup
+                     rainbow-delimiters
+                     rainbow-mode
+                     realgud
+                     s
+                     scratch
+                     tex-math-preview
+                     tex-smart-umlauts
+                     texdrive
+                     typing
+                     undo-tree
+                     use-package
+                     diminish
+                     bind-key
+                     vimrc-mode
+                     ))
+
+; fetch the list of packages available 
 (when (not package-archive-contents)
   (package-refresh-contents))
-					; install the missing packages
+; install the missing packages
 (dolist (package package-list)
   (when (not (package-installed-p package))
     (package-install package)))
@@ -134,7 +135,7 @@
 (global-set-key (kbd "C-c C-s") 
                 (lambda () (interactive) 
                   (shell-command (format "bash -c %s" (shell-quote-argument "~/.dotfiles/dotfiles-setup-linux.sh")))))
-					;(global-set-key (kbd "C-c C-s") (lambda () (interactive) (find-file "")))
+;(global-set-key (kbd "C-c C-s") (lambda () (interactive) (find-file "")))
 
 (require 'evil)
 (evil-mode 1)
@@ -146,7 +147,7 @@
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
 (require 'ido)
 (ido-mode 1)
@@ -160,27 +161,27 @@
 
 (require 'flymake-haskell-multi)
 (add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
-					;(require 'haskell-decl-scan)
-					;(add-hook 'haskell-mode-hook 'turn-on-haskell-decl-scan)
+;(require 'haskell-decl-scan)
+;(add-hook 'haskell-mode-hook 'turn-on-haskell-decl-scan)
 (require 'haskell-doc)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc)
 (require 'haskell-indent)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-					;(require 'haskell-unicode-input-method)
-					;(add-hook 'haskell-mode-hook 'turn-on-haskell-unicode-input-method)
+;(require 'haskell-unicode-input-method)
+;(add-hook 'haskell-mode-hook 'turn-on-haskell-unicode-input-method)
 
 
-					;(load "~/.emacs.d/ess/lisp/ess-site")
+;(load "~/.emacs.d/ess/lisp/ess-site")
 (require 'ess-site)
 
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
-					;
+;
 (setq TeX-PDF-mode t)
-					;(add-hook ‘LaTeX-mode-hook ‘LaTeX-math-mode)
-					;(add-hook ‘LaTeX-mode-hook ‘auto-fill-mode)
-					;(add-hook ‘LaTeX-mode-hook ‘flyspell-mode)
+;(add-hook ‘LaTeX-mode-hook ‘LaTeX-math-mode)
+;(add-hook ‘LaTeX-mode-hook ‘auto-fill-mode)
+;(add-hook ‘LaTeX-mode-hook ‘flyspell-mode)
 (add-hook `tex-mode-hook `flyspell-mode)
 (add-hook `bibtex-mode-hook `flyspell-mode)
 (global-hl-line-mode 1)
@@ -191,34 +192,34 @@
 (require 'color-theme)
 (setq color-theme-is-global t)
 (load-theme 'manoj-dark)
-					;(color-theme-monokai)
+;(color-theme-monokai)
 
-					;mode-specific scratch buffers
-					;(autoload 'scratch "scratch" nil t)
+;mode-specific scratch buffers
+;(autoload 'scratch "scratch" nil t)
 
 ;; dirty fix for having AutoComplete everywhere
-					;(define-globalized-minor-mode real-global-auto-complete-mode
-					;auto-complete-mode (lambda ()
-					;(if (not (minibufferp (current-buffer)))
-					;(auto-complete-mode 1))
-					;)
-					;(real-global-auto-complete-mode t)
+;(define-globalized-minor-mode real-global-auto-complete-mode
+;auto-complete-mode (lambda ()
+;(if (not (minibufferp (current-buffer)))
+;(auto-complete-mode 1))
+;)
+;(real-global-auto-complete-mode t)
 
-					; no tabs!!!
-					;(add-hook 'after-change-major-mode-hook 
-					;'(lambda () 
-					;(setq-default indent-tabs-mode nil)
-					;(setq c-basic-indent 4)
-					;(setq tab-stop-list (number-sequence 4 200 4))
-					;(setq tab-width 4)))
+; no tabs!!!
+;(add-hook 'after-change-major-mode-hook 
+;'(lambda () 
+;(setq-default indent-tabs-mode nil)
+;(setq c-basic-indent 4)
+;(setq tab-stop-list (number-sequence 4 200 4))
+;(setq tab-width 4)))
 
 ;;; FIX FOR OLD COLOR THEMES
-					;(defun plist-to-alist (the-plist)
-					;(defun get-tuple-from-plist (the-plist)
-					;(when the-plist
-					;(cons (car the-plist) (cadr the-plist))))
-					;(let ((alist '()))
-					;(while the-plist
-					;(add-to-list 'alist (get-tuple-from-plist the-plist))
-					;(setq the-plist (cddr the-plist)))
-					;alist))
+;(defun plist-to-alist (the-plist)
+;(defun get-tuple-from-plist (the-plist)
+;(when the-plist
+;(cons (car the-plist) (cadr the-plist))))
+;(let ((alist '()))
+;(while the-plist
+;(add-to-list 'alist (get-tuple-from-plist the-plist))
+;(setq the-plist (cddr the-plist)))
+;alist))
