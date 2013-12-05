@@ -1,8 +1,5 @@
-
-
 ;; sjas emacs configuration file
 
-(require 'package)
 (setq package-archives
       '(
         ("elpa" . "http://tromey.com/elpa/")
@@ -105,6 +102,7 @@
 (dolist (package package-list)
   (when (not (package-installed-p package))
     (package-install package)))
+(require 'package)
 
 (global-set-key (kbd "C-c ;") 'package-list-packages)
 
@@ -174,16 +172,17 @@
 ;(load "~/.emacs.d/ess/lisp/ess-site")
 (require 'ess-site)
 
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
-;
-(setq TeX-PDF-mode t)
+;(setq TeX-auto-save t)
+;(setq TeX-parse-self t)
+;(setq-default TeX-master nil)
+;;
+;(setq TeX-PDF-mode t)
+;(add-hook `tex-mode-hook `flyspell-mode)
+;(add-hook `bibtex-mode-hook `flyspell-mode)
+
 ;(add-hook ‘LaTeX-mode-hook ‘LaTeX-math-mode)
 ;(add-hook ‘LaTeX-mode-hook ‘auto-fill-mode)
 ;(add-hook ‘LaTeX-mode-hook ‘flyspell-mode)
-(add-hook `tex-mode-hook `flyspell-mode)
-(add-hook `bibtex-mode-hook `flyspell-mode)
 (global-hl-line-mode 1)
 (line-number-mode 1)
 (column-number-mode 1)
