@@ -18,6 +18,13 @@ alias o='popd'
 alias p='pushd'
 alias gg='gradle'
 
+grepv(){
+    vim $(\grep -irl "$*" .)
+}
+grepe(){
+    emacs $(\grep -irl "$*" .)
+}
+
 #FIRST THE WINDOW SPECIFIC STUFF
 #open windows explorer from shell in current folder
         alias ee='explorer .'
