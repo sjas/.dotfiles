@@ -118,41 +118,16 @@
     (package-install package)))
 (require 'package)
 
-(global-set-key (kbd "C-c ;") 'package-list-packages)
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.post\\'" . markdown-mode))
 
-(global-set-key (kbd "M-j") 'next-buffer)
-(global-set-key (kbd "M-k") 'previous-buffer)
-(global-set-key (kbd "M-;") 'other-window)
-(global-set-key (kbd "C-c j") 'flymake-goto-next-error)
-(global-set-key (kbd "C-c k") 'flymake-goto-prev-error)
-(global-set-key (kbd "C-c h") 'flymake-display-err-menu-for-current-line)
-
-(global-set-key (kbd "C-c C-v") 
-                (lambda () (interactive) 
-                  (progn
-                    (find-file "~/.dotfiles/vim/.vimrc")
-                    (vimrc-mode))))
-(global-set-key (kbd "C-c C-e") 
-                (lambda () (interactive) 
-                  (find-file "~/.dotfiles/emacs/.emacs")))
-(global-set-key (kbd "C-c C-g") 
-                (lambda () (interactive) 
-                  (find-file "~/.dotfiles/git/.gitconfig")))
-;; deployment; to 'reload' changes in .emacs, goto changed expression and use C-x C-e
-(global-set-key (kbd "C-c C-s") 
-                (lambda () (interactive) 
-                  (shell-command (format "bash -c %s" (shell-quote-argument "~/.dotfiles/dotfiles-setup-linux.sh")))))
-;(global-set-key (kbd "C-c C-s") (lambda () (interactive) (find-file "")))
 
 (require 'evil)
 (evil-mode 1)
 
-(global-set-key (kbd "C-;") 'evilnc-comment-or-uncomment-lines)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -237,3 +212,33 @@
 ;(add-to-list 'alist (get-tuple-from-plist the-plist))
 ;(setq the-plist (cddr the-plist)))
 ;alist))
+
+(global-set-key (kbd "C-c ;") 'package-list-packages)
+(global-set-key (kbd "M-j") 'next-buffer)
+(global-set-key (kbd "M-k") 'previous-buffer)
+(global-set-key (kbd "M-l")
+                (lambda () (interactive)
+                  (progn
+                    (buffer-menu)
+                    (other-window))))
+(global-set-key (kbd "M-;") 'other-window)
+(global-set-key (kbd "C-c j") 'flymake-goto-next-error)
+(global-set-key (kbd "C-c k") 'flymake-goto-prev-error)
+(global-set-key (kbd "C-c h") 'flymake-display-err-menu-for-current-line)
+(global-set-key (kbd "C-c C-v") 
+                (lambda () (interactive) 
+                  (progn
+                    (find-file "~/.dotfiles/vim/.vimrc")
+                    (vimrc-mode))))
+(global-set-key (kbd "C-c C-e") 
+                (lambda () (interactive) 
+                  (find-file "~/.dotfiles/emacs/.emacs")))
+(global-set-key (kbd "C-c C-g") 
+                (lambda () (interactive) 
+                  (find-file "~/.dotfiles/git/.gitconfig")))
+;; deployment; to 'reload' changes in .emacs, goto changed expression and use C-x C-e
+(global-set-key (kbd "C-c C-s") 
+                (lambda () (interactive) 
+                  (shell-command (format "bash -c %s" (shell-quote-argument "~/.dotfiles/dotfiles-setup-linux.sh")))))
+;(global-set-key (kbd "C-c C-s") (lambda () (interactive) (find-file "")))
+(global-set-key (kbd "C-;") 'evilnc-comment-or-uncomment-lines)
