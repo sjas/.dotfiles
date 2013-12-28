@@ -2,11 +2,11 @@
 
 (setq package-archives
       '(
-        ("elpa" . "http://tromey.com/elpa/")
-        ("gnu" . "http://elpa.gnu.org/packages/")
         ("marmalade" . "http://marmalade-repo.org/packages/")
         ("melpa" . "http://melpa.milkbox.net/packages/")
+        ("gnu" . "http://elpa.gnu.org/packages/")
         ))
+        ;("elpa" . "http://tromey.com/elpa/")
 (package-initialize)
 ; list the packages you want
              ;cider
@@ -17,8 +17,15 @@
              ;swank-clojure
              ;cljdoc
              ;clj-refactor
-             ;helm
 (setq package-list '(
+             helm
+             helm-flymake
+             helm-flycheck
+             helm-git
+             helm-helm-commands
+             helm-ls-git
+             helm-ack
+             ac-helm
              ac-math
              auctex-latexmk
              bash-completion
@@ -124,6 +131,8 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.post\\'" . markdown-mode))
 
+(require 'helm)
+(helm 1)
 
 (require 'evil)
 (evil-mode 1)
@@ -208,12 +217,11 @@
 ;(when the-plist
 ;(cons (car the-plist) (cadr the-plist))))
 ;(let ((alist '()))
-;(while the-plist
 ;(add-to-list 'alist (get-tuple-from-plist the-plist))
 ;(setq the-plist (cddr the-plist)))
 ;alist))
 
-(global-set-key (kbd "C-c ;") 'package-list-packages)
+;(global-set-key (kbd "C-c ;") 'package-list-packages)
 (global-set-key (kbd "M-j") 'next-buffer)
 (global-set-key (kbd "M-k") 'previous-buffer)
 (global-set-key (kbd "M-l")
@@ -242,3 +250,21 @@
                   (shell-command (format "bash -c %s" (shell-quote-argument "~/.dotfiles/dotfiles-setup-linux.sh")))))
 ;(global-set-key (kbd "C-c C-s") (lambda () (interactive) (find-file "")))
 (global-set-key (kbd "C-;") 'evilnc-comment-or-uncomment-lines)
+; moved so clojure fn headers works
+;(global-set-key (kbd "C-c ;") 'package-list-packages)
+(defun helm-clojure-headlines ()
+  "Display headlines for the current Clojure file."
+  (interactive)
+  (helm-mode t)
+  (helm :sources '(((name . "Clojure Headlines")
+                    (volatile)
+                    (headline "^[;(]")))))
+(global-set-key (kbd "C-c ;") 'helm-clojure-headlines)
+(defun helm-haskell-headlines ()
+  "Display headlines for the current Clojure file."
+  (interactive)
+  (haskell-mode t)
+  (helm :sources '(((name . "Haskell Headlines")
+                    (volatile)
+                    (headline "^\w+\s*::")))))
+(global-set-key (kbd "C-c C-;") 'haskell-clojure-headlines)
