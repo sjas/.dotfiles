@@ -12,6 +12,17 @@ ignore() {
     git add .gitignore
     git commit -am "gitignore ignores vim and emacs tempfiles"
 }
+# clean tempfiles/swapfiles
+clean() {
+    find . -name "#*#" | xargs rm
+    find . -name "*.sw*" | xargs rm
+    find . -name "*~" | xargs rm
+}
+swap() {
+    find . -name "#*#"
+    find . -name "*.sw*"
+    find . -name "*~"
+}
 
 alias g="git"
 alias gh="git h"
