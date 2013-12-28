@@ -816,9 +816,21 @@ while c <= 'z'
     let c = nr2char(1+char2nr(c))
 endw
 set ttimeout ttimeoutlen=50
-nnoremap <A-j> :next<cr>
-inoremap <A-j> :next<cr>
-nnoremap <a-k> :prev<cr>
-inoremap <a-k> :prev<cr>
-nnoremap <a-l> :ls<cr>
-inoremap <a-l> :ls<cr>
+noremap <A-j> :next<cr>
+noremap <a-k> :prev<cr>
+noremap <a-l> :ls<cr>
+noremap <a-2> :2b<cr>
+noremap <a-3> :3b<cr>
+noremap <a-4> :4b<cr>
+noremap <a-5> :5b<cr>
+noremap <a-6> :6b<cr>
+noremap <a-7> :7b<cr>
+noremap <a-8> :8b<cr>
+noremap <a-9> :9b<cr>
+noremap <a-0> :10b<cr>
+"nnoremap <A-j> :next<cr>
+"nnoremap <a-k> :prev<cr>
+"nnoremap <a-l> :ls<cr>
+"inoremap <A-j> :next<cr>
+"inoremap <a-k> :prev<cr>
+"inoremap <a-l> :ls<cr>
