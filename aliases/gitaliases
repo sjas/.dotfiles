@@ -4,6 +4,15 @@
 #
 #
 ###################################################################
+
+# add vim and emacs tempfiles to gitignore
+ignore() {
+    touch .gitignore 
+    echo "*.sw*\n*#\n" | cat >> .gitignore
+    git add .gitignore
+    git commit -am "gitignore ignores vim and emacs tempfiles"
+}
+
 alias g="git"
 alias gh="git h"
 alias gha="git ha"
