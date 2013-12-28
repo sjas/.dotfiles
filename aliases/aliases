@@ -19,7 +19,7 @@ alias p='pushd'
 alias gg='gradle'
 
 grepv(){
-    vim $(\grep -irl "$*" .)
+    vim `\grep -irl "$*" .`
 }
 grepe(){
     emacs $(\grep -irl "$*" .)

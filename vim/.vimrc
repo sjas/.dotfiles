@@ -228,10 +228,10 @@ vnoremap <Leader>al :Align
 
 " WINDOW MANAGEMENT SETTINGS
 "moving from window to window
-nnoremap <C-h>  <C-w>h
-nnoremap <C-l>  <C-w>l
-nnoremap <C-j>  <C-w>j
-nnoremap <C-k>  <C-w>k
+"nnoremap <C-h>  <C-w>h
+"nnoremap <C-l>  <C-w>l
+"nnoremap <C-j>  <C-w>j
+"nnoremap <C-k>  <C-w>k
 "open new blank file
 nnoremap o<C-h> :lefta vsp new<cr>
 nnoremap o<C-j> :bel sp new<cr>
@@ -808,3 +808,17 @@ au Filetype asciidoc setlocal nolist
 " works only in gvim IIRC
 au FocusLost * :wa
 colo badwolf
+" make alt-key combos work. beware, black magic
+let c='a'
+while c <= 'z'
+    exec "set <A-".c.">=\e".c
+    exec "imap \e".c." <A-".c.">"
+    let c = nr2char(1+char2nr(c))
+endw
+set ttimeout ttimeoutlen=50
+nnoremap <A-j> :next<cr>
+inoremap <A-j> :next<cr>
+nnoremap <a-k> :prev<cr>
+inoremap <a-k> :prev<cr>
+nnoremap <a-l> :ls<cr>
+inoremap <a-l> :ls<cr>
