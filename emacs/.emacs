@@ -11,20 +11,16 @@
 ; list the packages you want
              ;cider
              ;clojure-mode
-             ;clojure-cheatsheet
-             ;clojure-test-mode
-             ;durendal
-             ;swank-clojure
-             ;cljdoc
              ;clj-refactor
 (setq package-list '(
              helm
+             helm-ls-git
              helm-flymake
              helm-flycheck
-             helm-git
              helm-helm-commands
-             helm-ls-git
              helm-ack
+             helm-open-github
+             helm-orgcard
              ac-helm
              ac-math
              auctex-latexmk
@@ -114,7 +110,13 @@
              starter-kit-eshell 
              clojure-mode 
              clojure-test-mode 
+             clojure-cheatsheet
+             clojure-test-mode
+             durendal
+             cljdoc
              nrepl
+             slamhound
+             skewer-mode
              ))
 
 (when (not package-archive-contents)
@@ -131,8 +133,8 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.post\\'" . markdown-mode))
 
-(require 'helm)
-(helm 1)
+;(require 'helm)
+;(helm 1)
 
 (require 'evil)
 (evil-mode 1)
@@ -259,12 +261,12 @@
   (helm :sources '(((name . "Clojure Headlines")
                     (volatile)
                     (headline "^[;(]")))))
-(global-set-key (kbd "C-c ;") 'helm-clojure-headlines)
 (defun helm-haskell-headlines ()
-  "Display headlines for the current Clojure file."
+  "Display headlines for the current Haskell file."
   (interactive)
-  (haskell-mode t)
+  (setq haskell-mode t)
   (helm :sources '(((name . "Haskell Headlines")
                     (volatile)
-                    (headline "^\w+\s*::")))))
-(global-set-key (kbd "C-c C-;") 'haskell-clojure-headlines)
+                    (headline "^[a-z]+.+::")))))
+(global-set-key (kbd "C-c C-;") 'helm-haskell-headlines)
+(global-set-key (kbd "C-c ;") 'helm-clojure-headlines)
