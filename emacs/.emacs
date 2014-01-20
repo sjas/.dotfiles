@@ -223,37 +223,6 @@
 ;(setq the-plist (cddr the-plist)))
 ;alist))
 
-;(global-set-key (kbd "C-c ;") 'package-list-packages)
-(global-set-key (kbd "M-j") 'next-buffer)
-(global-set-key (kbd "M-k") 'previous-buffer)
-(global-set-key (kbd "M-l")
-                (lambda () (interactive)
-                  (progn
-                    (buffer-menu)
-                    (other-window))))
-(global-set-key (kbd "M-;") 'other-window)
-(global-set-key (kbd "C-c j") 'flymake-goto-next-error)
-(global-set-key (kbd "C-c k") 'flymake-goto-prev-error)
-(global-set-key (kbd "C-c h") 'flymake-display-err-menu-for-current-line)
-(global-set-key (kbd "C-c C-v") 
-                (lambda () (interactive) 
-                  (progn
-                    (find-file "~/.dotfiles/vim/.vimrc")
-                    (vimrc-mode))))
-(global-set-key (kbd "C-c C-e") 
-                (lambda () (interactive) 
-                  (find-file "~/.dotfiles/emacs/.emacs")))
-(global-set-key (kbd "C-c C-g") 
-                (lambda () (interactive) 
-                  (find-file "~/.dotfiles/git/.gitconfig")))
-;; deployment; to 'reload' changes in .emacs, goto changed expression and use C-x C-e
-(global-set-key (kbd "C-c C-s") 
-                (lambda () (interactive) 
-                  (shell-command (format "bash -c %s" (shell-quote-argument "~/.dotfiles/dotfiles-setup-linux.sh")))))
-;(global-set-key (kbd "C-c C-s") (lambda () (interactive) (find-file "")))
-(global-set-key (kbd "C-;") 'evilnc-comment-or-uncomment-lines)
-; moved so clojure fn headers works
-;(global-set-key (kbd "C-c ;") 'package-list-packages)
 (defun helm-clojure-headlines ()
   "Display headlines for the current Clojure file."
   (interactive)
@@ -268,5 +237,57 @@
   (helm :sources '(((name . "Haskell Headlines")
                     (volatile)
                     (headline "^[a-z]+.+::")))))
-(global-set-key (kbd "C-c C-;") 'helm-haskell-headlines)
-(global-set-key (kbd "C-c ;") 'helm-clojure-headlines)
+
+(defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
+
+;; make own keys work always
+(define-key my-keys-minor-mode-map (kbd "C-i") 'some-function)
+(define-key my-keys-minor-mode-map (kbd "C-;") 'evilnc-comment-or-uncomment-lines)
+(define-key my-keys-minor-mode-map (kbd "C-c C-;") 'helm-haskell-headlines)
+(define-key my-keys-minor-mode-map (kbd "C-c ;") 'helm-clojure-headlines)
+(define-key my-keys-minor-mode-map (kbd "M-j") 'next-buffer)
+(define-key my-keys-minor-mode-map (kbd "M-k") 'previous-buffer)
+(define-key my-keys-minor-mode-map (kbd "M-l")
+                (lambda () (interactive)
+                  (progn
+                    (buffer-menu)
+                    (other-window))))
+(define-key my-keys-minor-mode-map (kbd "M-;") 'other-window)
+(define-key my-keys-minor-mode-map (kbd "C-c j") 'flymake-goto-next-error)
+(define-key my-keys-minor-mode-map (kbd "C-c k") 'flymake-goto-prev-error)
+(define-key my-keys-minor-mode-map (kbd "C-c h") 'flymake-display-err-menu-for-current-line)
+(define-key my-keys-minor-mode-map (kbd "C-c C-v") 
+                (lambda () (interactive) 
+                  (progn
+                    (find-file "~/.dotfiles/vim/.vimrc")
+                    (vimrc-mode))))
+(define-key my-keys-minor-mode-map (kbd "C-c C-e") 
+                (lambda () (interactive) 
+                  (find-file "~/.dotfiles/emacs/.emacs")))
+(define-key my-keys-minor-mode-map (kbd "C-c C-g") 
+                (lambda () (interactive) 
+                  (find-file "~/.dotfiles/git/.gitconfig")))
+;; deployment; to 'reload' changes in .emacs, goto changed expression and use C-x C-e
+(define-key my-keys-minor-mode-map (kbd "C-c C-s") 
+                (lambda () (interactive) 
+                  (shell-command (format "bash -c %s" (shell-quote-argument "~/.dotfiles/dotfiles-setup-linux.sh")))))
+;(global-set-key (kbd "C-c ;") 'package-list-packages)
+;(global-set-key (kbd "C-c C-s") (lambda () (interactive) (find-file "")))
+; moved so clojure fn headers works
+;(global-set-key (kbd "C-c ;") 'package-list-packages)
+(define-minor-mode my-keys-minor-mode
+                     "A minor mode so that my key settings override annoying major modes."
+                       t " my-keys" 'my-keys-minor-mode-map)
+(my-keys-minor-mode 1)
+;; disable for minibuffer
+(defun my-minibuffer-setup-hook ()
+    (my-keys-minor-mode 0))
+(add-hook 'minibuffer-setup-hook 'my-minibuffer-setup-hook)
+;; make sure it works with (minor?) modes later loaded
+(defadvice load (after give-my-keybindings-priority)
+           "Try to ensure that my keybindings always have priority."
+           (if (not (eq (car (car minor-mode-map-alist)) 'my-keys-minor-mode))
+             (let ((mykeys (assq 'my-keys-minor-mode minor-mode-map-alist)))
+               (assq-delete-all 'my-keys-minor-mode minor-mode-map-alist)
+               (add-to-list 'minor-mode-map-alist mykeys))))
+(ad-activate 'load)
