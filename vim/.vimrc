@@ -228,10 +228,10 @@ vnoremap <Leader>al :Align
 
 " WINDOW MANAGEMENT SETTINGS
 "moving from window to window
-nnoremap <C-h>  <C-w>h
-nnoremap <C-l>  <C-w>l
-nnoremap <C-j>  <C-w>j
-nnoremap <C-k>  <C-w>k
+"nnoremap <C-h>  <C-w>h
+"nnoremap <C-l>  <C-w>l
+"nnoremap <C-j>  <C-w>j
+"nnoremap <C-k>  <C-w>k
 "open new blank file
 nnoremap o<C-h> :lefta vsp new<cr>
 nnoremap o<C-j> :bel sp new<cr>
@@ -800,6 +800,7 @@ nnoremap <Leader>er :RainbowParenthesesLoadRound<cr>:RainbowParenthesesLoadSquar
 au BufNewFile,BufRead *.post setlocal ft=markdown syntax=markdown
 au BufNewFile,BufRead *.wofl setlocal nolist sw=2 tw=80 cc=81
 au BufNewFile,BufRead *.m setlocal ft=octave syntax=octave nolist
+au BufNewFile,BufRead *.clj setlocal ft=lisp syntax=lisp nolist
 au BufEnter *.hs compiler ghc
 "REMOVE TRAILING WHITESPACE AND ^M CHARS
 "au FileType c,cpp,java,php,javascript,python,tex,twig,wofl,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
@@ -809,3 +810,29 @@ au Filetype asciidoc setlocal nolist
 " works only in gvim IIRC
 au FocusLost * :wa
 colo badwolf
+" make alt-key combos work. beware, black magic
+let c='a'
+while c <= 'z'
+    exec "set <A-".c.">=\e".c
+    exec "imap \e".c." <A-".c.">"
+    let c = nr2char(1+char2nr(c))
+endw
+set ttimeout ttimeoutlen=50
+noremap <A-j> :next<cr>
+noremap <a-k> :prev<cr>
+noremap <a-l> :ls<cr>
+noremap <a-2> :2b<cr>
+noremap <a-3> :3b<cr>
+noremap <a-4> :4b<cr>
+noremap <a-5> :5b<cr>
+noremap <a-6> :6b<cr>
+noremap <a-7> :7b<cr>
+noremap <a-8> :8b<cr>
+noremap <a-9> :9b<cr>
+noremap <a-0> :10b<cr>
+"nnoremap <A-j> :next<cr>
+"nnoremap <a-k> :prev<cr>
+"nnoremap <a-l> :ls<cr>
+"inoremap <A-j> :next<cr>
+"inoremap <a-k> :prev<cr>
+"inoremap <a-l> :ls<cr>
