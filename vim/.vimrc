@@ -377,7 +377,7 @@ vnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
 " remove all indentations
 nnoremap <Leader><Leader>i :s/^\s*<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>i :s/^\s*<cr>/qwerqwer<cr><esc>
-" remove all appended whitesspace
+" remove all appended/trailing whitesspace
 nnoremap <Leader><Leader>s :s/\s*$<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>s :s/\s*$<cr>/qwerqwer<cr><esc>
 
