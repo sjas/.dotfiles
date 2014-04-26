@@ -5,11 +5,16 @@
 #
 ##########################################################
 
+#open windows explorer from shell in current folder
+alias ee='explorer .'
+alias xc='startxwin'
+
 # to have a universal /bin folder in ~
 export PATH=~/bin:$PATH
 
 alias e='emacs -fs'
 alias v='vim'
+alias vi='vim'
 alias t='tail -n200'
 alias h='head -n20'
 alias g='git'
@@ -17,6 +22,54 @@ alias d='dirs -v'
 alias o='popd'
 alias p='pushd'
 alias gg='gradle'
+alias c='clear'
+alias apt-get='sudo apt-get'
+alias yum='sudo yum'
+alias poweroff='sudo poweroff'
+alias reboot='sudo reboot'
+alias halt='sudo halt'
+alias shutdown='sudo shutdown'
+alias ff='find . -iname'
+alias vm='~/.dotfiles/vim/vman.sh'
+alias grep='grep --color=always -i -n'
+alias du='du -h'
+alias mkdir='mkdir -p'
+alias rmf="rm -rf"
+alias rmfa="rm -rf *"
+alias info='info --vi-keys'
+
+#cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+#ls
+#on linux:
+if [[ `uname` == Linux ]]; then
+        export LS1='--color=always'
+#on mac:
+elif [[ `uname` == Darwin* ]]; then
+        export LS1='-G'
+#on windows/cygwin/mingw/other
+else 
+    export LS1='--color=auto'
+fi
+export LS2='-hF'
+export LS3='--time-style=long-iso'
+
+alias  ls='ls $LS1 $LS2 $LS3 -B '
+alias  la='ls $LS1 $LS2 $LS3 -A ' # also lists hidden files
+alias   l='ls $LS1 $LS2 $LS3 -lA' # listing view of all files
+alias  ll='ls $LS1 $LS2 $LS3 -lB' # like before, but w/o hidden files
+# only directories
+alias lsd='ls $LS1 $LS2 $LS3 -d -- */ | sed -e "s/\/$//g"'
+# for very long listings use less
+alias vls='ls $LS1 $LS2 $LS3 -B  | grep ".*" | less -R'
+alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R' # also lists hidden files
+alias  vl='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R' # list of files
+alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R' # like before, but lists hidden files, too
 
 grepv(){
     vim `\grep -irl "$*" .`
@@ -25,61 +78,12 @@ grepe(){
     emacs $(\grep -irl "$*" .)
 }
 
-#FIRST THE WINDOW SPECIFIC STUFF
-#open windows explorer from shell in current folder
-        alias ee='explorer .'
-        alias xc='startxwin'
-#cd
-        alias ..='cd ..'
-        alias ...='cd ../..'
-        alias ....='cd ../../..'
-        alias .....='cd ../../../..'
-        alias ......='cd ../../../../..'
+mkcd(){
+        mkdir -p "$1"
+        cd "$1"
+}
 
-#ls
-        # os check for getting coloring right
-        #on linux:
-        if [[ `uname` == Linux ]]; then
-                export LS1='--color=always'
-        #on mac:
-        elif [[ `uname` == Darwin* ]]; then
-                export LS1='-G'
-        #on windows/cygwin/mingw/other
-        else 
-            export LS1='--color=auto'
-        fi
-        export LS2='-hF'
-        export LS3='--time-style=long-iso'
-
-        alias  ls='ls $LS1 $LS2 $LS3 -B '
-        alias  la='ls $LS1 $LS2 $LS3 -A ' # also lists hidden files
-        alias   l='ls $LS1 $LS2 $LS3 -lA' # listing view of all files
-        alias  ll='ls $LS1 $LS2 $LS3 -lB' # like before, but w/o hidden files
-        # only directories
-        alias lsd='ls $LS1 $LS2 $LS3 -d -- */ | sed -e "s/\/$//g"'
-        # for very long listings use less
-        alias vls='ls $LS1 $LS2 $LS3 -B  | grep ".*" | less -R'
-        alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R' # also lists hidden files
-        alias  vl='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R' # list of files
-        alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R' # like before, but lists hidden files, too
-
-        alias vi=vim
-        alias vm=~/.dotfiles/vim/vman.sh
-        alias grep='grep --color=always -i -n'
-        alias du='du -h'
-        alias mkdir='mkdir -p'
-        alias rmf="rm -rf"
-        alias rmfa="rm -rf *"
-        alias info='info --vi-keys'
-
-#cdnd - 'cd new dir'
-        mkdircd(){
-                mkdir "$1"
-                cd "$1"
-        }
-        alias cdnd=mkdircd
-#ips
-        function getips {
-                `ifconfig | grep 'inet' | awk '{print $2}'`
-        }
-        alias ips=getips
+# currently this prints more than needed, some time i need to fix this.
+function ips {
+        sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'
+}
