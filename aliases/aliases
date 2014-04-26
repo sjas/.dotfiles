@@ -98,10 +98,10 @@ du --max-depth=0 -k * | sort -nr | awk '{ if($1>=1024*1024) {size=$1/1024/1024; 
 # pss ssh
 # kk <nr. of line to kill from prev. command>
 pss() {
-[[ ! -n ${1} ]] && return; # bail if no argument
-pro=”[${1:0:1}]${1:1}”; # process-name –> [p]rocess-name (makes grep better)
-ps axo pid,command | grep -i ${pro}; # show matching processes
-pids=”$(ps axo pid,command | grep -i ${pro} | awk ‘{print $1}’)”; # get pids
-complete -W “${pids}” kk # make a completion list for kk
+    [[ ! -n ${1} ]] && return; # bail if no argument
+    pro="[${1:0:1}]${1:1}"; # process-name –> [p]rocess-name (makes grep better)
+    ps axo pid,command | grep -i ${pro}; # show matching processes
+    pids="$(ps axo pid,command | grep -i ${pro} | awk '{print $1}')"; # get pids
+    complete -W "${pids}" kk # make a completion list for kk
 }
-alias kk=’sudo kill’ # Expecting a pid
+alias kk='sudo kill' # Expecting a pid
