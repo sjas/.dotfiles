@@ -107,10 +107,11 @@ pss() {
     ps axo pid,command | \grep -i ${pro}; # show matching processes
     processids="$(ps axo pid,command | \grep -i ${pro} | awk '{print $1}')"; # get pids
     if [[ "$SHELL" == "/bin/zsh" ]]; then
+        declare -p $processids;
         compctl -k "${processids}" kk; # make a completion list for kk, zsh, without oh-my-zsh interfering
     elif [[ "$SHELL" == "/bin/bash" ]]; then
         complete -W "${processids}" kk; # make a completion list for kk, bash
-        echo 'done in bash';
+        declare -p $processids;
     else 
         return;
     fi
