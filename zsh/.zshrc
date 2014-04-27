@@ -93,3 +93,4 @@ export SVN_EDITOR=vim
 source ~/.dotfiles/aliases/fasteditaliases
 source ~/.dotfiles/aliases/aliases
 source ~/.dotfiles/aliases/gitaliases
+setopt GLOB_COMPLETE
