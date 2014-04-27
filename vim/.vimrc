@@ -302,12 +302,13 @@ nnoremap   <Leader>epv :vsp ~/.priv/priority.wofl<CR>
 nnoremap   <Leader>eav :vsp ~/.priv/aim.wofl<CR>
 nnoremap   <Leader>ezv :vsp ~/.dotfiles/zsh/.zshrc<CR>
 "sourcing
-nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>
+nnoremap <Leader>svl :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>
 "nnoremap <Leader>sf :silent !c:\Users\sjas\.dotfiles\dotfiles-setup-win.bat<CR>
 "todo fix this depending on the os used
-nnoremap <Leader>sf :!/cygdrive/c/Users/sjas/.dotfiles/dotfiles-setup-win.bat<CR>
+nnoremap <Leader>svw :!/cygdrive/c/Users/sjas/.dotfiles/dotfiles-setup-win.bat<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <Leader>sb :source ~/.bash_profile<CR>
+nnoremap <Leader>sz :source ~/.zsh_profile<CR>
 "VUNDLE
 nnoremap <Leader>bi :BundleInstall<CR>
 nnoremap <Leader>bu :BundleInstall!<CR>
