@@ -97,13 +97,26 @@ du --max-depth=0 -k * | sort -nr | awk '{ if($1>=1024*1024) {size=$1/1024/1024; 
 # this rocks, too
 # pss ssh
 # kk <nr. of line to kill from prev. command>
-alias kk='sudo kill -9' # Expecting a pid
+#kk() {
+    #sudo kill # Expecting a pid
+#}
+alias kk='sudo kill'
 pss() {
     [[ ! -n ${1} ]] && return; # bail if no argument
     pro="[${1:0:1}]${1:1}"; # process-name –> [p]rocess-name (makes grep better)
     ps axo pid,command | \grep -i ${pro}; # show matching processes
     processids="$(ps axo pid,command | \grep -i ${pro} | awk '{print $1}')"; # get pids
-    declare -p processids;
-    #complete -W “${pids}” kk # make a completion list for kk, bash
-    compctl -k processids kk; # make a completion list for kk, zsh
+    if [[ "$SHELL" == "/bin/zsh" ]]; then
+        compctl -k processids kk; # make a completion list for kk, zsh, without oh-my-zsh interfering
+        echo 'done in zsh';
+        echo $SHELL;
+    elif [[ "$SHELL" == "/bin/bash" ]]; then
+        complete -W “${processids}” kk; # make a completion list for kk, bash
+        echo 'done in bash';
+        echo $SHELL;
+    else 
+        echo '';
+    fi
 }
+### for testing purposes
+alias x='pss ssh'
