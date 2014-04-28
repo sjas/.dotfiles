@@ -97,5 +97,5 @@ setopt GLOB_COMPLETE
 
 
 # # # # # # # # # # # # # # # # # # #
-eval $(ssh-agent|grep -v echo)
+eval $(ssh-agent|\grep -v echo)
 ssh-add > /dev/null
