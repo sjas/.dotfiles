@@ -83,3 +83,5 @@ export LS3=''
      # Light Gray  0;37     White         1;37
      #########################################
 # # # # # # # # # # # # # # # # # # #
+eval $(ssh-agent|grep -v echo)
+ssh-add > /dev/null
