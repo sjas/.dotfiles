@@ -86,7 +86,7 @@ mkcd(){
 
 # currently this prints more than needed, some time i need to fix this.
 function ips {
-        sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'
+        sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac
 }
 
 # this rocks
