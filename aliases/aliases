@@ -118,5 +118,3 @@ pss() {
         return;
     fi
 }
-### for testing purposes
-alias x='pss ssh'
