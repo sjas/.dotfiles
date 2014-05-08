@@ -32,7 +32,6 @@ alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias halt='sudo halt'
 alias shutdown='sudo shutdown'
-alias ff='find . -iname'
 alias vm='~/.dotfiles/vim/vman.sh'
 alias grep='grep --color=always -i -n'
 alias du='du -h'
@@ -40,6 +39,11 @@ alias mkdir='mkdir -p'
 alias rmf="rm -rf"
 alias rmfa="rm -rf *"
 alias info='info --vi-keys'
+alias pwgen='pwgen -cn 12'
+
+function ff() {
+    find . -iname "*$**"
+}
 
 #cd
 alias ..='cd ..'
