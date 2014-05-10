@@ -376,15 +376,6 @@ nnoremap <Leader><leader>fs Sdate:<esc>o<esc>:.!date --rfc-3339=seconds<cr><esc>
 nnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
 " remove all indentations
-<<<<<<< HEAD
-nnoremap <Leader><Leader>i :s/^\s*<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>i :s/^\s*<cr>/qwerqwer<cr><esc>
-" remove all appended/trailing whitesspace
-nnoremap <Leader><Leader>s :s/\s*$<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>s :s/\s*$<cr>/qwerqwer<cr><esc>
-
-
-=======
 nnoremap <Leader><Leader>i :%s/^\s*<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>i :%s/^\s*<cr>/qwerqwer<cr><esc>
 " remove all appended whitespace
@@ -393,7 +384,6 @@ vnoremap <Leader><Leader>s :%s/\s*$<cr>/qwerqwer<cr><esc>
 
 nnoremap <Leader>fo <esc>:r!pwgen -cn 12<cr>kJj
 nnoremap <Leader>fp <esc>:r!pwgen -cn 20<cr>kJj
->>>>>>> 75be3f1fc0a1f3be16298b2f66f1fe5742488462
 "
 "   G E N E R A L  S E T T I N G S
 "
