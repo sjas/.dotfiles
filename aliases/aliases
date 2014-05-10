@@ -5,11 +5,16 @@
 #
 ##########################################################
 
+#open windows explorer from shell in current folder
+alias ee='explorer .'
+alias xc='startxwin'
+
 # to have a universal /bin folder in ~
 export PATH=~/bin:$PATH
 
 alias e='emacs -fs'
 alias v='vim'
+alias vi='vim'
 alias t='tail -n200'
 alias h='head -n20'
 alias g='git'
@@ -17,6 +22,61 @@ alias d='dirs -v'
 alias o='popd'
 alias p='pushd'
 alias gg='gradle'
+alias c='clear'
+alias h='history 100'
+alias apt-get='sudo apt-get'
+alias acs='sudo apt-cache search'
+alias agi='sudo apt-get install -y'
+alias yum='sudo yum'
+alias poweroff='sudo poweroff'
+alias reboot='sudo reboot'
+alias halt='sudo halt'
+alias shutdown='sudo shutdown'
+alias vm='~/.dotfiles/vim/vman.sh'
+alias grep='grep --color=always -i -n'
+alias du='du -h'
+alias mkdir='mkdir -p'
+alias rmf="rm -rf"
+alias rmfa="rm -rf *"
+alias info='info --vi-keys'
+alias pwgen='pwgen -cn 12'
+
+function ff() {
+    find . -iname "*$**"
+}
+
+#cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+#ls
+#on linux:
+if [[ `uname` == Linux ]]; then
+        export LS1='--color=always'
+#on mac:
+elif [[ `uname` == Darwin* ]]; then
+        export LS1='-G'
+#on windows/cygwin/mingw/other
+else 
+    export LS1='--color=auto'
+fi
+export LS2='-hF'
+export LS3='--time-style=long-iso'
+
+alias  ls='ls $LS1 $LS2 $LS3 -B '
+alias  la='ls $LS1 $LS2 $LS3 -A ' # also lists hidden files
+alias   l='ls $LS1 $LS2 $LS3 -lA' # listing view of all files
+alias  ll='ls $LS1 $LS2 $LS3 -lB' # like before, but w/o hidden files
+# only directories
+alias lsd='ls $LS1 $LS2 $LS3 -d -- */ | sed -e "s/\/$//g"'
+# for very long listings use less
+alias vls='ls $LS1 $LS2 $LS3 -B  | grep ".*" | less -R'
+alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R' # also lists hidden files
+alias  vl='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R' # list of files
+alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R' # like before, but lists hidden files, too
 
 grepv(){
     vim `\grep -irl "$*" .`
@@ -25,61 +85,36 @@ grepe(){
     emacs $(\grep -irl "$*" .)
 }
 
-#FIRST THE WINDOW SPECIFIC STUFF
-#open windows explorer from shell in current folder
-        alias ee='explorer .'
-        alias xc='startxwin'
-#cd
-        alias ..='cd ..'
-        alias ...='cd ../..'
-        alias ....='cd ../../..'
-        alias .....='cd ../../../..'
-        alias ......='cd ../../../../..'
+mkcd(){
+        mkdir -p "$1"
+        cd "$1"
+}
 
-#ls
-        # os check for getting coloring right
-        #on linux:
-        if [[ `uname` == Linux ]]; then
-                export LS1='--color=always'
-        #on mac:
-        elif [[ `uname` == Darwin* ]]; then
-                export LS1='-G'
-        #on windows/cygwin/mingw/other
-        else 
-            export LS1='--color=auto'
-        fi
-        export LS2='-hF'
-        export LS3='--time-style=long-iso'
+# currently this prints more than needed, some time i need to fix this.
+function ips {
+        sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac
+}
 
-        alias  ls='ls $LS1 $LS2 $LS3 -B '
-        alias  la='ls $LS1 $LS2 $LS3 -A ' # also lists hidden files
-        alias   l='ls $LS1 $LS2 $LS3 -lA' # listing view of all files
-        alias  ll='ls $LS1 $LS2 $LS3 -lB' # like before, but w/o hidden files
-        # only directories
-        alias lsd='ls $LS1 $LS2 $LS3 -d -- */ | sed -e "s/\/$//g"'
-        # for very long listings use less
-        alias vls='ls $LS1 $LS2 $LS3 -B  | grep ".*" | less -R'
-        alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R' # also lists hidden files
-        alias  vl='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R' # list of files
-        alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R' # like before, but lists hidden files, too
+# this rocks
+function dus () {
+du --max-depth=0 -k * | sort -nr | awk '{ if($1>=1024*1024) {size=$1/1024/1024; unit="G"} else if($1>=1024) {size=$1/1024; unit="M"} else {size=$1; unit="K"}; if(size<10) format="%.1f%s"; else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
+}
 
-        alias vi=vim
-        alias vm=~/.dotfiles/vim/vman.sh
-        alias grep='grep --color=always -i -n'
-        alias du='du -h'
-        alias mkdir='mkdir -p'
-        alias rmf="rm -rf"
-        alias rmfa="rm -rf *"
-        alias info='info --vi-keys'
-
-#cdnd - 'cd new dir'
-        mkdircd(){
-                mkdir "$1"
-                cd "$1"
-        }
-        alias cdnd=mkdircd
-#ips
-        function getips {
-                `ifconfig | grep 'inet' | awk '{print $2}'`
-        }
-        alias ips=getips
+# this rocks, too
+# pss ssh
+# kk <nr. of line to kill from prev. command>
+#kk() {
+    #sudo kill # Expecting a pid
+#}
+alias kk='sudo kill'
+pss() {
+    [[ ! -n ${1} ]] && return; # bail if no argument
+    pro="[${1:0:1}]${1:1}"; # process-name –> [p]rocess-name (makes grep better)
+    ps axo pid,command | \grep -i ${pro}; # show matching processes
+    processids="$(ps axo pid,command | \grep -i ${pro} | awk '{print $1}')"; # get pids
+    if [[ "$SHELL" == "/bin/bash" ]]; then
+        complete -W "${processids}" kk; # make a completion list for kk, bash
+    else 
+        return;
+    fi
+}

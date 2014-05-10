@@ -302,12 +302,13 @@ nnoremap   <Leader>epv :vsp ~/.priv/priority.wofl<CR>
 nnoremap   <Leader>eav :vsp ~/.priv/aim.wofl<CR>
 nnoremap   <Leader>ezv :vsp ~/.dotfiles/zsh/.zshrc<CR>
 "sourcing
-nnoremap <Leader>sd :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>
+nnoremap <Leader>svl :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>
 "nnoremap <Leader>sf :silent !c:\Users\sjas\.dotfiles\dotfiles-setup-win.bat<CR>
 "todo fix this depending on the os used
-nnoremap <Leader>sf :!/cygdrive/c/Users/sjas/.dotfiles/dotfiles-setup-win.bat<CR>
+nnoremap <Leader>svw :!/cygdrive/c/Users/sjas/.dotfiles/dotfiles-setup-win.bat<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <Leader>sb :source ~/.bash_profile<CR>
+nnoremap <Leader>sz :source ~/.zsh_profile<CR>
 "VUNDLE
 nnoremap <Leader>bi :BundleInstall<CR>
 nnoremap <Leader>bu :BundleInstall!<CR>
@@ -372,9 +373,10 @@ nnoremap <Leader>fs :.!date --rfc-3339=seconds \| cut -c1-19"<cr>
 " for use in blogposts to insert 'date: YY-MM-DD hh:mm:ss'
 nnoremap <Leader><leader>fs Sdate:<esc>o<esc>:.!date --rfc-3339=seconds<cr><esc>kJ$xxxxxx
 " remove unneeded carriage returns
-nnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>e :s/$<cr>/qwerqwer<cr><esc>
+nnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
 " remove all indentations
+<<<<<<< HEAD
 nnoremap <Leader><Leader>i :s/^\s*<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>i :s/^\s*<cr>/qwerqwer<cr><esc>
 " remove all appended/trailing whitesspace
@@ -382,6 +384,16 @@ nnoremap <Leader><Leader>s :s/\s*$<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>s :s/\s*$<cr>/qwerqwer<cr><esc>
 
 
+=======
+nnoremap <Leader><Leader>i :%s/^\s*<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>i :%s/^\s*<cr>/qwerqwer<cr><esc>
+" remove all appended whitespace
+nnoremap <Leader><Leader>s :%s/\s*$<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>s :%s/\s*$<cr>/qwerqwer<cr><esc>
+
+nnoremap <Leader>fo <esc>:r!pwgen -cn 12<cr>kJj
+nnoremap <Leader>fp <esc>:r!pwgen -cn 20<cr>kJj
+>>>>>>> 75be3f1fc0a1f3be16298b2f66f1fe5742488462
 "
 "   G E N E R A L  S E T T I N G S
 "

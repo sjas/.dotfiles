@@ -93,3 +93,9 @@ export SVN_EDITOR=vim
 source ~/.dotfiles/aliases/fasteditaliases
 source ~/.dotfiles/aliases/aliases
 source ~/.dotfiles/aliases/gitaliases
+setopt GLOB_COMPLETE
+
+
+# # # # # # # # # # # # # # # # # # #
+eval $(ssh-agent|\grep -v echo)
+ssh-add > /dev/null
