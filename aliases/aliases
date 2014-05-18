@@ -7,6 +7,7 @@
 
 #open windows explorer from shell in current folder
 alias ee='explorer .'
+#windows-only, too
 alias xc='startxwin'
 
 # to have a universal /bin folder in ~
@@ -40,6 +41,8 @@ alias rmf="rm -rf"
 alias rmfa="rm -rf *"
 alias info='info --vi-keys'
 alias pwgen='pwgen -cn 12'
+alias cdiff='colordiff'
+
 
 function ff() {
     find . -iname "*$**"

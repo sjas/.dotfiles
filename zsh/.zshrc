@@ -39,9 +39,10 @@ ZSH_THEME="sjas"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+source $ZSH/oh-my-zsh.sh
+source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 plugins=(command-coloring zsh-syntax-highlighting)
 
-source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 #dont let the prompt overwrite output
@@ -95,6 +96,8 @@ source ~/.dotfiles/aliases/aliases
 source ~/.dotfiles/aliases/gitaliases
 setopt GLOB_COMPLETE
 
+
+HISTSIZE=10000
 
 # # # # # # # # # # # # # # # # # # #
 eval $(ssh-agent|\grep -v echo)
