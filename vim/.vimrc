@@ -18,7 +18,7 @@ call vundle#rc()
 let mapleader = ' '
 let maplocalleader = ' '
 se mouse=a
-filetype plugin indent on "back to normal 
+filetype plugin indent on "back to normal
 Bundle 'gmarik/vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
 Bundle 'sjl/vitality.vim'
@@ -50,7 +50,7 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
 Bundle 'SearchComplete'
 Bundle 'repeat.vim'
 " markup languages and syntax highlighting
-Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
+"Bundle 'LaTeX-Suite-aka-Vim-LaTeX'
 Bundle 'sjas/asciidoc-vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'timcharper/textile.vim'
@@ -82,9 +82,9 @@ se magic "how to handle rexexp escaping
 se ls=2 "always show statusline
 se encoding=utf8
 se t_Co=256
-let g:Powerline_symbols = 'fancy'
-"let g:Powerline_symbols = 'compatible' "'fancy' and 'unicode' settings fuck up
-
+let g:Powerline_symbols = 'compatible' "'fancy' and 'unicode' settings fuck up
+"let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'unicode'
 
 "
 "   S E A R C H   S E T T I N G S
@@ -151,28 +151,33 @@ nnoremap n nzz
 nnoremap N Nzz
 " FAST q!, wq, w, e!
 nnoremap <Leader>wq :wq<CR>
-nnoremap <Leader>fw :w<CR>
+nnoremap <Leader>fw :se bt=<cr>:w<CR>
 nnoremap <Leader>fa :wa<CR>
 nnoremap <Leader>fq :q<CR>
 nnoremap <Leader>rq :q!<CR>
-nnoremap <Leader>fd :e!<CR>
+"nnoremap <Leader>fd :e!<CR>
 " CUT,COPY,PASTE FROM CLIPBOARD EASILY
 set clipboard=unnamed
 "vnoremap <Leader>x "+d
 "vnoremap <Leader>c "+y
 "nnoremap <Leader>v "+p
 " PROFESSIONALLY OPEN FILES
-nnoremap <Leader>fe :e <C-R>=expand('%:h').'/'<cr>
+"nnoremap <Leader>fe :e <C-R>=expand('%:h').'/'<cr>
 "nnoremap <Leader>fe :e <C-R>=expand('%:p').'/'<cr>
 " FAST RUN BINDING
+"nnoremap <Leader>fe :e scp://root@rs0//etc/fail2ban/jail.conf<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+
+"nnoremap <Leader>fj :s/,/ <cr>
+"nnoremap <Leader>fd df,<cr>
+
 "nnoremap <Leader>fr :w<CR>:silent ! %<CR>
 "nnoremap <Leader>fr :w<CR>:silent !ghcii.sh %<CR>
 "nnoremap <Leader>fr :w<CR>:!python % -f ./raw-material/Dfn.graphml<CR>
 "nnoremap <Leader>fr :wa<CR>:!ghc --make Main.hs && ./Main<CR>
-nnoremap <Leader>fj :wa<CR>:!ghc --make Main.hs && ./Main<CR>
-nnoremap <leader>fr :wa<cr>:!/cygdrive/c/Users/sjas/work/sap-projekt/compile-latex.sh<cr>
-nnoremap <leader>gt :wa<cr>:!/cygdrive/c/Users/sjas/work/ktr-ausarbeitung/build.sh<cr>
-nnoremap <leader>gr :wa<cr>:!/cygdrive/c/Users/sjas/work/ktr-praesentation/build.sh<cr>
+"nnoremap <Leader>fj :wa<CR>:!ghc --make Main.hs && ./Main<CR>
+"nnoremap <leader>fr :wa<cr>:!/cygdrive/c/Users/sjas/work/sap-projekt/compile-latex.sh<cr>
+"nnoremap <leader>gt :wa<cr>:!/cygdrive/c/Users/sjas/work/ktr-ausarbeitung/build.sh<cr>
+"nnoremap <leader>gr :wa<cr>:!/cygdrive/c/Users/sjas/work/ktr-praesentation/build.sh<cr>
 " OPEN VERTICAL HELP
 nnoremap ;vh :vert help
 nnoremap ;hv :vert help
@@ -222,16 +227,16 @@ cmap w!! w !sudo tee % >/dev/null
 
 "fast align hack in visual mode
 " in visual mode, this will expand to:
-" :'<,'>Align 
-vnoremap <Leader>al :Align 
+" :'<,'>Align
+vnoremap <Leader>al :Align
 "vnoremap align :Align
 
 " WINDOW MANAGEMENT SETTINGS
 "moving from window to window
-"nnoremap <C-h>  <C-w>h
-"nnoremap <C-l>  <C-w>l
-"nnoremap <C-j>  <C-w>j
-"nnoremap <C-k>  <C-w>k
+nnoremap <C-h>  <C-w>h
+nnoremap <C-l>  <C-w>l
+nnoremap <C-j>  <C-w>j
+nnoremap <C-k>  <C-w>k
 "open new blank file
 nnoremap o<C-h> :lefta vsp new<cr>
 nnoremap o<C-j> :bel sp new<cr>
@@ -306,20 +311,20 @@ nnoremap <Leader>svl :!cd ~/.dotfiles/ && ./dotfiles-setup-linux.sh<CR>
 "nnoremap <Leader>sf :silent !c:\Users\sjas\.dotfiles\dotfiles-setup-win.bat<CR>
 "todo fix this depending on the os used
 nnoremap <Leader>svw :!/cygdrive/c/Users/sjas/.dotfiles/dotfiles-setup-win.bat<CR>
-nnoremap <Leader>sv :source $MYVIMRC<CR>
+nnoremap <Leader>smv :source $MYVIMRC<CR>
 nnoremap <Leader>sb :source ~/.bash_profile<CR>
 nnoremap <Leader>sz :source ~/.zsh_profile<CR>
 "VUNDLE
-nnoremap <Leader>bi :BundleInstall<CR>
-nnoremap <Leader>bu :BundleInstall!<CR>
-nnoremap <Leader>bc :BundleClean<CR>
-nnoremap <Leader>bl :BundleList<CR>
-nnoremap <Leader>bs :BundleSearch<CR>
+nnoremap <Leader>bi :PluginInstall<CR>
+nnoremap <Leader>bu :PluginUpdate<CR>
+nnoremap <Leader>bc :PluginClean<CR>
+nnoremap <Leader>bl :PluginList<CR>
+nnoremap <Leader>bs :PluginSearch
 
 " Taglist
 " TODO
-nnoremap <Leader>ta  :TlistAddFiles 
-nnoremap <Leader>tar :TlistAddFilesRecursive 
+nnoremap <Leader>ta  :TlistAddFiles
+nnoremap <Leader>tar :TlistAddFilesRecursive
 nnoremap <Leader>tl  :TlistToggle<cr>
 nnoremap <Leader>tu  :TlistUpdate<cr>
 
@@ -390,7 +395,7 @@ nnoremap <Leader>fp <esc>:r!pwgen -cn 20<cr>kJj
 " SYNTAX HL
 syntax on
 " LINE NUMBERS
-se nonu "nu"
+se nu "nonu"
 " RELATIVE LINE NUMBERS - since 7.3, mac is 7.2
 " TODO: get this working on only on vim 7.3+, in visual mode?
 " use an if clause...
@@ -838,3 +843,4 @@ noremap <a-0> :10b<cr>
 "inoremap <A-j> :next<cr>
 "inoremap <a-k> :prev<cr>
 "inoremap <a-l> :ls<cr>
+se buftype=
