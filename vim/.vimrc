@@ -17,7 +17,10 @@ call vundle#rc()
 " define this before any of the plugins is loaded!
 let mapleader = ' '
 let maplocalleader = ' '
-se mouse=a
+" do not enable mouse in all modes (a), so copy-pasting will work in visual
+" (v) but not in normal (n), insert (i), command (c)
+"se mouse=a
+se mouse=nic
 filetype plugin indent on "back to normal
 Bundle 'gmarik/vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
