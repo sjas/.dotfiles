@@ -43,6 +43,7 @@ alias info='info --vi-keys'
 alias pwgen='pwgen -cn 12'
 alias cdiff='colordiff'
 
+alias zsh-hist='perl -lne 'm#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar localtime $1,$2' $HISTFILE | less
 
 function ff() {
     find . -iname "*$**"
