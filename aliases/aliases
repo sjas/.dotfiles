@@ -24,7 +24,7 @@ alias o='popd'
 alias p='pushd'
 alias gg='gradle'
 alias c='clear'
-alias h='history 100'
+alias hist='history 100'
 alias apt-get='sudo apt-get'
 alias acs='sudo apt-cache search'
 alias agi='sudo apt-get install -y'
@@ -42,6 +42,7 @@ alias rmfa="rm -rf *"
 alias info='info --vi-keys'
 alias pwgen='pwgen -cn 12'
 alias cdiff='colordiff'
+alias watch='watch -d=permanent -n0.1 -c'
 
 alias zsh-hist='perl -lne 'm#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar localtime $1,$2' $HISTFILE | less
 
