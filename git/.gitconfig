@@ -149,7 +149,8 @@
 	lllo	= log --graph --abbrev=7 --decorate=full #--pretty=medium
 
 [core]
-	abbrev = 4
+	abbrev = 5
+	pager = tac
 	
 	# FIXME: and god told, the day will come, when this mess below will be fixed properly! and so it shall be...
 
