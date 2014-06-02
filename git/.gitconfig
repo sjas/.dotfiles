@@ -1,6 +1,9 @@
 [user]
 	name = sjas
 	email = teilzeittresor@web.de
+[push]
+# push all local branches that exist remote with every push
+	default=simple
 [color]
 	branch = on
 	diff = on
@@ -137,13 +140,13 @@
 
 #  dig in history what went wrong	=====
 	rl	= reflog
-	l	= log --graph --oneline --decorate=short
+	l	= log --graph --oneline --decorate=full
 	lp	= log -p #...<filename> shows diffs for file in question
-	ll	= log --graph --abbrev-commit --decorate=short --pretty=short
-	lll	= log --graph --abbrev-commit --decorate=short # --pretty=medium
-	lo	= log --graph --oneline --decorate=short --abbrev=7
-	llo	= log --graph --abbrev=7 --decorate=short --pretty=short
-	lllo	= log --graph --abbrev=7 --decorate=short #--pretty=medium
+	ll	= log --graph --abbrev-commit --decorate=full --pretty=full
+	lll	= log --graph --abbrev-commit --decorate=full # --pretty=medium
+	lo	= log --graph --oneline --decorate=full --abbrev=7
+	llo	= log --graph --abbrev=7 --decorate=full --pretty=full
+	lllo	= log --graph --abbrev=7 --decorate=full #--pretty=medium
 
 [core]
 	abbrev = 4
