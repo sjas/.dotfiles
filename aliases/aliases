@@ -44,7 +44,7 @@ alias pwgen='pwgen -cn 12'
 alias cdiff='colordiff'
 alias watch='watch -d=permanent -n0.1 -c'
 
-alias zsh-hist='perl -lne 'm#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar localtime $1,$2' $HISTFILE | less
+#alias zsh-hist='perl -lne 'm#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar localtime $1,$2' $HISTFILE | less
 
 function ff() {
     find . -iname "*$**"
