@@ -3,7 +3,8 @@
 	email = teilzeittresor@web.de
 [push]
 # push all local branches that exist remote with every push
-	default=simple
+	;default=simple
+	default=current
 [color]
 	branch = on
 	diff = on
