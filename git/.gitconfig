@@ -3,8 +3,8 @@
 	email = teilzeittresor@web.de
 [push]
 # push all local branches that exist remote with every push
-#	default = simple
-	default = current
+	;default=simple
+	default=current
 [color]
 	branch = on
 	diff = on
@@ -75,6 +75,8 @@
 	dh	= diff ..origin/master # all changes, including non-commited ones
 	dhc	= diff HEAD..origin/master # against head, includes just local commits
 	dhp	= diff HEAD...origin/master # pure against head, excludes all local changes and commmits
+	#  show which files contain conflicts
+	dc 	= diff --name-only --diff-filter=U
 
 #  check current state locally	=====
 	#  index status	=====
