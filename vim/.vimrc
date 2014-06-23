@@ -397,7 +397,7 @@ nnoremap <Leader>ul yypVr=o<cr>
 " ADD CURRENT DATE AT THE END OF FILE
 " comment it out and jump back to last edit location
 "nnoremap <Leader>fs :.!date<cr><esc>
-nnoremap <Leader>fs :.!date --rfc-3339=seconds \| cut -c1-19"<cr>
+nnoremap <Leader>fs :.!date --rfc-3339=seconds<cr><esc>$xxxxxx
 " for use in blogposts to insert 'date: YY-MM-DD hh:mm:ss'
 nnoremap <Leader><leader>fs Sdate:<esc>o<esc>:.!date --rfc-3339=seconds<cr><esc>kJ$xxxxxx
 " remove unneeded carriage returns
@@ -432,7 +432,7 @@ se noru "ru"
 se cul "nocul
 " colorcolumn at 80 chars
 "se colorcolumn=81
-highlight ColorColumn ctermbg=magenta ctermfg=magenta
+highlight ColorColumn ctermbg=magenta ctermfg=green
 call matchadd('ColorColumn', '\%81v', 100)
 " SHOW MATCHING PARENS
 se sm "nosm"
