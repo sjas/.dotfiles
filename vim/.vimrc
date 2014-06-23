@@ -104,6 +104,28 @@ nnoremap ss/ :%s/
 " in visual mode, this will expand to:
 " :'<,'>s/
 vnoremap s/ :s/
+" SHOW MATCHES ON STEREOIDS / blinking highlight
+function! HLNext (blinktime)
+    highlight WhiteOnRed ctermbg=red ctermfg=white
+    let [bufnum, lnum, col, off] = getpos('.')
+    let matchlen = strlen(matchstr(strpart(getline('.'), col-1),@/))
+    let target_pat = '\c\%#'.@/
+    let blinks = 1
+    for n in range(1,blinks)
+        let red = matchadd('WhiteOnRed', target_pat, 101)
+        redraw
+        exec 'sleep ' . float2nr(a:blinktime / (2*blinks) * 1000) . 'm'
+        call matchdelete(red)
+        redraw
+        exec 'sleep ' . float2nr(a:blinktime / (2*blinks) * 1000) . 'm'
+    endfor
+endfunction
+"center screen on next match
+"nnoremap n nzz
+"nnoremap N Nzz
+nnoremap <silent> n  n:call HLNext(0.03)<cr>
+nnoremap <silent> N  N:call HLNext(0.03)<cr>
+
 " RESET SEARCH HIGHLIGHTING
 "nnoremap <Leader><backspace> :noh<CR><CR>:<BACKSPACE>k
 nnoremap <Leader><backspace> /qwerqwerasdfasdf<CR><ESC>
@@ -149,9 +171,6 @@ se backspace=indent,eol,start
 " SPEED UP THINGS
 "noremap ; :
 "noremap : ;
-"center screen on next match
-nnoremap n nzz
-nnoremap N Nzz
 " FAST q!, wq, w, e!
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>fw :se bt=<cr>:w<CR>
@@ -397,13 +416,13 @@ nnoremap <Leader>fp <esc>:r!pwgen -cn 20<cr>kJj
 "   G E N E R A L  S E T T I N G S
 "
 " SYNTAX HL
-syntax on
+syn on
 " LINE NUMBERS
 se nu "nonu"
 " RELATIVE LINE NUMBERS - since 7.3, mac is 7.2
 " TODO: get this working on only on vim 7.3+, in visual mode?
 " use an if clause...
-" deactivated since i only work with 7.2 on all platforms curently
+" deactivated since i only work with 7.2 on all Platforms curently
 "se nornu "rnu"
 " WORD WRAP
 se wrap "nowrap"
@@ -413,8 +432,8 @@ se noru "ru"
 se cul "nocul
 " colorcolumn at 80 chars
 "se colorcolumn=81
-highlight ColorColumn ctermbg=magenta
-let m = matchadd("ColorColumn", "\%81v", 100)
+highlight ColorColumn ctermbg=magenta ctermfg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
 " SHOW MATCHING PARENS
 se sm "nosm"
 " SHOW MODE
