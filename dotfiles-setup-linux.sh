@@ -21,6 +21,7 @@ cp ~/.dotfiles/keyboard/.inputrc    ~
 cp ~/.dotfiles/keyboard/.CapsToControl.map.gz ~
 cp ~/.dotfiles/keyboard/.xinitrc    ~
 cp ~/.dotfiles/keyboard/.Xmodmap    ~
+cp ~/.dotfiles/keyboard/.Xresources ~
 #cp ~/.dotfiles/keyboard/.Xkbmap     ~
 
 echo 'ACTIVATE'
