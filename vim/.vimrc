@@ -433,7 +433,9 @@ se cul "nocul
 " colorcolumn at 80 chars
 "se colorcolumn=81
 highlight ColorColumn ctermbg=magenta ctermfg=green
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%>81v.\+', 100)
+" only column number 81
+"call matchadd('ColorColumn', '\%81v.', 100)
 " SHOW MATCHING PARENS
 se sm "nosm"
 " SHOW MODE
