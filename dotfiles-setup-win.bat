@@ -16,6 +16,7 @@ cp .dotfiles\zsh\.zshrc .zshrc
 cp .dotfiles\zsh\.zsh_profile .zsh_profile
 cp .dotfiles\bash\.bashrc .bashrc
 cp .dotfiles\bash\.bash_profile .bash_profile
+cp .dotfiles\keyboard\.Xresources .Xresources
 
 
 cp .dotfiles\keyboard\.CapsToControl.reg .CapsToControl.reg
