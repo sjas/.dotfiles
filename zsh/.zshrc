@@ -102,3 +102,5 @@ HISTSIZE=10000
 # # # # # # # # # # # # # # # # # # #
 eval $(ssh-agent|\grep -v echo)
 ssh-add > /dev/null
+clear
+cd ~

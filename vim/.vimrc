@@ -412,6 +412,10 @@ vnoremap <Leader><Leader>s :%s/\s*$<cr>/qwerqwer<cr><esc>
 
 nnoremap <Leader>fo <esc>:r!pwgen -cn 12<cr>kJj
 nnoremap <Leader>fp <esc>:r!pwgen -cn 20<cr>kJj
+
+" vim session management
+nnoremap <Leader>mks :mksession ~/.vimsessions/
+nnoremap <Leader>vs :source ~/.vimsessions/
 "
 "   G E N E R A L  S E T T I N G S
 "

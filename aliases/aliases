@@ -16,6 +16,7 @@ export PATH=~/bin:$PATH
 alias e='emacs -fs'
 alias v='vim'
 alias vi='vim'
+alias vm='~/.dotfiles/vim/vman.sh'
 alias t='tail -n200'
 alias h='head -n20'
 alias g='git'
@@ -33,7 +34,6 @@ alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias halt='sudo halt'
 alias shutdown='sudo shutdown'
-alias vm='~/.dotfiles/vim/vman.sh'
 alias grep='grep --color=always -i -n'
 alias du='du -h'
 alias mkdir='mkdir -p'
@@ -46,8 +46,14 @@ alias watch='watch -d=permanent -n0.1 -c'
 
 #alias zsh-hist='perl -lne 'm#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar localtime $1,$2' $HISTFILE | less
 
+# a better find
 function ff() {
     find . -iname "*$**"
+}
+
+# a shell calculator
+function calc() {
+    echo "scale=4;$*"|bc -l
 }
 
 #cd
@@ -82,6 +88,13 @@ alias vls='ls $LS1 $LS2 $LS3 -B  | grep ".*" | less -R'
 alias vla='ls $LS1 $LS2 $LS3 -A  | grep ".*" | less -R' # also lists hidden files
 alias  vl='ls $LS1 $LS2 $LS3 -Al | grep ".*" | less -R' # list of files
 alias vll='ls $LS1 $LS2 $LS3 -Bl | grep ".*" | less -R' # like before, but lists hidden files, too
+
+# list available vimsessions
+alias lvs='ls $LS1 $LS2 $LS3 -lA ~/.vimsessions'
+# open vimsession
+vs(){
+    vim -S ~/.vimsessions/"$*"
+}
 
 grepv(){
     vim `\grep -irl "$*" .`

@@ -20,7 +20,7 @@ cp .dotfiles\bash\.bash_profile .bash_profile
 
 cp .dotfiles\keyboard\.CapsToControl.reg .CapsToControl.reg
 
-
+md .vimsessions
 
 
 REM ACTIVATE
