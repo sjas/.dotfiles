@@ -416,6 +416,9 @@ nnoremap <Leader>fp <esc>:r!pwgen -cn 20<cr>kJj
 " vim session management
 nnoremap <Leader>mks :mksession ~/.vimsessions/
 nnoremap <Leader>vs :source ~/.vimsessions/
+
+" line numbering
+vnoremap <leader>ln !nl -ba<cr>
 "
 "   G E N E R A L  S E T T I N G S
 "
