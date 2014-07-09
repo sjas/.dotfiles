@@ -140,7 +140,7 @@ se scs "noscs"
 " SHOW PROPER WHITESPACE
 " random eol chars to choose from: Ξ♦‡╬∆Ω∙⌂₣‰↨¬⌐
 se listchars=eol:♦,tab:↨¬,trail:⌐,extends:‡,precedes:╬,nbsp:Ξ
-se list "list nolist
+se nolist "list nolist
 " INCREMENTAL SEARCH
 se is "nois"
 " WHAT'S SHOWN WHEN SCROLLING
@@ -422,12 +422,12 @@ nnoremap <Leader>vs :source ~/.vimsessions/
 " SYNTAX HL
 syn on
 " LINE NUMBERS
-se nu "nonu"
+se nonu "nu"
 " RELATIVE LINE NUMBERS - since 7.3, mac is 7.2
 " TODO: get this working on only on vim 7.3+, in visual mode?
 " use an if clause...
 " deactivated since i only work with 7.2 on all Platforms curently
-"se nornu "rnu"
+se nornu "rnu"
 " WORD WRAP
 se wrap "nowrap"
 " RULER
