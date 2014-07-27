@@ -23,7 +23,7 @@ cp ~/.dotfiles/keyboard/.CapsToControl.map.gz ~
 # fix colorscheme in vim
 echo 'colo desert' >> .vimrc
 
-mkdir ~/.vimsessions
+mkdir -p ~/.vimsessions
 
 echo 'ACTIVATE'
 sudo loadkeys ~/.CapsToControl.map.gz

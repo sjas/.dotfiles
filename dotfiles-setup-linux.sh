@@ -24,7 +24,7 @@ cp ~/.dotfiles/keyboard/.Xmodmap    ~
 cp ~/.dotfiles/keyboard/.Xresources ~
 #cp ~/.dotfiles/keyboard/.Xkbmap     ~
 
-mkdir ~/.vimsessions
+mkdir -p ~/.vimsessions
 
 echo 'ACTIVATE'
 #sudo loadkeys ~/.CapsToControl.map.gz 
