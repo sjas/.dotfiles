@@ -83,6 +83,14 @@ export LS3=''
      # Light Gray  0;37     White         1;37
      #########################################
 # # # # # # # # # # # # # # # # # # #
+
+## jumpmarks completion for bash, see aliases file for rest
+function _completemarks {
+    reply=($(ls $JUMPMARKPATH))
+}
+compctl -K _completemarks j
+compctl -K _completemarks um
+
 eval $(ssh-agent|\grep -v echo)
 ssh-add > /dev/null
 clear

@@ -100,6 +100,17 @@ setopt GLOB_COMPLETE
 HISTSIZE=10000
 
 # # # # # # # # # # # # # # # # # # #
+
+## jumpmarks completion for zsh, see aliases file for rest
+_completemarks(){
+    local curw=${COMP_WORDS[COMP_CWORD]}
+    local wordlist=$(find $JUMPMARKPATH -type l -printf "%f\n")
+    COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+    return 0
+}
+complete -F _completemarks j um
+
+
 eval $(ssh-agent|\grep -v echo)
 ssh-add > /dev/null
 clear

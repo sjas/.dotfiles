@@ -48,6 +48,22 @@ alias xclip='xclip -selection c'
 alias showid='cat ~/.ssh/id_rsa.pub'
 #alias zsh-hist='perl -lne 'm#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar localtime $1,$2' $HISTFILE | less
 
+## jumpwarks FTW
+## auto completion is in .zshrc and .bashrc, since these implementations differ
+export JUMPMARKPATH=$HOME/.jumpmarks
+function j { # jump
+    cd -P "$JUMPMARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function m { # mark
+    mkdir -p "$JUMPMARKPATH"; ln -s "$(pwd)" "$JUMPMARKPATH/$1"
+}
+function um { # unmark
+    rm -i "$JUMPMARKPATH/$1"
+}
+function sm { # show marks
+    ls -l "$JUMPMARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+
 # a better find
 function ff() {
     find . -iname "*$**"
