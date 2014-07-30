@@ -405,7 +405,7 @@ nnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
 " remove all indentations
 nnoremap <Leader><Leader>i :%s/^\s*<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>i :%s/^\s*<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>i :s/^\s*<cr>/qwerqwer<cr><esc>
 " remove all appended whitespace
 nnoremap <Leader><Leader>s :%s/\s*$<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>s :%s/\s*$<cr>/qwerqwer<cr><esc>
