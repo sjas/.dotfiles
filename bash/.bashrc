@@ -93,5 +93,3 @@ compctl -K _completemarks um
 
 eval $(ssh-agent|\grep -v echo)
 ssh-add > /dev/null
-clear
-cd ~
