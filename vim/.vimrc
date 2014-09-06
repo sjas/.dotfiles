@@ -140,7 +140,7 @@ se scs "noscs"
 " SHOW PROPER WHITESPACE
 " random eol chars to choose from: Ξ♦‡╬∆Ω∙⌂₣‰↨¬⌐
 se listchars=eol:♦,tab:↨¬,trail:⌐,extends:‡,precedes:╬,nbsp:Ξ
-se nolist "list nolist
+se list "list nolist
 " INCREMENTAL SEARCH
 se is "nois"
 " WHAT'S SHOWN WHEN SCROLLING
@@ -840,6 +840,7 @@ au BufNewFile,BufRead *.post setlocal ft=markdown syntax=markdown
 au BufNewFile,BufRead *.wofl setlocal nolist sw=2 tw=80 cc=81
 au BufNewFile,BufRead *.m setlocal ft=octave syntax=octave nolist
 au BufNewFile,BufRead *.clj setlocal ft=lisp syntax=lisp nolist
+au BufNewFile,BufRead *.md setlocal ft=markdown syntax=markdown nolist sw=2 tw=80 cc=81
 au BufEnter *.hs compiler ghc
 "REMOVE TRAILING WHITESPACE AND ^M CHARS
 "au FileType c,cpp,java,php,javascript,python,tex,twig,wofl,xml,yml au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))

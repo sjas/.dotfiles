@@ -14,8 +14,10 @@ cp ~/.dotfiles/git/.gitconfig        ~
 
 cp ~/.dotfiles/zsh/.zshrc            ~
 cp ~/.dotfiles/zsh/.zsh_profile      ~
+cp ~/.dotfiles/zsh/.zlogout          ~
 cp ~/.dotfiles/bash/.bashrc          ~
 cp ~/.dotfiles/bash/.bash_profile    ~
+cp ~/.dotfiles/bash/.bash_logout     ~
 
 cp ~/.dotfiles/keyboard/.inputrc     ~
 cp ~/.dotfiles/keyboard/.CapsToControl.map.gz ~

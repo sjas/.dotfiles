@@ -111,7 +111,9 @@ _completemarks(){
 complete -F _completemarks j um
 
 
-eval $(ssh-agent|\grep -v echo)
-ssh-add > /dev/null
-clear
-cd ~
+#eval $(ssh-agent|\grep -v echo)
+#ssh-add > /dev/null
+#clear
+#cd ~
+eval `ssh-agent`
+ssh-add

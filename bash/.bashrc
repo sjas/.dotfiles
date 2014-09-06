@@ -91,7 +91,9 @@ function _completemarks {
 compctl -K _completemarks j
 compctl -K _completemarks um
 
-eval $(ssh-agent|\grep -v echo)
-ssh-add > /dev/null
-clear
-cd ~
+#eval $(ssh-agent|\grep -v echo)
+#ssh-add > /dev/null
+#clear
+#cd ~
+eval `ssh-agent`
+ssh-add
