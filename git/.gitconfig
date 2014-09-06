@@ -67,14 +67,15 @@
 	#  show everything related to a SHA1	=====
 	sh	= show
 	#  check current local changes you have made	=====
-	d	= diff HEAD #(...<filename>) diff staged + unstaged against HEAD = add . && commit
+	d	= diff #..<revision> (...<filename>) diff staged + unstaged against <revision> = add . && commit
+	dh	= diff HEAD #(...<filename>) diff staged + unstaged against HEAD = add . && commit
 	ds	= diff --staged # diff staged against HEAD = commit
 	du	= diff # diff unstaged against HEAD = commit -a
 	dt	= difftool
 	#  check current changes residing in origin/master (= main repository)	=====
 	#  local changes are shown in red!!!	=====
-	dh	= diff ..origin/master # all changes, including non-commited ones
-	dhc	= diff HEAD..origin/master # against head, includes just local commits
+	dha	= diff ..origin/master # all changes, including non-commited ones
+	dhl	= diff HEAD..origin/master # against head, includes just local commits
 	dhp	= diff HEAD...origin/master # pure against head, excludes all local changes and commmits
 	#  show which files contain conflicts
 	dc 	= diff --name-only --diff-filter=U
@@ -151,6 +152,9 @@
 	lo	= log --graph --oneline --decorate=full --abbrev=7
 	llo	= log --graph --abbrev=7 --decorate=full --pretty=full
 	lllo	= log --graph --abbrev=7 --decorate=full #--pretty=medium
+
+#  fix what went wrong	=====
+	fco	= !vim `git diff --diff-filter=U --name-only`
 
 [core]
 	abbrev = 5
