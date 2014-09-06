@@ -290,6 +290,10 @@ vnoremap <C-j> <ESC><C-w>jv
 vnoremap <C-k> <ESC><C-w>kv
 vnoremap <C-l> <ESC><C-w>lv
 
+" move between buffers
+nnoremap <leader>n :next<cr>
+nnoremap <leader>b :prev<cr>
+
 " EASY EDITING OF CONFIG FILES
 nnoremap   <Leader>ev :e    ~/.dotfiles/vim/.vimrc<CR>
 nnoremap  <Leader>eem :e    ~/.dotfiles/emacs/.emacs<CR>
