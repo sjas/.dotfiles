@@ -1,0 +1,127 @@
+;; -*-lisp-*-
+;; sjas .stumprc
+
+(in-package :stumpwm)
+
+(set-prefix-key (kbd "s-;"))
+(define-key *root-map* (kbd "i") "exec google-chrome")
+(define-key *root-map* (kbd "d") "exec xterm -e vim .stumpwmrc") ;; fast editing of stumpwm config
+(define-key *root-map* (kbd "u") "loadrc")
+(define-key *root-map* (kbd "C-s") "monitor-brightness-33")
+(define-key *root-map* (kbd "C-d") "monitor-brightness-66")
+(define-key *root-map* (kbd "C-f") "monitor-brightness-100")
+(define-key *root-map* (kbd "s-;") "colon")
+(define-key *root-map* (kbd "s-SPC") "pull-hidden-next")
+;; CHANGING BRIGHTNESS
+(defcommand monitor-brightness-33 () ()
+   (run-shell-command "xrandr --output LVDS-1 --brightness 0.33"))
+(defcommand monitor-brightness-66 () ()
+   (run-shell-command "xrandr --output LVDS-1 --brightness 0.66"))
+(defcommand monitor-brightness-100 () ()
+   (run-shell-command "xrandr --output LVDS-1 --brightness 1"))
+
+;; MODELINE CONFIG
+(setf *mode-line-timeout* 1) ;; updateinterval in seconds
+(setf *mode-line-foreground-color* "palegreen3")
+(setf *mode-line-background-color* "black")
+(setf *mode-line-border-color* "palegreen3")
+(set-contrib-dir "/home/sjas/src/stumpwm/contrib")
+
+;;(mapcar #'load-module '("cpu" 
+			;;			"mem" 
+			;;			"battery-portable" 
+			;;			"net" 
+			;;			"wifi" 
+			;;			"disk"))
+;;(defun current-date ()
+		;;	"Returns date formatted as 'YYYY-MM-DD Weekday HH:MM:SS'"
+		;;	(multiple-value-bind
+			;;		(second minute hour date month year day-of-week dst-p tz)
+			;;		(get-decoded-time)
+			;;	(format nil "~d-~2, '0d-~s, '0d ~a ^B~2, '0d:~2, '0d:~2, '0d^b"
+				;;		year month date (nth day-of-week *day-names*)
+				;;		hour minute second)))
+;;(setf *screen-mode-line-format*
+		;;	(list
+			;;	;; date
+			;;		"^6*" '(:eval (current-date))
+			;;		;; cpu | mem | battery
+			;;		" | %D | %c %C (%f) %t | %M | %B"
+			;;		;; net | wifi
+			;;		" | %l | %I"
+			;;		'(:eval (run-shell-command "echo" t))
+			;;	"^2*" 
+			;;		"[^B%n^b] %W%48"))
+;;;; turn it on
+;;(if (not (head-mode-line (current-head)))
+		;;	(toggle-mode-line (current-screen) (current-head)))
+;;
+
+
+;;
+;;;; prompt the user for an interactive command. The first arg is an
+;;;; optional initial contents.
+;;(defcommand colon1 (&optional (initial "")) (:rest)
+		;;  (let ((cmd (read-one-line (current-screen) ": " :initial-input initial)))
+			;;    (when cmd
+				;;      (eval-command cmd t))))
+;;
+;;;; Read some doc
+;;(define-key *root-map* (kbd "d") "exec gv")
+;;;; Browse somewhere
+;;(define-key *root-map* (kbd "b") "colon1 exec firefox http://www.")
+;;;; Ssh somewhere
+;;(define-key *root-map* (kbd "C-s") "colon1 exec xterm -e ssh ")
+;;
+;;;; Web jump (works for Google and Imdb)
+;;(defmacro make-web-jump (name prefix)
+		;;  `(defcommand ,name (search) ((:rest ,(concatenate 'string name " search: ")))
+			;;    (substitute #\+ #\Space search)
+			;;    (run-shell-command (concatenate 'string ,prefix search))))
+;;
+;;(make-web-jump "google" "firefox http://www.google.fr/search?q=")
+;;(make-web-jump "imdb" "firefox http://www.imdb.com/find?q=")
+;;
+;;;; C-t M-s is a terrble binding, but you get the idea.
+;;(define-key *root-map* (kbd "M-s") "google")
+;;(define-key *root-map* (kbd "i") "imdb")
+;;
+;;;; Message window font
+;;(set-font "-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-15")
+;;
+;;;;; Define window placement policy...
+;;
+;;;; Clear rules
+;;(clear-window-placement-rules)
+;;
+;;;; Last rule to match takes precedence!
+;;;; TIP: if the argument to :title or :role begins with an ellipsis, a substring
+;;;; match is performed.
+;;;; TIP: if the :create flag is set then a missing group will be created and
+;;;; restored from *data-dir*/create file.
+;;;; TIP: if the :restore flag is set then group dump is restored even for an
+;;;; existing group using *data-dir*/restore file.
+;;(define-frame-preference "Default"
+		;;  ;; frame raise lock (lock AND raise == jumpto)
+		;;  (0 t nil :class "Konqueror" :role "...konqueror-mainwindow")
+		;;  (1 t nil :class "XTerm"))
+;;
+;;(define-frame-preference "Ardour"
+		;;  (0 t   t   :instance "ardour_editor" :type :normal)
+		;;  (0 t   t   :title "Ardour - Session Control")
+		;;  (0 nil nil :class "XTerm")
+		;;  (1 t   nil :type :normal)
+		;;  (1 t   t   :instance "ardour_mixer")
+		;;  (2 t   t   :instance "jvmetro")
+		;;  (1 t   t   :instance "qjackctl")
+		;;  (3 t   t   :instance "qjackctl" :role "qjackctlMainForm"))
+;;
+;;(define-frame-preference "Shareland"
+		;;  (0 t   nil :class "XTerm")
+		;;  (1 nil t   :class "aMule"))
+;;
+;;(define-frame-preference "Emacs"
+		;;  (1 t t :restore "emacs-editing-dump" :title "...xdvi")
+		;;  (0 t t :create "emacs-dump" :class "Emacs"))
+
+;; vim: syntax=lisp

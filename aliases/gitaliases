@@ -7,7 +7,7 @@
 
 # add vim and emacs tempfiles to gitignore
 ignore() {
-    touch .gitignore 
+    touch .gitignore
     echo "*.sw*\n*#\ntags\n*~\n" | cat >> .gitignore
     git add .gitignore
     git commit -am "gitignore ignores vim and emacs tempfiles"
@@ -149,6 +149,18 @@ alias gllo="git llo"
 alias glllo="git lllo"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+# this function lets you call your git aliases without explicitly defining an
+# alias for each one of them, eg. gco triggers automatically 'g co' etc.
+# http://superuser.com/a/756845/322005
+command_not_found_handle() {
+    case $1 in
+    # ffd*) find . -type d -iname "*${1#ffd}*"
+        # return 0
+        # ;;
+    g*) git ${1#g} "${@:2}"
+        return 0
+        ;;
+esac
 
 #gitinfo
 	alias gi=gitinfo
