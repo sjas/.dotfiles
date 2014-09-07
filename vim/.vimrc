@@ -192,6 +192,7 @@ set clipboard=unnamed
 "nnoremap <Leader>fj :s/,/ <cr>
 "nnoremap <Leader>fd df,<cr>
 
+nnoremap <Leader>fr :w<CR>:!clear && ./%<CR>
 "nnoremap <Leader>fr :w<CR>:!clear && ruby %<CR>
 "nnoremap <Leader>fr :w<CR>:silent ! %<CR>
 "nnoremap <Leader>fr :w<CR>:silent !ghcii.sh %<CR>
