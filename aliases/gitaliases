@@ -6,7 +6,7 @@
 ###################################################################
 
 # add vim and emacs tempfiles to gitignore
-ignore() {
+ignore() {	
     touch .gitignore
     echo "*.sw*\n*#\ntags\n*~\n" | cat >> .gitignore
     git add .gitignore
@@ -39,12 +39,12 @@ alias gr="git r"
 alias grc="git rc"
 
 gitcommit(){
-	git c "$*"
+   #git c "$*"
 }
 alias gc=gitcommit
 alias gfc="git fc"
 gitcommitall(){
-	git ca "$*"
+   #git ca "$*"
 }
 alias gca=gitcommitall
 alias gmc="git mc"
@@ -122,8 +122,8 @@ alias gpp="git pp"
 alias gpup="git pup"
 alias grmrb="git rmrb"
 gitfastpush(){
-	git ca "$*";
-	git p
+   #git ca "$*";
+   #git p
 }
 alias gfp=gitfastpush
 alias gf="git f"
@@ -151,87 +151,90 @@ alias glllo="git lllo"
 
 # this function lets you call your git aliases without explicitly defining an
 # alias for each one of them, eg. gco triggers automatically 'g co' etc.
+# # TODO fix this to it will work in bash and zsh
 # http://superuser.com/a/756845/322005
-command_not_found_handle() {
-    case $1 in
-    # ffd*) find . -type d -iname "*${1#ffd}*"
-        # return 0
-        # ;;
-    g*) git ${1#g} "${@:2}"
-        return 0
-        ;;
-esac
+#command_not_found_handle() {
+    #case $1 in
+    #ff*) find . -type d -iname "*${@}*"
+        #return 0
+        #;;
+    #g*) git ${1#g} "${@:2}"
+        #return 0
+        #;;
+    #esac
+#}
 
 #gitinfo
-	alias gi=gitinfo
-	# Get a quick overview for your Git repo
-	function gitinfo() {
-		if [ -n "$(git symbolic-ref HEAD 2> /dev/null)" ]; then
-			echo "Git Repository Overview"
-				echo "-----------------------"
-				echo
-	# List all remotes
-				for remote in $(git remote show); do
-					echo $remote:
-						git remote show $remote
-						echo
-						done
-	# Show status of working repo
-						echo "Status:"
-						if [ -n "$(git status -s 2> /dev/null)" ]; then
-							git status -s
-						else
-							echo "Working directory is clean"
-								fi
-	# Print 5 most recent logs
-								echo
-								echo "Log:"
-								git log -5 --oneline
-								echo
-		else
-			echo `pwd` "is not a Git repository"
-				fi
-	}
+alias gi=gitinfo
+# Get a quick overview for your Git repo
+gitinfo() {
+    if [ -n "$(git symbolic-ref HEAD 2> /dev/null)" ]; then
+        echo "Git Repository Overview"
+        echo "-----------------------"
+        echo
+        # List all remotes
+        for remote in $(git remote show); do
+            echo $remote:
+            git remote show $remote
+            echo
+        done
+        # Show status of working repo
+        echo "Status:"
+        if [ -n "$(git status -s 2> /dev/null)" ]; then
+            git status -s
+        else
+            echo "Working directory is clean"
+        fi
+        # Print 5 most recent logs
+        echo
+        echo "Log:"
+        git log -5 --oneline
+        echo
+    else
+        echo `pwd` "is not a Git repository"
+    fi
+}
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
 #gitstats
-	alias gstats=gitstats
-	# Get various Git statistics
-	# Awesome work from https://github.com/esc/git-stats
-	# including some modifications from BASH_IT
-	function gitstats {
-		if [ -n "$(git symbolic-ref HEAD 2> /dev/null)" ]; then
-			echo "Number of commits per author:"
-				git --no-pager shortlog -sn --all
-				AUTHORS=$( git shortlog -sn --all | cut -f2 | cut -f1 -d' ')
-				LOGOPTS=""
-				if [ "$1" == '-w' ]; then
-					LOGOPTS="$LOGOPTS -w"
-						shift
-						fi
-						if [ "$1" == '-M' ]; then
-							LOGOPTS="$LOGOPTS -M"
-								shift
-								fi
-								if [ "$1" == '-C' ]; then
-									LOGOPTS="$LOGOPTS -C --find-copies-harder"
-										shift
-										fi
-										for a in $AUTHORS
-											do
-												echo '-------------------'
-													echo "Statistics for: $a"
-													echo -n "Number of files changed: "
-													git log $LOGOPTS --all --numstat --format="%n" --author=$a | cut -f3 | sort -iu | wc -l
-													echo -n "Number of lines added: "
-													git log $LOGOPTS --all --numstat --format="%n" --author=$a | cut -f1 | awk '{s+=$1} END {print s}'
-													echo -n "Number of lines deleted: "
-													git log $LOGOPTS --all --numstat --format="%n" --author=$a | cut -f2 | awk '{s+=$1} END {print s}'
-													echo -n "Number of merges: "
-													git log $LOGOPTS --all --merges --author=$a | grep -c '^commit'
-													done
-								else
-									echo `pwd` "is not a Git repository"
-										fi
-	}
+alias gstats=gitstats
+# Get various Git statistics
+# Awesome work from https://github.com/esc/git-stats
+# including some modifications from BASH_IT
+gitstats() {
+    if [ -n "$(git symbolic-ref HEAD 2> /dev/null)" ]; then
+        echo "Number of commits per author:"
+        git --no-pager shortlog -sn --all
+        AUTHORS=$( git shortlog -sn --all | cut -f2 | cut -f1 -d' ')
+        LOGOPTS=""
+        if [ "$1" == '-w' ]; then
+            LOGOPTS="$LOGOPTS -w"
+            shift
+        fi
+        if [ "$1" == '-M' ]; then
+            LOGOPTS="$LOGOPTS -M"
+            shift
+        fi
+        if [ "$1" == '-C' ]; then
+            LOGOPTS="$LOGOPTS -C --find-copies-harder"
+            shift
+        fi
+        for authors in $AUTHORS
+        do
+            echo '-------------------'
+            echo "Statistics for: $authors"
+            echo -n "Number of files changed: "
+            git log $LOGOPTS --all --numstat --format="%n" --author=$authors | cut -f3 | sort -iu | wc -l
+            echo -n "Number of lines added: "
+            git log $LOGOPTS --all --numstat --format="%n" --author=$authors | cut -f1 | awk '{s+=$1} END {print s}'
+            echo -n "Number of lines deleted: "
+            git log $LOGOPTS --all --numstat --format="%n" --author=$authors | cut -f2 | awk '{s+=$1} END {print s}'
+            echo -n "Number of merges: "
+            git log $LOGOPTS --all --merges --author=$authors | grep -c '^commit'
+        done
+    else
+        echo `pwd` "is not a Git repository"
+    fi
+}
+

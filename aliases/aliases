@@ -65,6 +65,7 @@ function sm { # show marks
 }
 
 # a better find
+#### THIS SHOULD HAVE BEEN FIXED VIA GITALIAS AND MISSING COMMANDS CASE STATEMENT
 function ff() {
     find . -iname "*$**"
 }
