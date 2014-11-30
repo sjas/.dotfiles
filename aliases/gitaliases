@@ -39,12 +39,12 @@ alias gr="git r"
 alias grc="git rc"
 
 gitcommit(){
-   #git c "$*"
+   git c "$*"
 }
 alias gc=gitcommit
 alias gfc="git fc"
 gitcommitall(){
-   #git ca "$*"
+   git ca "$*"
 }
 alias gca=gitcommitall
 alias gmc="git mc"
