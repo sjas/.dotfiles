@@ -24,7 +24,6 @@ cp ~/.dotfiles/keyboard/.CapsToControl.map.gz ~
 cp ~/.dotfiles/keyboard/.xinitrc    ~
 cp ~/.dotfiles/keyboard/.Xmodmap    ~
 cp ~/.dotfiles/keyboard/.Xresources ~
-cp ~/.dotfiles/keyboard/.Xkbmap     ~
 
 mkdir -p ~/.vimsessions
 
@@ -34,7 +33,6 @@ source ~/.xinitrc
 source ~/.bash_profile
 source ~/.zsh_profile
 vim +':source $MYVIMRC' +':q'
-source ~/.Xkbmap
 
 
 
