@@ -10,8 +10,8 @@
 " be iMproved: USE vim NOT vi
 se nocompatible
 filetype off "VUNDLE NEEDS THIS HERE
-se rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+se rtp+=~/.vim/bundle/Vundle/
+call vundle#begin()
 " DEFAULT IS '\' FOR LEADER KEY - '<space>' IS MORE ACCESSIBLE
 " inserted via <C-v><space>, as the proper keycode is needed!
 " define this before any of the plugins is loaded!
@@ -21,8 +21,7 @@ let maplocalleader = ' '
 " (v) but not in normal (n), insert (i), command (c)
 "se mouse=a
 se mouse=ic
-filetype plugin indent on "back to normal
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
 Bundle 'sjl/vitality.vim'
 " required for FuzzyFinder
@@ -80,6 +79,8 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'spf13/vim-colors'
 Bundle 'nelstrom/vim-mac-classic-theme'
 Bundle 'sjas/ColorSamplerPack'
+call vundle#end()
+filetype plugin indent on "back to normal
 se magic "how to handle rexexp escaping
 " powerline
 se ls=2 "always show statusline
