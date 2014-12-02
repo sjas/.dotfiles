@@ -125,9 +125,15 @@ grepe(){
 }
 
 mkcd(){
-        mkdir -p "$1"
-        cd "$1"
+    MY_LAST_DIR=`pwd`
+    ASDF=`mktemp -d`
+    cd $CURRENT_TEMP_DIR
 }
+#mkcd(){
+#        mkdir -p "$1"
+#        cd "$1"
+#}
+
 
 # currently this prints more than needed, some time i need to fix this.
 function ips {
