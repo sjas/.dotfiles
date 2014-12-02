@@ -20,7 +20,8 @@ let maplocalleader = ' '
 " do not enable mouse in all modes (a), so copy-pasting will work in visual
 " (v) but not in normal (n), insert (i), command (c)
 "se mouse=a
-se mouse=ic
+se mouse=c
+filetype plugin indent on "back to normal
 Bundle 'gmarik/Vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
 Bundle 'sjl/vitality.vim'
@@ -248,7 +249,7 @@ Arpeggio nnoremap gl :Git log<cr>
 Arpeggio nnoremap gd :Gsdiff HEAD<cr>
 Arpeggio nnoremap gk :Git show<cr>
 " WRITE READ-ONLY FILE AS ADMIN
-cmap w!! w !sudo tee % >/dev/null
+cmap w!! w !sudo tee % >/dev/null<cr><cr><cr>
 
 "fast align hack in visual mode
 " in visual mode, this will expand to:

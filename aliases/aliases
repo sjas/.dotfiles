@@ -13,6 +13,7 @@ alias xc='startxwin'
 # to have a universal /bin folder in ~
 export PATH=~/bin:$PATH
 
+alias a='sudo aptitude -y'
 alias e='emacs -fs'
 alias v='vim'
 alias vi='vim'
