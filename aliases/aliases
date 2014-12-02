@@ -125,8 +125,11 @@ grepe(){
 }
 
 mkcd(){
-    MY_LAST_DIR=`pwd`
-    ASDF=`mktemp -d`
+    asdf=`pwd`
+    CURRENT_TEMP_DIR=`mktemp -d`
+    echo
+    echo 'Get back via "cd $asdf"'
+    echo
     cd $CURRENT_TEMP_DIR
 }
 #mkcd(){
