@@ -158,7 +158,7 @@
 
 [core]
 	abbrev = 5
-	pager = tac
+	pager = less
 	
 	# FIXME: and god told, the day will come, when this mess below will be fixed properly! and so it shall be...
 

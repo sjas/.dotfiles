@@ -139,8 +139,29 @@ mkcd(){
 
 
 # currently this prints more than needed, some time i need to fix this.
-function ips {
+ips() {
         sudo ip a | \grep 'inet ' | awk '{print $2 " " $3}'| tac | sed  "s/addr://" | cut -d' ' -f1
+}
+
+# copy ip of host to clipboard
+iph() {
+    \host $1 | \grep -oE '([0-9]{1,3}[\.]){3}[0-9]{1,3}' |  xclip
+    if [ $? -eq 0 ]; then
+        echo 'host IP copied to clipboard'
+    else 
+        echo 'could not copy to clipboard or could not find a ip'
+    fi
+}
+
+h2h() {
+    ASDF1=`mktemp`
+    ASDF2=`mktemp`
+    \host $1 > $ASDF1
+    cat $ASDF1 | \grep -oE '([0-9]{1,3}[\.]){3}[0-9]{1,3}' > $ASDF2
+    cat $ASDF2
+    host $(cat $ASDF2)
+    rm -rf $ASDF1
+    rm -rf $ASDF2
 }
 
 # this rocks
