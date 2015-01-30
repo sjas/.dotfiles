@@ -42,7 +42,7 @@ alias rmfa="rm -rf *"
 alias info='info --vi-keys'
 alias pwgen='pwgen -cn 12'
 alias cdiff='colordiff'
-alias watch='watch -d=permanent -n0.1 -c'
+alias watch='watch -d=permanent -n0.2 -c'
 alias holocoaster='rollercoaster'
 alias xclip='xclip -selection c'
 alias showid='cat ~/.ssh/id_rsa.pub'
@@ -52,29 +52,30 @@ alias ml='less -M -N -q -R -A -J -I -G'
 ## jumpwarks FTW
 ## auto completion is in .zshrc and .bashrc, since these implementations differ
 export JUMPMARKPATH=$HOME/.jumpmarks
-function j { # jump
+j(){ # jump
     cd -P "$JUMPMARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
-function m { # mark
+m(){ # mark
     mkdir -p "$JUMPMARKPATH"; ln -s "$(pwd)" "$JUMPMARKPATH/$1"
 }
-function um { # unmark
+um(){ # unmark
     rm -i "$JUMPMARKPATH/$1"
 }
-function sm { # show marks
+sm(){ # show marks
     ls -l "$JUMPMARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
 
 # a better find
 #### THIS SHOULD HAVE BEEN FIXED VIA GITALIAS AND MISSING COMMANDS CASE STATEMENT
-function ff() {
+ff() {
     find . -iname "*$**"
 }
 
-# a shell calculator
-function calc() {
-    echo "scale=4;$*"|bc -l
-}
+## a shell calculator
+## useless, just use bc standalone
+#calc(){
+    #echo "scale=4;$*"|bc -l
+#}
 
 #cd
 alias ..='cd ..'
@@ -129,12 +130,12 @@ mkcd(){
 }
 
 # currently this prints more than needed, some time i need to fix this.
-function ips {
+ips(){
         sudo ifconfig | \grep 'inet' | awk '{print $2 " " $3}'| tac
 }
 
 # this rocks
-function dus () {
+dus(){
 du --max-depth=0 -k * | sort -nr | awk '{ if($1>=1024*1024) {size=$1/1024/1024; unit="G"} else if($1>=1024) {size=$1/1024; unit="M"} else {size=$1; unit="K"}; if(size<10) format="%.1f%s"; else format="%.0f%s"; res=sprintf(format,size,unit); printf "%-8s %s\n",res,$2 }'
 }
 
@@ -145,7 +146,7 @@ du --max-depth=0 -k * | sort -nr | awk '{ if($1>=1024*1024) {size=$1/1024/1024; 
     #sudo kill # Expecting a pid
 #}
 alias kk='sudo kill'
-function pss() {
+pss() {
     [[ ! -n ${1} ]] && return; # bail if no argument
     pro="[${1:0:1}]${1:1}"; # process-name –> [p]rocess-name (makes grep better)
     ps axo pid,command | \grep -i ${pro}; # show matching processes
@@ -159,7 +160,7 @@ function pss() {
 
 ## shortcut for creating blog posts
 alias showposts='ls -1 ~/blog'
-function createpost() {
+createpost() {
     if [ $# -ne 1 ]
     then 
         echo "Usage :: post filename as parameter without .post extension"

@@ -20,7 +20,7 @@ let maplocalleader = ' '
 " do not enable mouse in all modes (a), so copy-pasting will work in visual
 " (v) but not in normal (n), insert (i), command (c)
 "se mouse=a
-se mouse=ic
+se mouse=vi
 Bundle 'gmarik/Vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
 Bundle 'sjl/vitality.vim'
@@ -44,7 +44,11 @@ Bundle 'Shougo/vimshell'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Align'
+Bundle 'DrawIt'
+Bundle 'tpope/vim-pastie'
+Bundle 'vis'
 Bundle 'surround.vim'
+Bundle 'sjas/vim-dragvisuals'
 Bundle 'matchit.zip'
 Bundle 'mattn/emmet-vim'
 Bundle 'scrooloose/nerdtree'
@@ -89,6 +93,15 @@ se t_Co=256
 let g:Powerline_symbols = 'compatible' "'fancy' and 'unicode' settings fuck up
 "let g:Powerline_symbols = 'fancy'
 "let g:Powerline_symbols = 'unicode'
+"
+runtime plugin/dragvisuals.vim
+vmap  <expr>  <LEFT>   DVB_Drag('left')                     
+vmap  <expr>  <RIGHT>  DVB_Drag('right')                    
+vmap  <expr>  <DOWN>   DVB_Drag('down')                     
+vmap  <expr>  <UP>     DVB_Drag('up')                       
+vmap  <expr>  D        DVB_Duplicate()                      
+" Remove any introduced trailing whitespace after moving... 
+let g:DVB_TrimWS = 1   
 
 "
 "   S E A R C H   S E T T I N G S
