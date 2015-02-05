@@ -51,6 +51,10 @@ alias ml='less -M -N -q -R -A -J -I -G'
 #alias zsh-hist='perl -lne 'm#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar localtime $1,$2' $HISTFILE | less
 alias updatedb='sudo updatedb'
 alias locate='sudo locate'
+## open files on first virtual desktop of kde
+run(){
+    kstart --desktop 1 "$@" &
+}
 
 ## jumpwarks FTW
 ## auto completion is in .zshrc and .bashrc, since these implementations differ
