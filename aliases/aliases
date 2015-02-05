@@ -49,6 +49,8 @@ alias xclip='xclip -selection c'
 alias showid='cat ~/.ssh/id_rsa.pub'
 alias ml='less -M -N -q -R -A -J -I -G'
 #alias zsh-hist='perl -lne 'm#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar localtime $1,$2' $HISTFILE | less
+alias updatedb='sudo updatedb'
+alias locate='sudo locate'
 
 ## jumpwarks FTW
 ## auto completion is in .zshrc and .bashrc, since these implementations differ
