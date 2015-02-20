@@ -156,7 +156,7 @@ gip() {
 }
 
 rdns() {
-    echo ${$(dig -x $(dig $1 +short) +short)%?}
+    echo "${$(dig -x $(dig $1 +short) +short)%?}"
 }
 
 # this rocks
