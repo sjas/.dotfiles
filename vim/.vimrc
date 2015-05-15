@@ -42,6 +42,7 @@ Bundle 'Shougo/vimshell'
 "Bundle 'Shougo/neocomplcache'
 "Bundle 'Shougo/neocomplcache-snippets-complete'
 " editing
+Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Align'

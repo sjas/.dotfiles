@@ -19,6 +19,8 @@ cp ~/.dotfiles/bash/.bashrc         ~
 cp ~/.dotfiles/bash/.bash_profile   ~
 cp ~/.dotfiles/bash/.bash_logout    ~
 
+cp ~/.dotfiles/.tmux.conf           ~
+
 cp ~/.dotfiles/keyboard/.inputrc    ~
 cp ~/.dotfiles/keyboard/.CapsToControl.map.gz ~
 cp ~/.dotfiles/keyboard/.xinitrc    ~

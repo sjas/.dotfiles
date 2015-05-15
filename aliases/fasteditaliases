@@ -22,6 +22,7 @@
         alias  eg='vim ~/.dotfiles/git/.gitconfig'
         alias  ev='vim ~/.dotfiles/vim/.vimrc'
         alias eem='vim ~/.dotfiles/emacs/.emacs'
+        alias etm='vim ~/.dotfiles/.tmux.conf'
 
 # edit aliases
         alias efea='vim ~/.dotfiles/aliases/fasteditaliases'

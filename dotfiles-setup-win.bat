@@ -18,6 +18,7 @@ cp .dotfiles\zsh\.zlogout .zlogout
 cp .dotfiles\bash\.bashrc .bashrc
 cp .dotfiles\bash\.bash_profile .bash_profile
 cp .dotfiles\bash\.bash_logout .bash_logout
+cp .dotfiles\.tmux.conf .tmux.conf
 cp .dotfiles\keyboard\.Xresources .Xresources
 
 
