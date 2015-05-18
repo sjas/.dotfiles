@@ -20,7 +20,7 @@ let maplocalleader = ' '
 " do not enable mouse in all modes (a), so copy-pasting will work in visual
 " (v) but not in normal (n), insert (i), command (c)
 "se mouse=a
-se mouse=vi
+se mouse=
 filetype plugin indent on "back to normal
 Bundle 'gmarik/Vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
