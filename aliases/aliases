@@ -49,6 +49,7 @@ alias holocoaster='rollercoaster'
 alias xclip='xclip -selection c'
 alias showid='cat ~/.ssh/id_rsa.pub'
 alias ml='less -M -N -q -R -A -J -I -G'
+alias tmux="tmux -2"
 #alias zsh-hist='perl -lne 'm#: (\d+):\d+;(.+)# && printf "%s :: %s\n",scalar localtime $1,$2' $HISTFILE | less
 alias updatedb='sudo updatedb'
 alias locate='sudo locate'
