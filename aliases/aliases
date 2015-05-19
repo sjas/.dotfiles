@@ -5,8 +5,6 @@
 #
 ##########################################################
 
-alias bsd='ssh sjas@bsd.sjas.de -p62222'
-alias home='ssh jl@$(ssh sjas@sjas.de head -1 asdf) -p62222'
 #open windows explorer from shell in current folder
 alias ee='explorer .'
 #windows-only, too
