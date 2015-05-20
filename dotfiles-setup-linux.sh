@@ -29,6 +29,10 @@ cp ~/.dotfiles/keyboard/.Xresources ~
 
 mkdir -p ~/.vimsessions
 
+mkdir ~/bin
+cp ~/.dotfiles/monitor/full_screen.py ~/bin
+chmod -R 755 ~/bin
+
 echo 'ACTIVATE'
 sudo loadkeys ~/.CapsToControl.map.gz 
 source ~/.xinitrc

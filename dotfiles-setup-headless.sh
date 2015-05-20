@@ -24,6 +24,10 @@ cp ~/.dotfiles/.tmux.conf            ~
 cp ~/.dotfiles/keyboard/.inputrc     ~
 cp ~/.dotfiles/keyboard/.CapsToControl.map.gz ~
 
+mkdir ~/bin
+cp ~/.dotfiles/monitor/full_screen.py ~/bin
+chmod -R 755 ~/bin
+
 # fix colorscheme in vim
 echo 'colo desert' >> .vimrc
 
