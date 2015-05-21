@@ -7,7 +7,7 @@ echo 'deploying sjas dotfiles...'
 echo 'COPY'
 cp ~/.dotfiles/vim/.vimrc           ~
 cp -R ~/.dotfiles/vim/.vim          ~
-#cp ~/.dotfiles/emacs/.emacs         ~
+cp ~/.dotfiles/emacs-temp           ~/.emacs
 
 cp ~/.dotfiles/git/.gitconfig       ~
 cp ~/.dotfiles/git/.gitk            ~

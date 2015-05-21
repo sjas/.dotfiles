@@ -7,7 +7,7 @@ cd %home%
 REM COPY
 cp .dotfiles\vim\.vimrc .vimrc
 cp -R .dotfiles/vim/.vim .
-cp .dotfiles\emacs\.emacs .emacs
+cp .dotfiles\emacs-temp .emacs
 
 cp .dotfiles\git\.gitconfig .gitconfig
 
