@@ -57,11 +57,11 @@ run(){
 }
 
 function tmw {
-    tmux split-window -dv "$@"
+    tmux split-window -dh "$*"
 }
 
 function tmwh {
-    tmux split-window -dh "$@"
+    tmux split-window -dv "$*"
 }
 
 ## jumpwarks FTW
