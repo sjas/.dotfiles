@@ -39,7 +39,6 @@ alias mkdir='mkdir -p'
 alias rmf="rm -rf"
 alias rmfa="rm -rf *"
 alias pwgen='pwgen -cn 12'
-alias cdiff='colordiff'
 alias watch='watch -d=permanent -n0.2 -c'
 alias holocoaster='rollercoaster'
 alias xclip='xclip -selection c'
@@ -52,6 +51,19 @@ alias locate='sudo locate'
 ## open files on first virtual desktop of kde
 run(){
     kstart --desktop 1 "$@" &
+}
+
+function cdiff {
+    if [ ! "$#" -eq 3 ]
+        then echo "USAGE: $0 <cmd> '<first-parameter-set>' '<second-parameter-set>''"
+        else 
+            if [ -x /usr/bin/colordiff ]
+                then colordiff <(sudo "$1" "$2") <(sudo "$1" "$3")
+                else diff <(sudo "$1" "$2") <(sudo "$1" "$3"); fi; fi
+}
+
+function lssh {
+    ps -p $$ | tail -1 | awk '{print $4}'
 }
 
 function tmw {
