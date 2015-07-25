@@ -422,14 +422,17 @@ nnoremap <Leader>fs :.!date --rfc-3339=seconds<cr><esc>$xxxxxx
 " for use in blogposts to insert 'date: YY-MM-DD hh:mm:ss'
 nnoremap <Leader><leader>fs Sdate:<esc>o<esc>:.!date --rfc-3339=seconds<cr><esc>kJ$xxxxxx
 " remove unneeded carriage returns
-nnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
+nnoremap <Leader><Leader>c :%s/$<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>c :%s/$<cr>/qwerqwer<cr><esc>
 " remove all indentations
 nnoremap <Leader><Leader>i :%s/^\s*<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>i :s/^\s*<cr>/qwerqwer<cr><esc>
 " remove all appended whitespace
-nnoremap <Leader><Leader>s :%s/\s*$<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>s :%s/\s*$<cr>/qwerqwer<cr><esc>
+nnoremap <Leader><Leader>t :%s/\s*$<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>t :%s/\s*$<cr>/qwerqwer<cr><esc>
+" toggle PASTE mode
+nnoremap <Leader><Leader>p :se paste!<cr><esc>a
+vnoremap <Leader><Leader>p :se paste!<cr><esc>a
 
 nnoremap <Leader>fo <esc>:r!pwgen -cn 12<cr>kJj
 nnoremap <Leader>fp <esc>:r!pwgen -cn 20<cr>kJj
