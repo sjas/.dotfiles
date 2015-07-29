@@ -433,6 +433,9 @@ vnoremap <Leader><Leader>t :%s/\s*$<cr>/qwerqwer<cr><esc>
 " toggle PASTE mode
 nnoremap <Leader><Leader>p :se paste!<cr><esc>a
 vnoremap <Leader><Leader>p :se paste!<cr><esc>a
+" toggle PASTE mode
+nnoremap <Leader><Leader>l :se list!<cr><esc>
+vnoremap <Leader><Leader>l :se list!<cr><esc>
 
 nnoremap <Leader>fo <esc>:r!pwgen -cn 12<cr>kJj
 nnoremap <Leader>fp <esc>:r!pwgen -cn 20<cr>kJj
