@@ -7,7 +7,7 @@ echo 'deploying sjas dotfiles on a headless linux...'
 echo 'COPY'
 cp ~/.dotfiles/vim/.vimrc            ~
 cp -R ~/.dotfiles/vim/.vim           ~
-cp ~/.dotfiles/emacs/.emacs          ~
+cp ~/.dotfiles/emacs-temp            ~/.emacs
 
 cp ~/.dotfiles/git/.gitconfig        ~
 
@@ -19,8 +19,14 @@ cp ~/.dotfiles/bash/.bashrc          ~
 cp ~/.dotfiles/bash/.bash_profile    ~
 cp ~/.dotfiles/bash/.bash_logout     ~
 
+cp ~/.dotfiles/.tmux.conf            ~
+
 cp ~/.dotfiles/keyboard/.inputrc     ~
 cp ~/.dotfiles/keyboard/.CapsToControl.map.gz ~
+
+mkdir ~/bin
+cp ~/.dotfiles/monitor/full_screen.py ~/bin
+chmod -R 755 ~/bin
 
 # fix colorscheme in vim
 echo 'colo desert' >> .vimrc

@@ -20,7 +20,8 @@ let maplocalleader = ' '
 " do not enable mouse in all modes (a), so copy-pasting will work in visual
 " (v) but not in normal (n), insert (i), command (c)
 "se mouse=a
-se mouse=ic
+se mouse=
+filetype plugin indent on "back to normal
 Bundle 'gmarik/Vundle'
 " fix iterm2 stuff on mac: FocusLost and cursor
 Bundle 'sjl/vitality.vim'
@@ -41,10 +42,15 @@ Bundle 'Shougo/vimshell'
 "Bundle 'Shougo/neocomplcache'
 "Bundle 'Shougo/neocomplcache-snippets-complete'
 " editing
+Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Align'
+Bundle 'DrawIt'
+Bundle 'tpope/vim-pastie'
+Bundle 'vis'
 Bundle 'surround.vim'
+Bundle 'sjas/vim-dragvisuals'
 Bundle 'matchit.zip'
 Bundle 'mattn/emmet-vim'
 Bundle 'scrooloose/nerdtree'
@@ -89,6 +95,15 @@ se t_Co=256
 let g:Powerline_symbols = 'compatible' "'fancy' and 'unicode' settings fuck up
 "let g:Powerline_symbols = 'fancy'
 "let g:Powerline_symbols = 'unicode'
+"
+runtime plugin/dragvisuals.vim
+vmap  <expr>  <LEFT>   DVB_Drag('left')                     
+vmap  <expr>  <RIGHT>  DVB_Drag('right')                    
+vmap  <expr>  <DOWN>   DVB_Drag('down')                     
+vmap  <expr>  <UP>     DVB_Drag('up')                       
+vmap  <expr>  D        DVB_Duplicate()                      
+" Remove any introduced trailing whitespace after moving... 
+let g:DVB_TrimWS = 1   
 
 "
 "   S E A R C H   S E T T I N G S
@@ -248,7 +263,7 @@ Arpeggio nnoremap gl :Git log<cr>
 Arpeggio nnoremap gd :Gsdiff HEAD<cr>
 Arpeggio nnoremap gk :Git show<cr>
 " WRITE READ-ONLY FILE AS ADMIN
-cmap w!! w !sudo tee % >/dev/null
+cmap w!! w !sudo tee % >/dev/null<cr><cr><cr>
 
 "fast align hack in visual mode
 " in visual mode, this will expand to:
@@ -407,14 +422,20 @@ nnoremap <Leader>fs :.!date --rfc-3339=seconds<cr><esc>$xxxxxx
 " for use in blogposts to insert 'date: YY-MM-DD hh:mm:ss'
 nnoremap <Leader><leader>fs Sdate:<esc>o<esc>:.!date --rfc-3339=seconds<cr><esc>kJ$xxxxxx
 " remove unneeded carriage returns
-nnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>e :%s/$<cr>/qwerqwer<cr><esc>
+nnoremap <Leader><Leader>c :%s/$<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>c :%s/$<cr>/qwerqwer<cr><esc>
 " remove all indentations
 nnoremap <Leader><Leader>i :%s/^\s*<cr>/qwerqwer<cr><esc>
 vnoremap <Leader><Leader>i :s/^\s*<cr>/qwerqwer<cr><esc>
 " remove all appended whitespace
-nnoremap <Leader><Leader>s :%s/\s*$<cr>/qwerqwer<cr><esc>
-vnoremap <Leader><Leader>s :%s/\s*$<cr>/qwerqwer<cr><esc>
+nnoremap <Leader><Leader>t :%s/\s*$<cr>/qwerqwer<cr><esc>
+vnoremap <Leader><Leader>t :%s/\s*$<cr>/qwerqwer<cr><esc>
+" toggle PASTE mode
+nnoremap <Leader><Leader>p :se paste!<cr><esc>a
+vnoremap <Leader><Leader>p :se paste!<cr><esc>a
+" toggle PASTE mode
+nnoremap <Leader><Leader>l :se list!<cr><esc>
+vnoremap <Leader><Leader>l :se list!<cr><esc>
 
 nnoremap <Leader>fo <esc>:r!pwgen -cn 12<cr>kJj
 nnoremap <Leader>fp <esc>:r!pwgen -cn 20<cr>kJj
@@ -444,9 +465,9 @@ se noru "ru"
 " CURSORLINE
 se cul "nocul
 " colorcolumn at 80 chars
-"se colorcolumn=81
-highlight ColorColumn ctermbg=magenta ctermfg=green
-call matchadd('ColorColumn', '\%>81v.\+', 100)
+se colorcolumn=81
+"highlight ColorColumn ctermbg=magenta ctermfg=green
+"call matchadd('ColorColumn', '\%>81v.\+', 100)
 " only column number 81
 "call matchadd('ColorColumn', '\%81v.', 100)
 " SHOW MATCHING PARENS

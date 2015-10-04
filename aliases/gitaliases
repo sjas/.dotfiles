@@ -121,10 +121,10 @@ alias gp="git p"
 alias gpp="git pp"
 alias gpup="git pup"
 alias grmrb="git rmrb"
-gitfastpush(){
+#gitfastpush(){
    #git ca "$*";
    #git p
-}
+#}
 alias gfp=gitfastpush
 alias gf="git f"
 alias grem="git rem"
