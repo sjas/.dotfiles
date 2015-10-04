@@ -11,7 +11,7 @@ alias ee='explorer .'
 alias xc='startxwin'
 
 # to have a universal /bin folder in ~
-export PATH=~/bin:$PATH
+export PATH=~/bin:/sbin:/usr/local/bin:/usr/local/sbin:$PATH
 
 alias e='emacs -fs'
 alias v='vim'
