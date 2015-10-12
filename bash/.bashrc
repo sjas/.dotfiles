@@ -39,7 +39,25 @@ export LS3=''
         # 33 = yellow
         # 36 = cyan
 
-        PS1='\[\e[31;1m\][\[\e[37;1m\]\u\[\e[33;1m\]@\[\e[37;1m\]\h \[\e[32;1m\]\w\[\e[31;1m\]]\[\e[36;1m\]\$ \[\e[0m\]'
+# alt: [user@host folder]$
+#        PS1='\[\e[31;1m\][\[\e[37;1m\]\u\[\e[33;1m\]@\[\e[37;1m\]\h \[\e[32;1m\]\w\[\e[31;1m\]]\[\e[36;1m\]\$ \[\e[0m\]'
+
+promptfunction() {
+    local EXIT="$?"
+    local VCS=""
+    PS1=""
+    if git branch &>/dev/null
+    then
+        VCS=" git:$(git show-branch | awk '{print $1}') "
+    else
+        if svn info &>/dev/null
+        then
+            VCS=' svn:[Rev '"$(svn info | \grep -i revision | awk '{print $2}')"'] '
+        fi
+    fi
+    PS1="\[\e[3$(if [ $EXIT = 0 ]; then echo '2'; else echo '1'; fi);1m\]\$?\[\e[0m\] [\!] \# \[\e[31;1m\][\[\e[37;1m\] \u\[\e[33;1m\]@\[\e[37;1m\]$(hostname -f) \[\e[32;1m\]\w\[\e[36;1m\]$VCS\[\e[0m\]\[\e[31;1m\]]\[\e[0m\] \[\e[33;1m\]\t\[\e[0m\] \[\e[36;1m\]\\$ \[\e[0m\]"
+}
+export PROMPT_COMMAND=promptfunction
 
         export PS1="$PS1"
 # # # # # # # # # # # # # # # # # # #
