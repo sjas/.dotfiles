@@ -48,7 +48,7 @@ promptfunction() {
     PS1=""
     if git branch &>/dev/null
     then
-        VCS=" git:$(git show-branch | awk '{print $1}') "
+        VCS=" git:$(git branch | \grep \* | cut -c 3-) "
     else
         if svn info &>/dev/null
         then
