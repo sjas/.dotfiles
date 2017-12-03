@@ -21,7 +21,7 @@ gitshowauthor() {
 }
 alias gsha=gitshowauthor                                ## show all commit diffs for author
 alias gd="git diff"                                     ## diff
-alias gsf="git ls-tree HEAD --full-tree -r -t --full-name --full-tree | awk '$2~/blob/ { print $4 }'"  ## ls-tree, show versioned files
+alias gsf="git ls-tree HEAD --full-tree -r -t --full-name --full-tree | awk '\$2~/blob/ { print \$4 }'"  ## ls-tree, show versioned files
 alias gsc="git diff --diff-filter=U --name-only"        ## show conflicts
 giteditconflicts(){
         ( cd `git rev-parse --show-toplevel`; vim `git diff --diff-filter=U --name-only` )

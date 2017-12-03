@@ -1,4 +1,3 @@
-. /home/sjas/.dotfiles/.bashrc_env
-. /home/sjas/.dotfiles/.bashrc_include
-. /home/sjas/.dotfiles/.bashrc_git
-. /home/sjas/.dotfiles/.bashrc_aliases
+. $DOTFILES/.bashrc_env
+. $DOTFILES/.bashrc_git
+. $DOTFILES/.bashrc_aliases

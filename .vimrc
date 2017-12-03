@@ -19,3 +19,7 @@ ab gosb //usr/bin/env go run $0 $@; exit $?
 \<CR>
 \<CR>}
 
+ab bashsb #!/bin/bash
+\<CR>set -euo pipefail; IFS=$'\n\t'
+\<CR>#set -x
+\<CR>
