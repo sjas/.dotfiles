@@ -59,6 +59,7 @@ alias grema="git remote add"                            ## add remote
 alias gremr="git remote remove"                         ## remove remote
 
 # BRANCHES
+alias gb="git branch"
 alias gco="git checkout"                                ## checkout
 alias gsb="git show-branch -a --list --more=10 --no-name"  ## show-branch, show where commits are present
 alias gsbf="git show-branch -a --list --no-name"        ## show-branch, show where commits are present
