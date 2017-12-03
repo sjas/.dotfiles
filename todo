@@ -1,4 +1,0 @@
-fix vim 7.2 vs 7.3 problems
-update installers to backup existing files 
-create uninstallers, moving backed up files back into place, too
-fix vim compiled with missing flags errors (no python/ruby/lua support)

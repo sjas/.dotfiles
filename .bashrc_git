@@ -1,0 +1,97 @@
+## GIT
+# BASICS
+alias gh="git help"                                     ## gh git_command = open manpage for it
+alias gi="git init"                                     ## initialize local git repo
+alias gcl="git clone --progress --recursive"            ## clone
+alias ga="git add"                                      ## regular add
+alias gaa="git add -u"                                  ## add all changes in files already being tracked
+alias gs="git status -s"                                ## status
+
+# LOG,STATUS,DIFF
+alias gl="git log --oneline --graph --decorate=short -n24"  ## log last 21 commits, should fit in VT
+gitlog() { if [ $# -eq 1 ]; then git log --oneline --graph --decorate=short -n"$1"; else git log --oneline --graph --decorate=short; fi }
+alias gll=gitlog                                        ## parameter: n, log of last n commits; wo/ parameters full log
+alias gsh="git show"                                    ## param: commit-id, show changes
+gitshowfiles() { if [ $# -eq 1 ]; then git show --pretty='' --name-status "$1"; else git show --pretty='' --name-status; fi }
+alias gshf=gitshowfiles                                 ## param: commit id, show changed files of commit; wo/ param changes of last commit
+alias gsl="git shortlog -nse"                           ## shortlog
+gitshowauthor() {
+        git log --author=$1 --oneline | awk {'print $1'} | xargs git show
+}
+alias gsha=gitshowauthor                                ## show all commit diffs for author
+alias gd="git diff"                                     ## diff
+alias gsf="git ls-tree HEAD --full-tree -r -t --full-name --full-tree | awk '$2~/blob/ { print $4 }'"  ## ls-tree, show versioned files
+alias gsc="git diff --diff-filter=U --name-only"        ## show conflicts
+giteditconflicts(){
+        ( cd `git rev-parse --show-toplevel`; vim `git diff --diff-filter=U --name-only` )
+}
+alias gec=giteditconflicts                              ## edit all conflicted files
+
+# COMMIT
+gitcommit(){
+        git commit -m "$*"
+}
+alias gc=gitcommit                                      ## commit
+gitfastcommit(){
+        (cd `git rev-parse --show-toplevel`; git add .; git commit -m fastcommit )
+}
+alias gfc=gitfastcommit                                 ## commit all present changes with message 'fastcommit'
+alias gca="git commit --amend"                          ## amend last commit
+alias gr="git revert HEAD"                              ## revert, undo last commit
+gitrm(){
+        git rm "$*"
+}
+alias grm=gitrm                                         ## param: filename, delete file and remove from versioning
+
+# REPO STUFF
+alias gf="git fetch origin master"                      ## fetch
+alias gp="git pull origin master"                       ## pull
+alias gpp="git push origin master"                      ## push
+alias gpup="git pull origin master; git push origin master"  ## for repositories where only I work on
+gitfastpush(){
+        ( cd `git rev-parse --show-toplevel`; git add -A .; git commit -m fastcommit; git pull origin master; git push origin master )
+}
+alias gfp=gitfastpush                                   ## commit all present changes with message 'fastcommit', pull and push
+
+# REMOTE URL SETTING
+alias grem="git remote -v"                              ## show remotes
+alias grema="git remote add"                            ## add remote
+alias gremr="git remote remove"                         ## remove remote
+
+# BRANCHES
+alias gco="git checkout"                                ## checkout
+alias gsb="git show-branch -a --list --more=10 --no-name"  ## show-branch, show where commits are present
+alias gsbf="git show-branch -a --list --no-name"        ## show-branch, show where commits are present
+
+# STASH
+alias gst="git stash"                                   ## stash
+alias gstl="git stash list"                             ## show stash
+alias gsta="git stash apply"                            ## apply, leave in stash
+alias gstp="git stash pop"                              ## apply, remove from stash
+alias gstd="git stash drop"                             ## drop last stash (or a specific one)
+alias gstb="git stash branch"                           ## param: branchname, create+checkout new branch, apply changes
+alias gstc="git stash clear"                            ## delete all stashes
+
+# TAGS
+alias gt="git tag"                                      ## tagging
+alias gtl="git log --oneline --decorate=short | tac | nl | tac | grep -e '(HEAD' -e '(tag:' | grep --color -e 'HEAD -> [_.0-9A-Za-z-]\+' -e 'tag: [_.0-9A-Za-z-]\+'"  ## show HEAD and all tags plus count (1 = first commit, n = HEAD)
+alias gtlw="watch -n1 -d \"git log --oneline --decorate=short | tac | nl | tac | grep -e '(HEAD' -e '(tag:' \""  ## list tags in watch, helps when changing them
+alias gtd="git tag -d"                                  ## param: tagname, delete tag
+
+# NOTES
+gitnoteslist() {
+        for i in $(git notes list | cut -d' ' -f2); do git log --pretty=oneline --decorate=short | tac | nl | tac | grep \$i; git notes show \$i; done
+}
+alias gnl=gitnoteslist                                  ## list all notes
+alias gna="git notes append"                            ## add notes (defaults to HEAD)
+alias gnd="git notes remove"                            ## delete notes (defaults to HEAD)
+
+## ANALYSIS
+githistorygrep() {
+        git rev-list --all | xargs git grep "$*"
+}
+alias ghg=githistorygrep                                ## grep for changes in all commit contents (not git log)
+githistoryfile() {
+        git log --follow  -p -- "$*"
+}
+alias ghf=githistoryfile                                ## param: file, shows complete commit history for given file
