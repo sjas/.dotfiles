@@ -4,6 +4,7 @@ alias eba="vim /home/sjas/.dotfiles/.bashrc_aliases; 	. /home/sjas/.bashrc; echo
 alias ebe="vim /home/sjas/.dotfiles/.bashrc_env; 	. /home/sjas/.bashrc; echo [+] .bashrc reloaded"
 alias ebg="vim /home/sjas/.dotfiles/.bashrc_git; 	. /home/sjas/.bashrc; echo [+] .bashrc reloaded"
 alias ebm="vim /home/sjas/.dotfiles/.bashrc_main;	. /home/sjas/.bashrc; echo [+] .bashrc reloaded"
+alias ebs="vim /home/sjas/.ssh/config"
 alias reb=". /home/sjas/.bashrc; echo [+] .bashrc reloaded"
 
 alias et="vim /home/sjas/.todo"
@@ -11,8 +12,9 @@ alias etm="vim /home/sjas/.tmux.conf"
 
 alias vi="vim"
 alias ev="vim /home/sjas/.vimrc"
-
-alias vissh="vim /home/sjas/.ssh/config"
+vimscr() {
+	touch $1; chmod +x $1; vim $1
+}
 
 
 #LS
