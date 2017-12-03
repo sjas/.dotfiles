@@ -1,5 +1,4 @@
-#!/bin/bash
-set -euo pipefail; IFS=$'\n\t'
+IFS='\n\t'
 #set -x
 
 
@@ -12,29 +11,10 @@ export DOTFILES=$SS_BASEPATH/.dotfiles  ## only change if dotfile folder is not 
 TERMINATOR_FILE=.config/terminator/config
 
 
-#packages
-#sudo apt update
-sudo apt install -y \
-\
-bash-completion \
-colordiff \
-emacs \
-etckeeper \
-ethtool \
-freerdp-x11 \
-git \
-htop \
-lnav \
-nload \
-openvpn \
-tree \
-vim \
-whois \
-&>/dev/null
+. $DOTFILES/.bashrc_packages
 
 
-# link files
-#persist DOTFILES env var export
+# link files and persist DOTFILES env var export
 grep -qe "^export DOTFILES=$DOTFILES" $DOTFILES/.bashrc_env || echo -e "\nexport DOTFILES=$DOTFILES" >> $DOTFILES/.bashrc_env
 grep -qe "^. $DOTFILES/.bashrc_main" $SS_BASEPATH/.bashrc || echo ". $DOTFILES/.bashrc_main && echo '[+] .bashrc reloaded" >> $SS_BASEPATH/.bashrc
 [ -h $SS_BASEPATH/dl ] || ln -s $SS_BASEPATH/Downloads $SS_BASEPATH/dl
@@ -43,5 +23,7 @@ rm -rf $SS_BASEPATH/.bashrc && ln -s $DOTFILES/.bashrc $SS_BASEPATH/.bashrc
 rm -rf $SS_BASEPATH/.vimrc && ln -s $DOTFILES/.vimrc $SS_BASEPATH/.vimrc
 rm -rf $SS_BASEPATH/$TERMINATOR_FILE && mkdir -p $(dirname $SS_BASEPATH/$TERMINATOR_FILE) && ln -s $DOTFILES/$TERMINATOR_FILE $SS_BASEPATH/$TERMINATOR_FILE
 
-#set +e
-. $SS_BASEPATH/.bashrc
+sudo rm -rf /root/.bashrc && sudo ln -s $DOTFILES/.bashrc /root/.bashrc 
+sudo rm -rf /root/.vimrc && sudo ln -s $DOTFILES/.vimrc /root/.vimrc 
+
+. $HOME/.bashrc
