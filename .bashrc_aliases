@@ -1,4 +1,5 @@
 #EDITING
+alias   cdd="cd $DOTFILES"
 alias    eb="vim $DOTFILES/.bashrc;					. ~/.bashrc; echo [+] .bashrc reloaded"
 alias   eba="vim $DOTFILES/.bashrc_aliases;				. ~/.bashrc; echo [+] .bashrc reloaded"
 alias  ebah="grep ^alias $DOTFILES/.bashrc_aliases | sed 's/alias //'"
@@ -6,16 +7,14 @@ alias   ebe="vim $DOTFILES/.bashrc_env; 	  			. ~/.bashrc; echo [+] .bashrc relo
 alias   ebg="vim $DOTFILES/.bashrc_git; 	  			. ~/.bashrc; echo [+] .bashrc reloaded"
 alias   ebm="vim $DOTFILES/.bashrc_main;	  			. ~/.bashrc; echo [+] .bashrc reloaded"
 alias   ebd="vim $DOTFILES/main.sh"
-alias   ebs="vim /home/sjas/.ssh/config"
 
 alias   reb=". /home/sjas/.bashrc; echo [+] .bashrc reloaded"
 alias   ebd="(cd /home/sjas/.dotfiles; ./main.sh)"
 
 alias    et="vim /home/sjas/.todo"
-alias   etm="vim /home/sjas/.tmux.conf"
 
 alias    vi="vim"
-alias    ev="vim /home/sjas/.vimrc"
+alias    ev="vim $DOTFILES/.vimrc"
 vimscr() {
 	touch $1; chmod +x $1; vim $1
 }
@@ -27,7 +26,7 @@ alias     l="ls $LS_OPT -A"
 alias    ll="ls $LS_OPT"
 alias    la="ls $LS_OPT -Atr"
 alias     d="ls $LS_OPT -AF | grep ^d"
-alias    dl="ls $LS_OPT -F | grep ^d"
+alias    dl="ls $LS_OPT -F  | grep ^d"
 
 
 #CAT
@@ -60,6 +59,9 @@ tmwh() {
 
 
 #ALIASES
+alias vihosts="sudo vim /etc/hosts"
+alias vissh="vim /home/sjas/.ssh/config"
+alias vitmux="vim /home/sjas/.tmux.conf"
 alias ssha='eval $(ssh-agent) && ssh-add'
 alias ee="sudo dolphin ."
 alias ..="cd .."
@@ -93,7 +95,7 @@ rdns() {
 	dig -x $(dig $1 +short) +short
 }
 utrace() {
-	# hooray for assoc array which we have since bash4!
+	# since bash4 associative arrays exist!
 	if [ $SHELL = '/bin/bash' ]
 	then
 		typeset -A temparray
