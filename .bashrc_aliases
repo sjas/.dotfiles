@@ -8,7 +8,7 @@ alias ebd="vim $DOTFILES/main.sh"
 alias ebs="vim /home/sjas/.ssh/config"
 
 alias  reb=". /home/sjas/.bashrc; echo [+] .bashrc reloaded"
-alias rebd="(cd /home/sjas/.dotfiles; ./deploy.sh)"
+alias rebd="(cd /home/sjas/.dotfiles; ./main.sh)"
 
 alias et="vim /home/sjas/.todo"
 alias etm="vim /home/sjas/.tmux.conf"
@@ -33,7 +33,7 @@ alias dl="ls $LS_OPT -F | grep ^d"
 alias catpk="cat /home/sjas/.ssh/id_rsa.pub"
 alias catsh="ps -p $$ |& tail -1 | awk '{ print \$4 }'"
 cateh() {
-	tail -n +1  /home/sjas/.bashrc_* | grep --color -e$ -e '^==.*'
+	tail -n +1 $DOTFILES/.bashrc_* | grep --color -e$ -e '^==.*'
 }
 
 

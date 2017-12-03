@@ -29,7 +29,8 @@ nload \
 openvpn \
 tree \
 vim \
-whois
+whois \
+&>/dev/null
 
 
 # link files
