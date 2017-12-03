@@ -7,6 +7,7 @@ alias   eba="vim $DOTFILES/.bashrc_aliases;				. ~/.bashrc; echo [+] .bashrc rel
 alias  ebah="grep ^alias $DOTFILES/.bashrc_aliases | sed 's/alias //'"
 alias   ebe="vim $DOTFILES/.bashrc_env; 	  			. ~/.bashrc; echo [+] .bashrc reloaded"
 alias   ebg="vim $DOTFILES/.bashrc_git; 	  			. ~/.bashrc; echo [+] .bashrc reloaded"
+alias  ebgh="grep ^alias $DOTFILES/.bashrc_git | sed 's/alias //'"
 alias   ebm="vim $DOTFILES/.bashrc_main;	  			. ~/.bashrc; echo [+] .bashrc reloaded"
 
 alias   reb=". /home/sjas/.bashrc; echo [+] .bashrc reloaded"
@@ -34,7 +35,7 @@ alias    dl="ls $LS_OPT -F  | grep ^d"
 alias catpk="cat /home/sjas/.ssh/id_rsa.pub"
 alias catsh="ps -p $$ |& tail -1 | awk '{ print \$4 }'"
 cateh() {
-	tail -n +1 $DOTFILES/.bashrc_* | grep --color -e$ -e '^==.*'
+	tail -n +1 $(find $DF -iname '.bashrc_*') | grep --color -e\$ -e '^==.*'
 }
 
 
