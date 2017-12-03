@@ -4,7 +4,8 @@ alias gh="git help"                                     ## gh git_command = open
 alias gi="git init"                                     ## initialize local git repo
 alias gcl="git clone --progress --recursive"            ## clone
 alias ga="git add"                                      ## regular add
-alias gaa="git add -u"                                  ## add all changes in files already being tracked
+alias gaa="git add ."                                   ## regular add
+alias gat="git add -u"                                  ## add all changes in files already being tracked
 alias gs="git status -s"                                ## status
 
 # LOG,STATUS,DIFF
