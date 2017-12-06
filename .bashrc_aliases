@@ -13,7 +13,10 @@ alias   ebm="vim $DOTFILES/.bashrc_main;	  			. ~/.bashrc; echo [+] .bashrc relo
 alias   reb=". /home/sjas/.bashrc; echo [+] .bashrc reloaded"
 alias  rebd="(cd $DOTFILES; ./main.sh)"
 
-alias    et="vim $DOTFILES/../.todo"
+alias    et="vim $DOTFILES/../.todo2"
+alias   ett="vim $DOTFILES/../.todo"
+alias   etp="vim $DOTFILES/../.todo_prv"
+alias  etpi="vim $DOTFILES/../.todo_install"
 
 alias    vi="vim"
 alias    ev="vim $DOTFILES/.vimrc"

@@ -1,2 +1,2 @@
-export DOTFILES=/home/sjas/.dotfiles
+export DF=/home/sjas/.dotfiles
 . /home/sjas/.dotfiles/.bashrc_main
