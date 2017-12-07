@@ -13,10 +13,12 @@ alias   ebm="vim $DOTFILES/.bashrc_main;	  			. ~/.bashrc; echo [+] .bashrc relo
 alias   reb=". /home/sjas/.bashrc; echo [+] .bashrc reloaded"
 alias  rebd="(cd $DOTFILES; ./main.sh)"
 
+#NOTES
 alias    et="vim $DOTFILES/../.todo2"
 alias   ett="vim $DOTFILES/../.todo"
 alias   etp="vim $DOTFILES/../.todo_prv"
 alias  etpi="vim $DOTFILES/../.todo_install"
+alias   ets="vim $DOTFILES/../.todo_srv"
 
 alias    vi="vim"
 alias    ev="vim $DOTFILES/.vimrc"
@@ -25,13 +27,16 @@ vimscr() {
 }
 
 
-#LS
+#STUFF
 LS_OPT='-lh --color --time-style=long-iso'
 alias     l="ls $LS_OPT -A"
 alias    ll="ls $LS_OPT"
 alias    la="ls $LS_OPT -Atr"
 alias     d="ls $LS_OPT -AF | grep ^d"
 alias    dl="ls $LS_OPT -F  | grep ^d"
+alias reboot="sudo reboot"
+alias poweroff="sudo poweroff"
+alias logoff="loginctl terminate-user sjas"
 
 
 #CAT

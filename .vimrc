@@ -1,10 +1,9 @@
-
 syn on
 se hls
 se is
 se ic
 se ai
-se nu
+se nonu
 
 "se backupdir=$TEMP
 "se directory=$TEMP
@@ -13,16 +12,19 @@ se nu
 " LEADER bindings
 " spacebar, entered via ctrl_v,<space>
 let mapleader = ' '
-let maplocalleader = ' '
+let maplocalleader = ','
 
+" SPACEMACS bindings
 nnoremap <leader>fs :w<cr>
 nnoremap <leader>ffs :w !sudo tee %<cr><cr>L<cr>
 nnoremap <leader>bd :q<cr>
+nnoremap <leader>bN :vnew<cr>
 nnoremap <leader>fqq :wq!<cr>
 nnoremap <leader>qq :qall!<cr>
 nnoremap <leader>fed :e $MYVIMRC<cr>
 nnoremap <leader>feR :source $MYVIMRC<cr>
 nnoremap <leader>cl :s/^/#/<cr>/asdf<cr>
+nnoremap <leader>tn :se nu!<cr>
 
 "vnoremap < <gv
 "vnoremap > <gv
@@ -61,6 +63,6 @@ ab gosb //usr/bin/env go run $0 $@; exit $?
 \<cr>}
 
 ab bashsb #!/bin/bash
-\<cr>set -euo pipefail; IFS=$'\n\t'
+\<cr>#set -euo pipefail; IFS=$'\n\t'
 \<cr>#set -x
 \<cr>
