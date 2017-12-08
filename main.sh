@@ -20,10 +20,10 @@ grep -qe "^export DF=$DF" $DF/.bashrc_env || echo -e "\nexport DF=$DF" >> $DF/.b
 grep -qe "^. $DF/.bashrc_main" $SSHOME/.bashrc || echo ". $DF/.bashrc_main && echo '[+] .bashrc reloaded" >> $SSHOME/.bashrc
 [ -h $SSHOME/dl ] || ln -s $SSHOME/Downloads $SSHOME/dl
 echo -e "export DF=$DF\n. $DF/.bashrc_main" > $DF/.bashrc
-rm -rf $SSHOME/.bashrc && ln -s $DF/.bashrc $SSHOME/.bashrc
-rm -rf $SSHOME/.vimrc && ln -s $DF/.vimrc $SSHOME/.vimrc
-rm -rf $SSHOME/.spacemacs && ln -s $DF/.spacemacs $SSHOME/.spacemacs
-rm -rf $SSHOME/$TERMINATOR_FILE && mkdir -p $(dirname $SSHOME/$TERMINATOR_FILE) && ln -s $DF/$TERMINATOR_FILE $SSHOME/$TERMINATOR_FILE
+sudo rm -rf $SSHOME/.bashrc && ln -s $DF/.bashrc $SSHOME/.bashrc
+sudo rm -rf $SSHOME/.vimrc && ln -s $DF/.vimrc $SSHOME/.vimrc
+sudo rm -rf $SSHOME/.spacemacs && ln -s $DF/.spacemacs $SSHOME/.spacemacs
+sudo rm -rf $SSHOME/$TERMINATOR_FILE && mkdir -p $(dirname $SSHOME/$TERMINATOR_FILE) && ln -s $DF/$TERMINATOR_FILE $SSHOME/$TERMINATOR_FILE
 
 sudo rm -rf /root/.bashrc && sudo ln -s $DF/.bashrc /root/.bashrc 
 sudo rm -rf /root/.vimrc && sudo ln -s $DF/.vimrc /root/.vimrc 
