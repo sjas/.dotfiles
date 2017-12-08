@@ -25,6 +25,7 @@ nnoremap <leader>fed :e $MYVIMRC<cr>
 nnoremap <leader>feR :source $MYVIMRC<cr>
 nnoremap <leader>cl :s/^/#/<cr>/asdf<cr>
 nnoremap <leader>tn :se nu!<cr>
+nnoremap <leader>sh :sh<cr>
 
 "vnoremap < <gv
 "vnoremap > <gv
