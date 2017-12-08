@@ -30,18 +30,14 @@ nnoremap <leader>tn :se nu!<cr>
 "vnoremap > <gv
 
 
-nnoremap  <leader>ev  :e $DOTFILES/.vimrc<cr>
-nnoremap  <leader>cdd :!cd $DOTFILES<cr>
-nnoremap  <leader>ebd vim $DOTFILES/main.sh"
-nnoremap  <leader>ebp vim $DOTFILES/.bashrc_packages"
-nnoremap   <leader>eb vim $DOTFILES/.bashrc;                                     . ~/.bashrc; echo [+] .bashrc reloaded"
-nnoremap  <leader>eba vim $DOTFILES/.bashrc_aliases;                             . ~/.bashrc; echo [+] .bashrc reloaded"
-"nnoremap <leader>ebah !grep ^alias $DOTFILES/.bashrc_aliases | sed 's/alias //'"
-nnoremap  <leader>ebe vim $DOTFILES/.bashrc_env;                                 . ~/.bashrc; echo [+] .bashrc reloaded"
-nnoremap  <leader>ebg vim $DOTFILES/.bashrc_git;                                 . ~/.bashrc; echo [+] .bashrc reloaded"
-nnoremap  <leader>ebm vim $DOTFILES/.bashrc_main;                                . ~/.bashrc; echo [+] .bashrc reloaded"
-nnoremap  <leader>reb !. /home/sjas/.bashrc; echo [+] .bashrc reloaded"
-nnoremap <leader>rebd !(cd $DOTFILES; ./main.sh)<cr>"
+nnoremap  <leader>ev  :vs $DOTFILES/.vimrc<cr>
+nnoremap  <leader>ebd :vs $DOTFILES/main.sh<cr>
+nnoremap  <leader>ebp :vs $DOTFILES/.bashrc_packages<cr>
+nnoremap   <leader>eb :vs $DOTFILES/.bashrc<cr>
+nnoremap  <leader>eba :vs $DOTFILES/.bashrc_aliases<cr>
+nnoremap  <leader>ebe :vs $DOTFILES/.bashrc_env<cr>
+nnoremap  <leader>ebg :vs $DOTFILES/.bashrc_git<cr>
+nnoremap  <leader>ebm :vs $DOTFILES/.bashrc_main<cr>
 
 
 "alias  rebd="(cd $DOTFILES; ./main.sh)"

@@ -22,7 +22,7 @@ grep -qe "^. $DF/.bashrc_main" $SSHOME/.bashrc || echo ". $DF/.bashrc_main && ec
 echo -e "export DF=$DF\n. $DF/.bashrc_main" > $DF/.bashrc
 rm -rf $SSHOME/.bashrc && ln -s $DF/.bashrc $SSHOME/.bashrc
 rm -rf $SSHOME/.vimrc && ln -s $DF/.vimrc $SSHOME/.vimrc
-rm -rf $SS_BASEPATH/.spacemacs && ln -s $DOTFILES/.spacemacs $SS_BASEPATH/.spacemacs
+rm -rf $SSHOME/.spacemacs && ln -s $DF/.spacemacs $SSHOME/.spacemacs
 rm -rf $SSHOME/$TERMINATOR_FILE && mkdir -p $(dirname $SSHOME/$TERMINATOR_FILE) && ln -s $DF/$TERMINATOR_FILE $SSHOME/$TERMINATOR_FILE
 
 sudo rm -rf /root/.bashrc && sudo ln -s $DF/.bashrc /root/.bashrc 
