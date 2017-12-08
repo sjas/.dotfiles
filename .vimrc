@@ -1,25 +1,51 @@
-"se backupdir=$TEMP
-"se directory=$TEMP
-
-
-
 syn on
 se hls
 se is
 se ic
-se noai
+se ai
+se nonu
+
+"se backupdir=$TEMP
+"se directory=$TEMP
 
 
-
+" LEADER bindings
 " spacebar, entered via ctrl_v,<space>
 let mapleader = ' '
-let maplocalleader = ' '
+let maplocalleader = ','
 
+" SPACEMACS bindings
 nnoremap <leader>fs :w<cr>
+nnoremap <leader>ffs :w !sudo tee %<cr><cr>L<cr>
 nnoremap <leader>bd :q<cr>
+nnoremap <leader>bN :vnew<cr>
+nnoremap <leader>fqq :wq!<cr>
 nnoremap <leader>qq :qall!<cr>
 nnoremap <leader>fed :e $MYVIMRC<cr>
 nnoremap <leader>feR :source $MYVIMRC<cr>
+nnoremap <leader>cl :s/^/#/<cr>/asdf<cr>
+nnoremap <leader>tn :se nu!<cr>
+
+"vnoremap < <gv
+"vnoremap > <gv
+
+
+nnoremap  <leader>ev  :e $DOTFILES/.vimrc<cr>
+nnoremap  <leader>cdd :!cd $DOTFILES<cr>
+nnoremap  <leader>ebd vim $DOTFILES/main.sh"
+nnoremap  <leader>ebp vim $DOTFILES/.bashrc_packages"
+nnoremap   <leader>eb vim $DOTFILES/.bashrc;                                     . ~/.bashrc; echo [+] .bashrc reloaded"
+nnoremap  <leader>eba vim $DOTFILES/.bashrc_aliases;                             . ~/.bashrc; echo [+] .bashrc reloaded"
+"nnoremap <leader>ebah !grep ^alias $DOTFILES/.bashrc_aliases | sed 's/alias //'"
+nnoremap  <leader>ebe vim $DOTFILES/.bashrc_env;                                 . ~/.bashrc; echo [+] .bashrc reloaded"
+nnoremap  <leader>ebg vim $DOTFILES/.bashrc_git;                                 . ~/.bashrc; echo [+] .bashrc reloaded"
+nnoremap  <leader>ebm vim $DOTFILES/.bashrc_main;                                . ~/.bashrc; echo [+] .bashrc reloaded"
+nnoremap  <leader>reb !. /home/sjas/.bashrc; echo [+] .bashrc reloaded"
+nnoremap <leader>rebd !(cd $DOTFILES; ./main.sh)<cr>"
+
+
+"alias  rebd="(cd $DOTFILES; ./main.sh)"
+"alias    et="vim $DOTFILES/../.todo"
 
 
 
@@ -37,7 +63,6 @@ ab gosb //usr/bin/env go run $0 $@; exit $?
 \<cr>}
 
 ab bashsb #!/bin/bash
-\<cr>set -euo pipefail; IFS=$'\n\t'
+\<cr>#set -euo pipefail; IFS=$'\n\t'
 \<cr>#set -x
 \<cr>
-
