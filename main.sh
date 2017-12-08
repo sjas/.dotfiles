@@ -15,6 +15,8 @@ TERMINATOR_FILE=.config/terminator/config
 
 #. ${DF}/.bashrc_packages
 
+[ -d $SSHOME/.emacs.d/private/apprentice-theme ] || ( cd ~/.emacs.d/private ; git clone -v --progress https://github.com/sjas/apprentice-theme )
+
 # link files and persist DF env var export
 grep -qe "^export DF=$DF" $DF/.bashrc_env || echo -e "\nexport DF=$DF" >> $DF/.bashrc_env
 grep -qe "^. $DF/.bashrc_main" $SSHOME/.bashrc || echo ". $DF/.bashrc_main && echo '[+] .bashrc reloaded" >> $SSHOME/.bashrc
