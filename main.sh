@@ -41,6 +41,7 @@ grep -qe "^. $DOTFILES/.bashrc_main" $SS_BASEPATH/.bashrc || echo ". $DOTFILES/.
 echo -e "export DOTFILES=$DOTFILES\n. $DOTFILES/.bashrc_main" > $DOTFILES/.bashrc
 rm -rf $SS_BASEPATH/.bashrc && ln -s $DOTFILES/.bashrc $SS_BASEPATH/.bashrc
 rm -rf $SS_BASEPATH/.vimrc && ln -s $DOTFILES/.vimrc $SS_BASEPATH/.vimrc
+rm -rf $SS_BASEPATH/.spacemacs && ln -s $DOTFILES/.spacemacs $SS_BASEPATH/.spacemacs
 rm -rf $SS_BASEPATH/$TERMINATOR_FILE && mkdir -p $(dirname $SS_BASEPATH/$TERMINATOR_FILE) && ln -s $DOTFILES/$TERMINATOR_FILE $SS_BASEPATH/$TERMINATOR_FILE
 
 #set +e
