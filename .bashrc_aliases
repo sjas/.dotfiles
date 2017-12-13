@@ -44,7 +44,7 @@ alias logoff="loginctl terminate-user sjas"
 alias catpk="cat /home/sjas/.ssh/id_rsa.pub"
 alias catsh="ps -p $$ |& tail -1 | awk '{ print \$4 }'"
 cateh() {
-	tail -n +1 $(find $DF -iname '.bashrc_*') | grep --color -e\$ -e '^==.*'
+	tail -n +1 $(find $DOTFILES -iname '.bashrc_*') | grep --color -e\$ -e '^==.*'
 }
 
 

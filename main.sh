@@ -9,28 +9,28 @@
 
 #env
 SSHOME="/home/sjas"
-export DF="$SSHOME/.dotfiles"
+export DOTFILES="$SSHOME/.dotfiles"
 
 TERMINATOR_FILE=.config/terminator/config
 
-. ${DF}/.bashrc_packages
+. ${DOTFILES}/.bashrc_packages
 
 [ -d $SSHOME/.emacs.d/private/apprentice-theme ] || ( cd ~/.emacs.d/private ; git clone -v --progress https://github.com/sjas/apprentice-theme )
 
 [ -d $SSHOME/.emacs.d ] || ( cd $SSHOME; git clone https://github.com/syl20bnr/spacemacs $SSHOME/.emacs.d )
 
-# link files and persist DF env var export
-grep -qe "^export DF=$DF" $DF/.bashrc_env || echo -e "\nexport DF=$DF" >> $DF/.bashrc_env
-grep -qe "^. $DF/.bashrc_main" $SSHOME/.bashrc || echo ". $DF/.bashrc_main && echo '[+] .bashrc reloaded" >> $SSHOME/.bashrc
+# link files and persist DOTFILES env var export
+grep -qe "^export DOTFILES=$DOTFILES" $DOTFILES/.bashrc_env || echo -e "\nexport DOTFILES=$DOTFILES" >> $DOTFILES/.bashrc_env
+grep -qe "^. $DOTFILES/.bashrc_main" $SSHOME/.bashrc || echo ". $DOTFILES/.bashrc_main && echo '[+] .bashrc reloaded" >> $SSHOME/.bashrc
 [ -h $SSHOME/dl ] || ln -s $SSHOME/Downloads $SSHOME/dl
-echo -e "export DF=$DF\n. $DF/.bashrc_main" > $DF/.bashrc
-sudo rm -rf $SSHOME/.bashrc && ln -s $DF/.bashrc $SSHOME/.bashrc
-sudo rm -rf $SSHOME/.vimrc && ln -s $DF/.vimrc $SSHOME/.vimrc
-sudo rm -rf $SSHOME/.spacemacs && ln -s $DF/.spacemacs $SSHOME/.spacemacs
-sudo rm -rf $SSHOME/$TERMINATOR_FILE && mkdir -p $(dirname $SSHOME/$TERMINATOR_FILE) && ln -s $DF/$TERMINATOR_FILE $SSHOME/$TERMINATOR_FILE
+echo -e "export DOTFILES=$DOTFILES\n. $DOTFILES/.bashrc_main" > $DOTFILES/.bashrc
+sudo rm -rf $SSHOME/.bashrc && ln -s $DOTFILES/.bashrc $SSHOME/.bashrc
+sudo rm -rf $SSHOME/.vimrc && ln -s $DOTFILES/.vimrc $SSHOME/.vimrc
+sudo rm -rf $SSHOME/.spacemacs && ln -s $DOTFILES/.spacemacs $SSHOME/.spacemacs
+sudo rm -rf $SSHOME/$TERMINATOR_FILE && mkdir -p $(dirname $SSHOME/$TERMINATOR_FILE) && ln -s $DOTFILES/$TERMINATOR_FILE $SSHOME/$TERMINATOR_FILE
 
-sudo rm -rf /root/.bashrc && sudo ln -s $DF/.bashrc /root/.bashrc 
-sudo rm -rf /root/.vimrc && sudo ln -s $DF/.vimrc /root/.vimrc 
+sudo rm -rf /root/.bashrc && sudo ln -s $DOTFILES/.bashrc /root/.bashrc 
+sudo rm -rf /root/.vimrc && sudo ln -s $DOTFILES/.vimrc /root/.vimrc 
 
 . $HOME/.bashrc
 

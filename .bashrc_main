@@ -1,3 +1,3 @@
-. $DF/.bashrc_env
-. $DF/.bashrc_git
-. $DF/.bashrc_aliases
+. $DOTFILES/.bashrc_env
+. $DOTFILES/.bashrc_git
+. $DOTFILES/.bashrc_aliases
