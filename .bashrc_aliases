@@ -12,6 +12,7 @@ alias   ebm="vim $DOTFILES/.bashrc_main;	  			. ~/.bashrc; echo [+] .bashrc relo
 
 alias   reb=". /home/sjas/.bashrc; echo [+] .bashrc reloaded"
 alias  rebd="(cd $DOTFILES; ./main.sh)"
+alias rebdu="(cd $DOTFILES; sudo apt update; ./main.sh)"
 
 #NOTES
 alias    et="vim $DOTFILES/../.todo2"
