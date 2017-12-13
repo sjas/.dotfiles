@@ -4,6 +4,7 @@ se is
 se ic
 se ai
 se nonu
+se clipboard=unnamedplus
 
 "se backupdir=$TEMP
 "se directory=$TEMP
