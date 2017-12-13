@@ -1,44 +1,45 @@
 [global_config]
   enabled_plugins = InactivityWatch, ActivityWatch, TerminalShot, Logger
-  title_transmit_fg_color = "#bcbcbc"
-  title_inactive_fg_color = "#bcbcbc"
   suppress_multiple_term_dialog = True
-  title_transmit_bg_color = "#953030"
   tab_position = bottom
   title_inactive_bg_color = "#444444"
+  title_inactive_fg_color = "#bcbcbc"
+  title_transmit_bg_color = "#953030"
+  title_transmit_fg_color = "#bcbcbc"
 [keybindings]
-  go_up = <Primary><Shift>k
+  broadcast_all = <Primary><Shift>F8
   broadcast_group = <Primary><Shift>F10
+  broadcast_off = <Primary><Shift>F9
+  edit_window_title = <Primary><Shift>F11
+  go_down = <Primary><Shift>j
+  go_left = <Primary><Shift>h
+  go_right = <Primary><Shift>l
+  go_up = <Primary><Shift>k
+  group_all = <Primary><Shift>F8
   next_tab = <Primary>Tab
   prev_tab = <Primary><Shift>Tab
-  broadcast_all = <Primary><Shift>F8
-  go_down = <Primary><Shift>j
-  go_right = <Primary><Shift>l
-  broadcast_off = <Primary><Shift>F9
-  go_left = <Primary><Shift>h
-  group_all = <Primary><Shift>F8
-  edit_window_title = <Primary><Shift>F11
-[profiles]
-  [[default]]
-    palette = "#1c1c1c:#af5f5f:#5f875f:#87875f:#5f87af:#5f5f87:#5f8787:#6c6c6c:#444444:#ff8700:#87af87:#ffffaf:#8fafd7:#8787af:#5fafaf:#ffffff"
-    visible_bell = True
-    background_darkness = 0.9
-    urgent_bell = True
-    background_type = transparent
-    background_image = None
-    cursor_color = "#39ff35"
-    foreground_color = "#bcbcbc"
-    scroll_on_output = False
-    font = Monospace 6
-    background_color = "#262626"
-    audible_bell = True
-    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    audible_bell = True
+    background_color = "#262626"
+    background_darkness = 0.9
+    background_image = None
+    background_type = transparent
+    cursor_color = "#39ff35"
+    cursor_shape = underline
+    font = Monospace 6
+    foreground_color = "#bcbcbc"
+    palette = "#1c1c1c:#af5f5f:#5f875f:#87875f:#5f87af:#5f5f87:#5f8787:#6c6c6c:#444444:#ff8700:#87af87:#ffffaf:#8fafd7:#8787af:#5fafaf:#ffffff"
+    scroll_on_output = False
+    scrollback_infinite = True
+    urgent_bell = True
+    visible_bell = True

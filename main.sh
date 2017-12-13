@@ -13,9 +13,11 @@ export DF="$SSHOME/.dotfiles"
 
 TERMINATOR_FILE=.config/terminator/config
 
-#. ${DF}/.bashrc_packages
+. ${DF}/.bashrc_packages
 
 [ -d $SSHOME/.emacs.d/private/apprentice-theme ] || ( cd ~/.emacs.d/private ; git clone -v --progress https://github.com/sjas/apprentice-theme )
+
+[ -d $SSHOME/.emacs.d ] || ( cd $SSHOME; git clone https://github.com/syl20bnr/spacemacs $SSHOME/.emacs.d )
 
 # link files and persist DF env var export
 grep -qe "^export DF=$DF" $DF/.bashrc_env || echo -e "\nexport DF=$DF" >> $DF/.bashrc_env

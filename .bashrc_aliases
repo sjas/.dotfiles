@@ -16,6 +16,7 @@ alias  rebd="(cd $DOTFILES; ./main.sh)"
 #NOTES
 alias    et="vim $DOTFILES/../.todo2"
 alias   ett="vim $DOTFILES/../.todo"
+alias   eta="vim $DOTFILES/../.todo_agenda"
 alias   etp="vim $DOTFILES/../.todo_prv"
 alias  etpi="vim $DOTFILES/../.todo_install"
 alias   ets="vim $DOTFILES/../.todo_srv"
@@ -70,6 +71,7 @@ tmwh() {
 
 #ALIASES
 alias vihosts="sudo vim /etc/hosts"
+alias cathosts="cat /etc/hosts"
 alias vissh="vim /home/sjas/.ssh/config"
 alias vitmux="vim /home/sjas/.tmux.conf"
 alias ssha='eval $(ssh-agent) && ssh-add'
