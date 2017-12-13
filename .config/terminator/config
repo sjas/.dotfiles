@@ -35,6 +35,7 @@
     background_darkness = 0.9
     background_image = None
     background_type = transparent
+    copy_on_selection = True
     cursor_color = "#39ff35"
     cursor_shape = underline
     font = Monospace 6
@@ -43,4 +44,3 @@
     scroll_on_output = False
     scrollback_infinite = True
     urgent_bell = True
-    visible_bell = True
