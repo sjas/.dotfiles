@@ -16,6 +16,7 @@ export PS1='$( i=$?; if [ $i -eq 0 ]; then echo \\\[\e[32\;1m\\\]$i; else echo \
 HISTSIZE="10000"
 
 shopt -s checkwinsize
+shopt -s dotglob
 
 export LESSGLOBALTAGS=global
 
