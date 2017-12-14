@@ -31,6 +31,7 @@ openvpn \
 pidgin \
 pidgin-plugin-pack \
 pv \
+python-potr \
 screen \
 thunderbird \
 tmux \
@@ -38,7 +39,6 @@ traceroute  \
 tree \
 vim \
 vim-gtk \ 
-weechat \
 weechat \
 weechat-plugins \
 weechat-scripts \
