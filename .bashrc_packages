@@ -1,16 +1,47 @@
 sudo apt install -y \
-aspell-de \
+etckeeper
+
+
+sudo apt install -y \
 bash-completion \
 bashdb \
 colordiff \
 conntrack \
 emacs \
-etckeeper \
 ethtool \
 fail2ban \
 freerdp-x11 \
 git \
 htop \
+lnav \
+manpages-de \
+manpages-dev \
+nftables \
+nicstat \
+nload \
+openvpn \
+pv \
+screen \
+thunderbird \
+tmux \
+traceroute  \
+tree \
+vim \
+vim-gtk \
+whois
+
+
+sudo apt install -y \
+pidgin \
+pidgin-plugin-pack \
+python-potr \
+weechat \
+weechat-plugins \
+weechat-scripts
+
+
+sudo apt install -y \
+aspell-de \
 hunspell-de-de \
 hyphen-de \
 ingerman \
@@ -21,27 +52,4 @@ language-pack-gnome-de-base \
 language-pack-kde-de \
 libreoffice-help-de \
 libreoffice-l10n-de \
-lnav \
-manpages-de \
-manpages-dev \
-nftables \
-mythes-de \
-nicstat \
-nload \
-openvpn \
-pidgin \
-pidgin-plugin-pack \
-pv \
-python-pip \
-python-potr \
-screen \
-thunderbird \
-tmux \
-traceroute  \
-tree \
-vim \
-vim-gtk \ 
-weechat \
-weechat-plugins \
-weechat-scripts \
-whois
+mythes-de

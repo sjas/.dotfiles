@@ -16,7 +16,6 @@ TERMINATOR_FILE=.config/terminator/config
 . ${DOTFILES}/.bashrc_packages
 
 [ -d $SSHOME/.emacs.d/private/apprentice-theme ] || ( cd ~/.emacs.d/private ; git clone -v --progress https://github.com/sjas/apprentice-theme )
-
 [ -d $SSHOME/.emacs.d ] || ( cd $SSHOME; git clone https://github.com/syl20bnr/spacemacs $SSHOME/.emacs.d )
 
 # link files and persist DOTFILES env var export

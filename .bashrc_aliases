@@ -81,6 +81,9 @@ alias ..="cd .."
 alias mkcd="pushd $(mktemp -d)"
 alias o="popd"
 alias p="pushd"
+#tw () { 
+#    $DOTFILES/bin/tweep.py -u sjashc -s "$1" | grep -i -e "^\d+" -e "$1"
+#}
 getdiff() {
 	sdiff -ds <(sudo cat $1) <(sudo cat $2) | colordiff
 }
