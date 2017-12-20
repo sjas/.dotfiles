@@ -7,6 +7,7 @@ conntrack \
 emacs \
 etckeeper \
 ethtool \
+fail2ban \
 freerdp-x11 \
 git \
 htop \
@@ -31,6 +32,7 @@ openvpn \
 pidgin \
 pidgin-plugin-pack \
 pv \
+python-pip \
 python-potr \
 screen \
 thunderbird \
