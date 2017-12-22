@@ -38,10 +38,12 @@ alias     d="ls $LS_OPT -AF | grep ^d"
 alias    dl="ls $LS_OPT -F  | grep ^d"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
-alias logoff="loginctl terminate-user sjas"
+#alias logoff="loginctl terminate-user sjas"  ## deprecated
+alias logoff="qdbus org.kde.ksmserver /KSMServer logout 0 3 3"
 
 
 #CAT
+#alias catpk="cat /home/sjas/.ssh/id_rsa.pub"
 alias catpk="cat /home/sjas/.ssh/id_rsa.pub"
 alias catsh="ps -p $$ |& tail -1 | awk '{ print \$4 }'"
 cateh() {
